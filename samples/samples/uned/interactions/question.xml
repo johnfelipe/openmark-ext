@@ -1,0 +1,463 @@
+<question class="samples.uned.interactions.GenericQuestion" plainmode="no">
+
+	<scoring><marks>3</marks></scoring>
+
+	<layout>
+		<row height="340"/>
+		<column width="326"/>
+		<column width="266"/>  
+	</layout>
+	
+	<!-- Answer components: 
+	     We use 4 variables as answer components corresponding with the number of mollecules of every
+	     compound.
+	     Initial value of all these variables is 1, but user can increment/decrement them 
+	     by clicking corresponding + / - buttons. 
+	-->
+	<variable id="n1" set="@1" right="1" answerenabled="yes"/>
+	<variable id="n2" set="@1" right="5" answerenabled="yes"/>
+	<variable id="n3" set="@1" right="3" answerenabled="yes"/>
+	<variable id="n4" set="@1" right="4" answerenabled="yes"/>
+	
+	<!-- Helper variables -->
+	
+	<!-- cLeft=n1*3 -->
+	<variable id="cLeft" set="n1[nmi&quot;3&quot;]"/>
+	
+	<!-- hLeft=n1*8 -->
+	<variable id="hLeft" set="n1[nmi&quot;8&quot;]"/>
+	
+	<!-- oLeft=n2*2 -->
+	<variable id="oLeft" set="n2[nmi&quot;2&quot;]"/>
+	
+	<!-- cRight=n3 -->
+	<variable id="cRight" set="n3"/>
+	
+	<!-- hRight=n4*2 -->
+	<variable id="hRight" set="n4[nmi&quot;2&quot;]"/>
+	
+	<!-- oRight=(n3*2)+n4 -->
+	<variable id="oRight" set="n3[nmi&quot;2&quot;nain4@]"/>
+	
+	<!-- cBalance=cLeft==cRight?"balanced":cLeft<cRight?"right":"left" -->
+	<variable id="cBalance" 
+		set="cLeft[neicRight@,&quot;balanced&quot;nlicRight@,&quot;right&quot;,&quot;left&quot;]"/>
+	
+	<!-- hBalance=hLeft==hRight?"balanced":hLeft<hRight?"right":"left" -->
+	<variable id="hBalance" 
+		set="hLeft[neihRight@,&quot;balanced&quot;nlihRight@,&quot;right&quot;,&quot;left&quot;]"/>
+	
+	<!-- oBalance=oLeft==oRight?"balanced":oLeft<oRight?"right":"left" -->
+	<variable id="oBalance" 
+		set="oLeft[neioRight@,&quot;balanced&quot;nlioRight@,&quot;right&quot;,&quot;left&quot;]"/>
+	
+	<!-- cBalanceBalanced=cBalance.equals("balanced")?"yes":"no" -->
+	<variable id="cBalanceBalanced" set="cBalance[e&quot;balanced&quot;,&quot;yes&quot;,&quot;no&quot;]"/>
+	
+	<!-- cBalanceRight=cBalance.equals("right")?"yes":"no" -->
+	<variable id="cBalanceRight" set="cBalance[e&quot;right&quot;,&quot;yes&quot;,&quot;no&quot;]"/>
+	
+	<!-- cBalanceLeft=cBalance.equals("left")?"yes":"no" -->
+	<variable id="cBalanceLeft" set="cBalance[e&quot;left&quot;,&quot;yes&quot;,&quot;no&quot;]"/>
+	
+	<!-- hBalanceBalanced=hBalance.equals("balanced")?"yes":"no" -->
+	<variable id="hBalanceBalanced" set="hBalance[e&quot;balanced&quot;,&quot;yes&quot;,&quot;no&quot;]"/>
+	
+	<!-- hBalanceRight=hBalance.equals("right")?"yes":"no" -->
+	<variable id="hBalanceRight" set="hBalance[e&quot;right&quot;,&quot;yes&quot;,&quot;no&quot;]"/>
+	
+	<!-- hBalanceLeft=hBalance.equals("left")?"yes":"no" -->
+	<variable id="hBalanceLeft" set="hBalance[e&quot;left&quot;,&quot;yes&quot;,&quot;no&quot;]"/>
+	
+	<!-- oBalanceBalanced=oBalance.equals("balanced")?"yes":"no" -->
+	<variable id="oBalanceBalanced" set="oBalance[e&quot;balanced&quot;,&quot;yes&quot;,&quot;no&quot;]"/>
+	
+	<!-- oBalanceRight=oBalance.equals("right")?"yes":"no" -->
+	<variable id="oBalanceRight" set="oBalance[e&quot;right&quot;,&quot;yes&quot;,&quot;no&quot;]"/>
+	
+	<!-- oBalanceLeft=oBalance.equals("left")?"yes":"no" -->
+	<variable id="oBalanceLeft" set="oBalance[e&quot;left&quot;,&quot;yes&quot;,&quot;no&quot;]"/>
+	
+	<!-- txtN1=n1==1?"":Integer.toString(n1) -->
+	<variable id="txtN1" set="n1[nei&quot;1&quot;,&quot;&quot;]"/>
+	
+	<!-- txtN2=n2==1?"":Integer.toString(n2) -->
+	<variable id="txtN2" set="n2[nei&quot;1&quot;,&quot;&quot;]"/>
+	
+	<!-- txtN3=n3==1?"":Integer.toString(n3) -->
+	<variable id="txtN3" set="n3[nei&quot;1&quot;,&quot;&quot;]"/>
+	
+	<!-- txtN4=n4==1?"":Integer.toString(n4) -->
+	<variable id="txtN4" set="n4[nei&quot;1&quot;,&quot;&quot;]"/>
+	
+	<!-- incrementN1=n1++ -->
+	<variable id="incrementN1" set="n1[nai&quot;1&quot;]"/>
+	
+	<!-- incrementN2=n2++ -->
+	<variable id="incrementN2" set="n2[nai&quot;1&quot;]"/>
+	
+	<!-- incrementN3=n3++ -->
+	<variable id="incrementN3" set="n3[nai&quot;1&quot;]"/>
+	
+	<!-- incrementN4=n4++ -->
+	<variable id="incrementN4" set="n4[nai&quot;1&quot;]"/>
+	
+	<!-- decrementN1=n1-=1 -->
+	<variable id="decrementN1" set="n1[nsi&quot;1&quot;]"/>
+	
+	<!-- decrementN2=n2-=1 -->
+	<variable id="decrementN2" set="n2[nsi&quot;1&quot;]"/>
+	
+	<!-- decrementN3=n3-=1 -->
+	<variable id="decrementN3" set="n3[nsi&quot;1&quot;]"/>
+	
+	<!-- decrementN4=n4-=1 -->
+	<variable id="decrementN4" set="n4[nsi&quot;1&quot;]"/>
+	
+	<!-- enableUp1=n1<50?"yes":"no" -->
+	<variable id="enableUp1" set="n1[nli&quot;50&quot;,&quot;yes&quot;,&quot;no&quot;]"/>
+	
+	<!-- enableUp2=n2<50?"yes":"no" -->
+	<variable id="enableUp2" set="n2[nli&quot;50&quot;,&quot;yes&quot;,&quot;no&quot;]"/>
+	
+	<!-- enableUp3=n3<50?"yes":"no" -->
+	<variable id="enableUp3" set="n3[nli&quot;50&quot;,&quot;yes&quot;,&quot;no&quot;]"/>
+	
+	<!-- enableUp4=n4<50?"yes":"no" -->
+	<variable id="enableUp4" set="n4[nli&quot;50&quot;,&quot;yes&quot;,&quot;no&quot;]"/>
+	
+	<!-- enableDown1=n1>1?"yes":"no" -->
+	<variable id="enableDown1" set="n1[ngi&quot;1&quot;,&quot;yes&quot;,&quot;no&quot;]"/>
+	
+	<!-- enableDown2=n2>1?"yes":"no" -->
+	<variable id="enableDown2" set="n2[ngi&quot;1&quot;,&quot;yes&quot;,&quot;no&quot;]"/>
+	
+	<!-- enableDown3=n3>1?"yes":"no" -->
+	<variable id="enableDown3" set="n3[ngi&quot;1&quot;,&quot;yes&quot;,&quot;no&quot;]"/>
+	
+	<!-- enableDown4=n4>1?"yes":"no" -->
+	<variable id="enableDown4" set="n4[ngi&quot;1&quot;,&quot;yes&quot;,&quot;no&quot;]"/>
+	
+	<!-- Setting placeholders: -->
+	
+	<!-- __N1__ : txtN1 -->
+	<replaceholder id="pN1" placeholder="N1" set="txtN1@"/>
+	
+	<!-- __N2__ : txtN2 -->
+	<replaceholder id="pN2" placeholder="N2" set="txtN2@"/>
+	
+	<!-- __N3__ : txtN3 -->
+	<replaceholder id="pN3" placeholder="N3" set="txtN3@"/>
+	
+	<!-- __N4__ : txtN4 -->
+	<replaceholder id="pN4" placeholder="N4" set="txtN4@"/>
+	
+	<!-- __T1__ : cLeft -->
+	<replaceholder id="pT1" placeholder="T1" set="cLeft@"/>
+	
+	<!-- __T2__ : hLeft -->
+	<replaceholder id="pT2" placeholder="T2" set="hLeft@"/>
+	
+	<!-- __T3__ : oLeft -->
+	<replaceholder id="pT3" placeholder="T3" set="oLeft@"/>
+	
+	<!-- __T4__ : cRight -->
+	<replaceholder id="pT4" placeholder="T4" set="cRight@"/>
+	
+	<!-- __T5__ : hRight -->
+	<replaceholder id="pT5" placeholder="T5" set="hRight@"/>
+	
+	<!-- __T6__ : oRight -->
+	<replaceholder id="pT6" placeholder="T6" set="oRight@"/>
+	
+	<!-- Defines the left-hand question box -->
+	<box gridx="0" gridy="0" id="inputbox" background="input" 
+		questionline="Use the + and - buttons to balance this chemical equation.">
+
+		Click on the + and - buttons to alter the coefficients in this chemical reaction.
+		When you think the equation is balanced, click on the check button.
+		<gap/>
+		
+		<layoutgrid cols="3">
+			<table id="lhs" rows="4" cols="2" head="1">
+			<row><t><centre>atom</centre></t><t><centre>  n  </centre></t></row>
+			<row><t><centre>C</centre></t><t><centre>__T1__</centre></t></row>
+			<row><t><centre>H</centre></t><t><centre>__T2__</centre></t></row>
+			<row><t><centre>O</centre></t><t><centre>__T3__</centre></t></row>
+		</table>
+		
+		<canvas id="seesaws" width="70" height="110" alt="">
+			<world id="w" px="0" py="0" pw="70" ph="110" 
+				xleft="0.0" xright="70.0" ybottom="110.0" ytop="0.0">
+				
+				<polygon x1="0:35" y1="0:28" x2="0:29" y2="0:36" x3="0:41" y3="0:36" fillColour="black"/>
+				<polygon x1="0:35" y1="0:49" x2="0:29" y2="0:57" x3="0:41" y3="0:57" fillColour="black"/>
+				<polygon x1="0:35" y1="0:70" x2="0:29" y2="0:78" x3="0:41" y3="0:78" fillColour="black"/>
+				
+				<line id="balanceBalancedC" x="0" y="28" x2="70" y2="28" lineColour="black" display="no"/>
+				<line id="balanceRightC" x="0" y="20" x2="70" y2="35" lineColour="black" display="no"/>
+				<line id="balanceLeftC" x="0" y="35" x2="70" y2="20" lineColour="black"/>
+				<line id="balanceBalancedH" x="0" y="49" x2="70" y2="49" lineColour="black" display="no"/>
+				<line id="balanceRightH" x="0" y="41" x2="70" y2="56" lineColour="black" display="no"/>
+				<line id="balanceLeftH" x="0" y="56" x2="70" y2="41" lineColour="black"/>
+				<line id="balanceBalancedO" x="0" y="70" x2="70" y2="70" lineColour="black" display="no"/>
+				<line id="balanceRightO" x="0" y="62" x2="70" y2="77" lineColour="black"/>
+				<line id="balanceLeftO" x="0" y="77" x2="70" y2="62" lineColour="black" display="no"/>
+			</world>
+		</canvas>
+		
+		<table id="rhs" rows="4" cols="2" head="1">
+			<row><t><centre>atom</centre></t><t>  n  </t></row>
+			<row><t><centre>C</centre></t><t><centre>__T4__</centre></t></row>
+			<row><t><centre>H</centre></t><t><centre>__T5__</centre></t></row>
+			<row><t><centre>O</centre></t><t><centre>__T6__</centre></t></row>
+		</table>
+		</layoutgrid>
+		
+		<gap/>
+
+		<button id="up1" action="actionCustom" custom="up1" label="+"/>        
+		<button id="up2" action="actionCustom" custom="up2" label="+"/>         
+		<button id="up3" action="actionCustom" custom="up3" label="+"/>        
+		<button id="up4" action="actionCustom" custom="up4" label="+"/> 
+		<break/>
+		    <eq>__N1__\mbox{C_3H_8}</eq>  +  <eq>__N2__\mbox{O_2}</eq>
+			<image id="arrow" filePath="arrow.png" alt="reacts to give"></image>
+			<eq>__N3__\mbox{CO_2}</eq>  +     <eq>__N4__\mbox{H_2O}</eq>
+		<break/>
+		<button id="down1" action="actionCustom" custom="down1" label="-" enabled="no"/>         
+		<button id="down2" action="actionCustom" custom="down2" label="-" enabled="no"/>         
+		<button id="down3" action="actionCustom" custom="down3" label="-" enabled="no"/>         
+		<button id="down4" action="actionCustom" custom="down4" label="-" enabled="no"/>
+
+		<gap/>
+		<button action="actionSubmit" label="%%lENTERANSWER%%"/>
+		<gap/>
+  
+	</box>
+
+ 	<!-- Defines the right-hand answer box, which is initially hidden  -->
+ 	<box gridx="1" gridy="0" id="answerbox" display="no" background="answer">
+   
+		<t id="wrong">Your answer is <t id="still">still</t> incorrect.</t>
+		<t id="right">Your answer is correct.</t>
+		<t id="pass">You passed on this question.</t>	
+		<gap/>
+		
+		<t id="feedback">
+			<t id="scaled" answer="scaledEq">
+				The equation is balanced, but you need to scale the coefficients down 
+				to their lowest whole number ratios.
+			</t>
+			<t id="general" attemptsmin="2" attemptsmax="2">
+				Approach this by first of all balancing the carbon atoms and then the hydrogen atoms.
+	        	Leave the oxygen atoms until last because you can add oxygen on the left hand side
+	        	without affecting the numbers of carbon and hydrogen atoms that are present.
+	        </t>
+		</t>	 
+		
+		<t id="answer">
+			This is the combustion of propane with oxygen to form carbon dioxide and water:
+			<gap/>
+			<indent>
+				<eq>\mbox{C_3H_8}</eq> + <eq>5\mbox{O_2}</eq>  →  <eq>3\mbox{CO_2}</eq> + <eq>4\mbox{H_2O}</eq>
+			</indent>
+		</t>
+		
+		<gap/>
+		
+		<button id="ok" action="actionOK" label="%%lTRYAGAIN%%"/>
+		<button id="next" action="actionOK" label="%%lNEXTQUESTION%%" display="no"/>
+   
+ 	</box>
+	
+	<!-- Summary -->
+	
+	<summaryline>Attempt <summaryattribute attribute="attempt"/>: 
+	<summaryattribute attribute="answerline"/></summaryline>
+	
+	<!-- Tasks for clicking button "up1" -->
+	<task task="setvariable" when="custom[up1]" parameters="n1,incrementN1"/>
+	
+	<task task="resetvar" when="custom[up1]" 
+		parameters="cLeft,hLeft,cBalance,hBalance,cBalanceBalanced,cBalanceRight,cBalanceLeft,hBalanceBalanced,hBalanceRight,hBalanceLeft,txtN1,pN1,pT1,pT2,incrementN1,enableUp1"/>
+	
+	<task task="setenabled" when="custom[up1]" parameters="enableUp1,up1"/>
+	
+	<task task="enable" when="custom[up1]" parameters="down1"/>
+	
+	<task task="displayhidegraph" when="custom[up1]" 
+		parameters="cBalanceBalanced,seesaws,w,balanceBalancedC"/>
+	
+	<task task="displayhidegraph" when="custom[up1]" parameters="cBalanceRight,seesaws,w,balanceRightC"/>
+	
+	<task task="displayhidegraph" when="custom[up1]" parameters="cBalanceLeft,seesaws,w,balanceLeftC"/>
+	
+	<task task="displayhidegraph" when="custom[up1]" 
+		parameters="hBalanceBalanced,seesaws,w,balanceBalancedH"/>
+	
+	<task task="displayhidegraph" when="custom[up1]" parameters="hBalanceRight,seesaws,w,balanceRightH"/>
+	
+	<task task="displayhidegraph" when="custom[up1]" parameters="hBalanceLeft,seesaws,w,balanceLeftH"/>
+	
+	<!-- Tasks for clicking button "up2" -->
+	<task task="setvariable" when="custom[up2]" parameters="n2,incrementN2"/>
+	
+	<task task="resetvar" when="custom[up2]" 
+		parameters="oLeft,oBalance,oBalanceBalanced,oBalanceRight,oBalanceLeft,txtN2,pN2,pT3,incrementN2,enableUp2"/>
+	
+	<task task="setenabled" when="custom[up2]" parameters="enableUp2,up2"/>
+	
+	<task task="enable" when="custom[up2]" parameters="down2"/>
+	
+	<task task="displayhidegraph" when="custom[up2]" 
+		parameters="oBalanceBalanced,seesaws,w,balanceBalancedO"/>
+	
+	<task task="displayhidegraph" when="custom[up2]" parameters="oBalanceRight,seesaws,w,balanceRightO"/>
+	
+	<task task="displayhidegraph" when="custom[up2]" parameters="oBalanceLeft,seesaws,w,balanceLeftO"/>
+	
+	<!-- Tasks for clicking button "up3" -->
+	<task task="setvariable" when="custom[up3]" parameters="n3,incrementN3"/>
+	
+	<task task="resetvar" when="custom[up3]" 
+		parameters="cRight,oRight,cBalance,oBalance,cBalanceBalanced,cBalanceRight,cBalanceLeft,oBalanceBalanced,oBalanceRight,oBalanceLeft,txtN3,pN3,pT4,pT6,incrementN3,enableUp3"/>
+	
+	<task task="setenabled" when="custom[up3]" parameters="enableUp3,up3"/>
+	
+	<task task="enable" when="custom[up3]" parameters="down3"/>
+	
+	<task task="displayhidegraph" when="custom[up3]" 
+		parameters="cBalanceBalanced,seesaws,w,balanceBalancedC"/>
+	
+	<task task="displayhidegraph" when="custom[up3]" parameters="cBalanceRight,seesaws,w,balanceRightC"/>
+	
+	<task task="displayhidegraph" when="custom[up3]" parameters="cBalanceLeft,seesaws,w,balanceLeftC"/>
+	
+	<task task="displayhidegraph" when="custom[up3]" 
+		parameters="oBalanceBalanced,seesaws,w,balanceBalancedO"/>
+	
+	<task task="displayhidegraph" when="custom[up3]" parameters="oBalanceRight,seesaws,w,balanceRightO"/>
+	
+	<task task="displayhidegraph" when="custom[up3]" parameters="oBalanceLeft,seesaws,w,balanceLeftO"/>
+	
+	<!-- Tasks for clicking button "up4" -->
+	<task task="setvariable" when="custom[up4]" parameters="n4,incrementN4"/>
+	
+	<task task="resetvar" when="custom[up4]" 
+		parameters="hRight,oRight,hBalance,oBalance,hBalanceBalanced,hBalanceRight,hBalanceLeft,oBalanceBalanced,oBalanceRight,oBalanceLeft,txtN4,pN4,pT5,pT6,incrementN4,enableUp4"/>
+	
+	<task task="setenabled" when="custom[up4]" parameters="enableUp4,up4"/>
+	
+	<task task="enable" when="custom[up4]" parameters="down4"/>
+	
+	<task task="displayhidegraph" when="custom[up4]" 
+		parameters="hBalanceBalanced,seesaws,w,balanceBalancedH"/>
+	
+	<task task="displayhidegraph" when="custom[up4]" parameters="hBalanceRight,seesaws,w,balanceRightH"/>
+	
+	<task task="displayhidegraph" when="custom[up4]" parameters="hBalanceLeft,seesaws,w,balanceLeftH"/>
+	
+	<task task="displayhidegraph" when="custom[up4]" 
+		parameters="oBalanceBalanced,seesaws,w,balanceBalancedO"/>
+	
+	<task task="displayhidegraph" when="custom[up4]" parameters="oBalanceRight,seesaws,w,balanceRightO"/>
+	
+	<task task="displayhidegraph" when="custom[up4]" parameters="oBalanceLeft,seesaws,w,balanceLeftO"/>
+	
+	<!-- Tasks for clicking button "down1" -->
+	<task task="setvariable" when="custom[down1]" parameters="n1,decrementN1"/>
+	
+	<task task="resetvar" when="custom[down1]" 
+		parameters="cLeft,hLeft,cBalance,hBalance,cBalanceBalanced,cBalanceRight,cBalanceLeft,hBalanceBalanced,hBalanceRight,hBalanceLeft,txtN1,pN1,pT1,pT2,decrementN1,enableDown1"/>
+	
+	<task task="setenabled" when="custom[down1]" parameters="enableDown1,down1"/>
+	
+	<task task="enable" when="custom[down1]" parameters="up1"/>
+	
+	<task task="displayhidegraph" when="custom[down1]" 
+		parameters="cBalanceBalanced,seesaws,w,balanceBalancedC"/>
+	
+	<task task="displayhidegraph" when="custom[down1]" parameters="cBalanceRight,seesaws,w,balanceRightC"/>
+	
+	<task task="displayhidegraph" when="custom[down1]" parameters="cBalanceLeft,seesaws,w,balanceLeftC"/>
+	
+	<task task="displayhidegraph" when="custom[down1]" 
+		parameters="hBalanceBalanced,seesaws,w,balanceBalancedH"/>
+	
+	<task task="displayhidegraph" when="custom[down1]" parameters="hBalanceRight,seesaws,w,balanceRightH"/>
+	
+	<task task="displayhidegraph" when="custom[down1]" parameters="hBalanceLeft,seesaws,w,balanceLeftH"/>
+	
+	<!-- Tasks for clicking button "down2" -->
+	<task task="setvariable" when="custom[down2]" parameters="n2,decrementN2"/>
+	
+	<task task="resetvar" when="custom[down2]" 
+		parameters="oLeft,oBalance,oBalanceBalanced,oBalanceRight,oBalanceLeft,txtN2,pN2,pT3,decrementN2,enableDown2"/>
+	
+	<task task="setenabled" when="custom[down2]" parameters="enableDown2,down2"/>
+	
+	<task task="enable" when="custom[down2]" parameters="up2"/>
+	
+	<task task="displayhidegraph" when="custom[down2]" 
+		parameters="oBalanceBalanced,seesaws,w,balanceBalancedO"/>
+	
+	<task task="displayhidegraph" when="custom[down2]" parameters="oBalanceRight,seesaws,w,balanceRightO"/>
+	
+	<task task="displayhidegraph" when="custom[down2]" parameters="oBalanceLeft,seesaws,w,balanceLeftO"/>
+	
+	<!-- Tasks for clicking button "down3" -->
+	<task task="setvariable" when="custom[down3]" parameters="n3,decrementN3"/>
+	
+	<task task="resetvar" when="custom[down3]" 
+		parameters="cRight,oRight,cBalance,oBalance,cBalanceBalanced,cBalanceRight,cBalanceLeft,oBalanceBalanced,oBalanceRight,oBalanceLeft,txtN3,pN3,pT4,pT6,decrementN3,enableDown3"/>
+	
+	<task task="setenabled" when="custom[down3]" parameters="enableDown3,down3"/>
+	
+	<task task="enable" when="custom[down3]" parameters="up3"/>
+	
+	<task task="displayhidegraph" when="custom[down3]" 
+		parameters="cBalanceBalanced,seesaws,w,balanceBalancedC"/>
+	
+	<task task="displayhidegraph" when="custom[down3]" parameters="cBalanceRight,seesaws,w,balanceRightC"/>
+	
+	<task task="displayhidegraph" when="custom[down3]" parameters="cBalanceLeft,seesaws,w,balanceLeftC"/>
+	
+	<task task="displayhidegraph" when="custom[down3]" 
+		parameters="oBalanceBalanced,seesaws,w,balanceBalancedO"/>
+	
+	<task task="displayhidegraph" when="custom[down3]" parameters="oBalanceRight,seesaws,w,balanceRightO"/>
+	
+	<task task="displayhidegraph" when="custom[down3]" parameters="oBalanceLeft,seesaws,w,balanceLeftO"/>
+	
+	<!-- Tasks for clicking button "down4" -->
+	<task task="setvariable" when="custom[down4]" parameters="n4,decrementN4"/>
+	
+	<task task="resetvar" when="custom[down4]" 
+		parameters="hRight,oRight,hBalance,oBalance,hBalanceBalanced,hBalanceRight,hBalanceLeft,oBalanceBalanced,oBalanceRight,oBalanceLeft,txtN4,pN4,pT5,pT6,decrementN4,enableDown4"/>
+	
+	<task task="setenabled" when="custom[down4]" parameters="enableDown4,down4"/>
+	
+	<task task="enable" when="custom[down4]" parameters="up4"/>
+	
+	<task task="displayhidegraph" when="custom[down4]" 
+		parameters="hBalanceBalanced,seesaws,w,balanceBalancedH"/>
+	
+	<task task="displayhidegraph" when="custom[down4]" parameters="hBalanceRight,seesaws,w,balanceRightH"/>
+	
+	<task task="displayhidegraph" when="custom[down4]" parameters="hBalanceLeft,seesaws,w,balanceLeftH"/>
+	
+	<task task="displayhidegraph" when="custom[down4]" 
+		parameters="oBalanceBalanced,seesaws,w,balanceBalancedO"/>
+	
+	<task task="displayhidegraph" when="custom[down4]" parameters="oBalanceRight,seesaws,w,balanceRightO"/>
+	
+	<task task="displayhidegraph" when="custom[down4]" parameters="oBalanceLeft,seesaws,w,balanceLeftO"/>
+	
+	<!-- scaledEq: Scaled equation: true if next conditions are true:
+	       1) cBalance.equals("balanced") && hBalance.equals("balanced") && oBalance.equals("balanced")
+	       2) we are at attempt <= 2 -->
+	<answercombo id="scaledEq" answer="cBalance[balanced]+hBalance[balanced]+oBalance[balanced]"
+		attemptsmax="2" />
+	
+</question>

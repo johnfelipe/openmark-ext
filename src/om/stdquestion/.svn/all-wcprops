@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/openmark~svn/!svn/ver/402/trunk/src/om/stdquestion
+END
+package.html
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/openmark~svn/!svn/ver/130/trunk/src/om/stdquestion/package.html
+END
+QDocument.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/openmark~svn/!svn/ver/291/trunk/src/om/stdquestion/QDocument.java
+END
+QComponent.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/openmark~svn/!svn/ver/382/trunk/src/om/stdquestion/QComponent.java
+END
+QContent.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/openmark~svn/!svn/ver/240/trunk/src/om/stdquestion/QContent.java
+END
+StandardQuestion.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/openmark~svn/!svn/ver/402/trunk/src/om/stdquestion/StandardQuestion.java
+END
+QComponentManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/openmark~svn/!svn/ver/195/trunk/src/om/stdquestion/QComponentManager.java
+END

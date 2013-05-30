@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/tnavigator/db/postgres
+END
+createdb.sql
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/tnavigator/db/postgres/createdb.sql
+END
+PostgreSQL.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/tnavigator/db/postgres/PostgreSQL.java
+END

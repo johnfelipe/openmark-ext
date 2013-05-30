@@ -1,0 +1,116 @@
+<question class="samples.uned.simplecheck.GenericQuestion">
+	
+	<parameters maxattempts="5"></parameters>
+	
+	<scoring><marks>5</marks></scoring>
+
+	<layout>
+		<row height="400"/>
+		<column width="296"/>
+		<column width="296"/>  
+	</layout>
+ 
+	<!-- Defines the left-hand question box -->
+	<box gridx="0" gridy="0" id="inputbox" background="input" 
+	questionline="¿Qué personajes no salían en Barrio Sesamo?">
+		¿Cuales de los siguientes personajes no salían en Barrio Sésamo?
+		<gap/>
+		
+		<layoutgrid cols="1" shuffle="yes">	
+			<checkbox id="unaRespuesta">    <!-- wrong -->
+				<t>Epi</t>
+			</checkbox>
+			
+			<checkbox id="otraRespuesta" answerline="Coco">    <!-- wrong -->
+				<t>El monstruo Coco</t>
+			</checkbox>
+			
+			<checkbox id="mortadelo" right="yes">    <!-- right -->
+				<t>Mortadelo</t>
+			</checkbox>
+			
+			<checkbox id="ranaGustavo" answerline="Gustavo">    <!-- wrong -->
+				<t>La rana Gustavo</t>
+			</checkbox>
+			
+			<checkbox id="asterixGalo" right="yes" answerline="Asterix">    <!-- right -->
+				<t>El galo Astérix</t>
+			</checkbox>
+			
+			<checkbox id="blas">    <!-- wrong -->
+				<t>Blas</t>
+			</checkbox>
+		</layoutgrid>
+	
+		<gap/> 
+  
+		<button action="actionSubmit" label="%%lENTERANSWER%%"/>
+ 		<button action="actionGiveUp" label="%%lGIVEUP%%"/>
+  
+	</box>
+
+ <!-- Defines the right-hand answer box, which is initially hidden  -->
+ <box gridx="1" gridy="0" id="answerbox" display="no" background="answer" answerline="Pasando de todo">
+   
+	<t id="right">Tu respuesta es correcta.<gap/></t>
+	<t id="wrong">Tu respuesta<t id="still"> todavía</t> es incorrecta.<gap/></t>
+	<t id="pass">Has saltado la pregunta.<gap/></t>	
+	
+	<gap/>
+	<emphasis>Personajes seleccionados:</emphasis> <for><attribute attribute="answerline"/></for>
+	<gap/>
+	
+	<t id="feedback">
+		<t id="cocofeedback" answer="otraRespuesta" attemptsmin="1">
+			Deberías saber que el famoso monstruo de la galletas pertenece a Barrio Sesamo.
+			<gap/>
+		</t>
+		<t id="epiblasfeedback" answer="unaRespuesta+blas">
+			Tanto Epi como Blas son de Barrio Sesamo.
+			<gap/>
+		</t>
+		<t id="feedback1" attemptsmax="1">
+			Te has equivocado, me parece que no te fijas demasiado.
+			<gap/>
+		</t>
+		<t id="feedback2" attemptsmin="2">
+			Vamos a centrarnos hombre, 
+			<emphasis type="italic">fíjate bien!!</emphasis>
+			<gap/>
+		</t>
+		Consulta el tema xxx para encontrar una solución a la pregunta.
+		<gap/>
+	</t>	 
+   
+	<t id="answer">
+		Astérix es un personaje de comic muy conocido por liderar la resistencia a los romanos de una aldea de la Galia.
+		<gap/>
+		Por otro lado Mortadelo es otro personaje de comic calvo que trabaja como espía para la agencia TIA junto a Filemon.
+		<gap/>
+		Por tanto, Astérix y Mortadelo no pertenecen a la serie de televisión para niños Barrio Sesamo.
+		<gap/>
+	</t>
+		
+	<button id="ok" action="actionOK" label="%%lTRYAGAIN%%"/>
+	<button id="next" action="actionOK" label="%%lNEXTQUESTION%%" display="no"/>
+   	
+ </box>
+ 
+	<summaryline>     Siempre la 
+	misma    
+	línea   (intento número <summaryattribute attribute="attempt"></summaryattribute>) 
+	
+	</summaryline>
+	<summaryline answer="blas">Seleccionaste el 
+	<summaryattribute attribute="answertagname[blas]"></summaryattribute> 
+	de Blas</summaryline>
+	<summaryline attemptsmax="2">Llevas menos de 3 intentos</summaryline>
+	<summaryline attemptsmin="3">Llevas ya 3 o más intentos</summaryline>
+	<summaryline test="right">¡Bravo! Esta es la respuesta correcta</summaryline>
+	<summaryline test="wrong">Error. Respuesta incorrecta</summaryline>
+	<summaryline test="passed">Parece que te das por vencido</summaryline>
+	<summaryline>Default summary line:
+	<summaryattribute attribute="defaultsummaryline"></summaryattribute>
+	</summaryline>
+ 
+</question>

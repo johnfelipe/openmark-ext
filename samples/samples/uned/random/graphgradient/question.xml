@@ -1,0 +1,328 @@
+<!-- S151 PA Chapter 10 Question 1
+	G P Black September 2005
+-->
+
+<question class="samples.uned.random.graphgradient.GenericQuestion">
+
+	<scoring>
+		<marks>3</marks>
+	</scoring>
+
+ 	<layout>
+  		<row height="480"/>
+  		<column width="306"/>
+  		<column width="286"/>  
+	</layout>
+	
+  	<random id="randomgradient" max="1"/>
+  	
+  	<replaceholder placeholder="RIGHTANSWER3" set="randomgradient">
+  		<option value="yes"/>
+  		<option value="no"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="RIGHTANSWER8" set="randomgradient">
+  		<option value="no"/>
+  		<option value="yes"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="OPTION0" set="randomgradient">
+  		<option value="1"/>
+  		<option value="-15"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="OPTION1" set="randomgradient">
+  		<option value="2"/>
+  		<option value="-7.5"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="OPTION2" set="randomgradient">
+  		<option value="3"/>
+  		<option value="-1.5"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="OPTION3" set="randomgradient">
+  		<option value="4"/>
+  		<option value="-0.75"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="OPTION4" set="randomgradient">
+  		<option value="5"/>
+  		<option value="-0.15"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="OPTION5" set="randomgradient">
+  		<option value="6"/>
+  		<option value="0.15"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="OPTION6" set="randomgradient">
+  		<option value="7"/>
+  		<option value="0.75"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="OPTION7" set="randomgradient">
+  		<option value="8"/>
+  		<option value="1.5"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="OPTION8" set="randomgradient">
+  		<option value="9"/>
+  		<option value="7.5"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="OPTION9" set="randomgradient">
+  		<option value="10"/>
+  		<option value="15"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="XVAL" set="randomgradient">
+  		<option value="2"/>
+  		<option value="4"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="X1" set="randomgradient">
+  		<option value="4.0"/>
+  		<option value="8.0"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="X2" set="randomgradient">
+  		<option value="0.5"/>
+  		<option value="0"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="Y1" set="randomgradient">
+  		<option value="14"/>
+  		<option value="90"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="Y2" set="randomgradient">
+  		<option value="0"/>
+  		<option value="30"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="DX" set="randomgradient">
+  		<option value="3.5"/>
+  		<option value="8.0"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="DY" set="randomgradient">
+  		<option value="14"/>
+  		<option value="60"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="GRAD" set="randomgradient">
+  		<option value="4.0"/>
+  		<option value="7.5"/>
+  	</replaceholder>
+	
+	<replaceholder placeholder="XRIGHT" set="randomgradient">
+  		<option value="4"/>
+  		<option value="8"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="YTOP" set="randomgradient">
+  		<option value="20"/>
+  		<option value="90"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="XSPACING" set="randomgradient">
+  		<option value="1,0.2"/>
+  		<option value="1"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="YSPACING" set="randomgradient">
+  		<option value="5,1"/>
+  		<option value="10"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="XTICKS" set="randomgradient">
+  		<option value="1,0.2"/>
+  		<option value="1,1"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="YTICKS" set="randomgradient">
+  		<option value="5,1"/>
+  		<option value="10,10"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="TICKSIDE" set="randomgradient">
+  		<option value="-"/>
+  		<option value="+"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="YNUMBERS" set="randomgradient">
+  		<option value="5"/>
+  		<option value="10"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="YFORMULA" set="randomgradient">
+  		<option value="x^2+2"/>
+  		<option value="30*x^0.5"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="LINEX" set="randomgradient">
+  		<option value="0.5"/>
+  		<option value="0"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="LINEY" set="randomgradient">
+  		<option value="0"/>
+  		<option value="30"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="LINEX2" set="randomgradient">
+  		<option value="4"/>
+  		<option value="8"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="LINEY2" set="randomgradient">
+  		<option value="14"/>
+  		<option value="90"/>
+	</replaceholder>
+	
+ 	<!-- Defines the left-hand question box -->
+ 	<box gridx="0" gridy="0" id="inputbox" background="input" 
+ 		questionline="Estimate the gradient of the curve shown in the plot at x = __XVAL__.">
+	
+		<if plain="yes">
+			A graph is drawn of y against x and it is a curve. A tangent is drawn to 
+			the curve at the point x = __XVAL__. The tangent passes through a point at which
+			 x = __X1__ and y = __Y1__ and another point at which x = __X2__ and y = __Y2__. 
+			 Estimate the gradient of the curve at the point x = __XVAL__. Click on the answer
+			 closest to your estimate.
+		</if>
+		
+		<if plain="no">
+			Estimate the gradient of the curve shown in the plot at
+		    <eq>x = __XVAL__.</eq> Click on the answer closest to your estimate.
+			<gap/>
+			<emphasis type="italic">
+				You can draw a straight line on the graph if you wish by moving 
+				the circular markers.
+			</emphasis>
+		</if>
+		<gap/>
+		<canvas id="graph" width="288" height="200" alt="">
+			<world id="w" px="40" py="8" pw="218" ph="155" xleft="0" xright="__XRIGHT__" ybottom="0" 
+				ytop="__YTOP__">
+				
+				<function id="f1" colour="graph1" lineWidth="2" y="__YFORMULA__"/>
+				<grid minX="0" maxX="__XRIGHT__" minY="0" maxY="__YTOP__" XSpacing="__XSPACING__" 
+					YSpacing="__YSPACING__"/>
+				<xAxis ticks="__XTICKS__" tickSide="__TICKSIDE__" numbers="1" labelFont="Times" label="x" />
+				<yAxis ticks="__YTICKS__" tickSide="__TICKSIDE__" numbers="__YNUMBERS__" labelFont="Times" 
+					label="y" rotateLabel="no"/>
+				<line id="tangent" x="__LINEX__" y="__LINEY__" x2="__LINEX2__" y2="__LINEY2__" lineWidth="2" 
+					lineColour="graph2" display="no" />
+			</world>			
+			<marker x="100" y="20"/>
+			<marker x="150" y="20"/>
+			<markerline from="0" to="1" world="w"/>
+		</canvas>
+		<layoutgrid cols="4">	
+			<radiobox id="box0">
+			<equation alt="__OPTION0__">__OPTION0__</equation>
+			 </radiobox>
+			 <radiobox id="box1">
+				<equation alt="__OPTION1__">__OPTION1__</equation>
+			 </radiobox>
+			 <radiobox id="box2">
+				<equation alt="__OPTION2__">__OPTION2__</equation>
+			 </radiobox>
+			 <radiobox id="box3" right="__RIGHTANSWER3__">
+				<equation alt="__OPTION3__">__OPTION3__</equation>
+			 </radiobox>
+			 <radiobox id="box4">
+				<equation alt="__OPTION4__">__OPTION4__</equation>
+			 </radiobox>
+			 <radiobox id="box5">
+				<equation alt="__OPTION5__">__OPTION5__</equation>
+			 </radiobox>
+				 <radiobox id="box6" right="no">
+				<equation alt="__OPTION6__">__OPTION6__</equation>
+			 </radiobox>
+			 <radiobox id="box7">
+				<equation alt="__OPTION7__">__OPTION7__</equation>
+			 </radiobox>
+			 <radiobox id="box8" right="__RIGHTANSWER8__">
+				<equation alt="__OPTION8__">__OPTION8__</equation>
+			 </radiobox>
+			 <radiobox id="box9">
+				<equation alt="__OPTION9__">__OPTION9__</equation>
+			 </radiobox>
+		</layoutgrid>
+	  	<gap/>
+
+		<button action="actionSubmit" label="%%lENTERANSWER%%"/>
+		<!--<button action="actionGiveUp" label="%%lGIVEUP%%"/>-->
+  
+	</box>
+
+ 	<!-- Defines the right-hand answer box, which is initially hidden  -->
+ 	<box gridx="1" gridy="0" id="answerbox" display="no" background="answer">
+   
+		<t id="wrong"><t answer="msg_wrong">Your answer is <t id="still">still</t> incorrect.<gap/></t></t>
+		<t id="right">Your answer is correct.<gap/></t>
+		<t id="pass">You passed on this question.<gap/></t>	
+	
+		<t id="wrongnumber" selectedanswersmax="0" attemptsmax="2">
+			You didn't choose an option.
+			<gap/>
+		</t>
+
+		<t id="feedback">
+			<t id="default" attemptsmin="2" attemptsmax="2">
+				Remember that the gradient of a curve at any
+	            point is the same as the gradient of a tangent
+	            drawn at that point. See Section 10.1.
+			</t>
+			<gap/>
+		</t>	 
+
+		<t id="readValues" answer="box0,box6" attemptsmin="2" attemptsmax="2">
+			<if plain="no">
+				Take care to read the values on the axes carefully.
+				<gap/>
+			</if>
+		</t>
+	   
+		<t id="answer">
+	        <if plain="no">
+	        	A tangent has been drawn to the figure at
+	        	<eq>x = __XVAL__</eq>.
+	        	<gap/>
+	        </if>
+			Gradient of tangent
+			<gap/>
+			<indent>
+				<equation alt="delta y over delta x equals (__Y1__ minus __Y2__) over (__X1__ - __X2__)
+								equals __DY__ over __DX__ equals __GRAD__">
+					= \frac{\mbox{Δ}y}{\mbox{Δ}x} = \frac{__Y1__ - __Y2__}{__X1__ - __X2__}
+						= \frac{__DY__}{__DX__} = __GRAD__
+				</equation>
+			</indent>
+			<gap/>
+	        The gradient of a curve at any point is the same as the
+	        gradient of a tangent drawn at that point, so the gradient
+	        of the curve is <eq>__GRAD__</eq> at <eq>x = __XVAL__</eq>.
+			<gap/>
+		</t>
+			
+		<button id="ok" action="actionOK" label="%%lTRYAGAIN%%"/>
+		<button id="next" action="actionOK" label="%%lNEXTQUESTION%%" display="no"/>
+	   
+ 	</box>
+	
+	<answercombo id="msg_wrong" answer="selectedAtLeastOne,atAttempt3"/>
+	<answercombo id="selectedAtLeastOne" selectedanswersmin="1"/>
+	<answercombo id="atAttempt3" attemptsmin="3" attemptsmax="3"/>
+	
+	<task task="displaygraph" when="end" parameters="graph,w,tangent"/>
+	
+	<summaryline type="answerline">(<summaryattribute attribute="selectedanswers"/> selected)</summaryline>
+	
+	<summaryline>Attempt <summaryattribute attribute="attempt"/>: 
+	<summaryattribute attribute="answermap[box0,box1,box2,box3,box4,box5,box6,box7,box8,box9:Box 0;,Box 1;,Box 2;,Box 3;,Box 4;,Box 5;,Box 6;,Box 7;,Box 8;,Box 9;]"/></summaryline>
+	
+</question>

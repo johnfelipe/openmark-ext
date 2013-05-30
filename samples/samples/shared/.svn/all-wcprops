@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/openmark~svn/!svn/ver/130/trunk/samples/samples/shared
+END
+StringConverterAndSplitter.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/openmark~svn/!svn/ver/130/trunk/samples/samples/shared/StringConverterAndSplitter.java
+END
+Helper.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/openmark~svn/!svn/ver/130/trunk/samples/samples/shared/Helper.java
+END
+StringArrayChecker.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/openmark~svn/!svn/ver/2/trunk/samples/samples/shared/StringArrayChecker.java
+END
+AbstractSplitStringChecker.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/openmark~svn/!svn/ver/2/trunk/samples/samples/shared/AbstractSplitStringChecker.java
+END
+NumberChecker.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/openmark~svn/!svn/ver/2/trunk/samples/samples/shared/NumberChecker.java
+END
+DoubleRangeChecker.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/openmark~svn/!svn/ver/2/trunk/samples/samples/shared/DoubleRangeChecker.java
+END
+RangeChecker.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/openmark~svn/!svn/ver/2/trunk/samples/samples/shared/RangeChecker.java
+END
+SigFigsStringChecker.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/openmark~svn/!svn/ver/2/trunk/samples/samples/shared/SigFigsStringChecker.java
+END
+SigFigsDoubleChecker.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/openmark~svn/!svn/ver/2/trunk/samples/samples/shared/SigFigsDoubleChecker.java
+END
+StringChecker.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/openmark~svn/!svn/ver/2/trunk/samples/samples/shared/StringChecker.java
+END

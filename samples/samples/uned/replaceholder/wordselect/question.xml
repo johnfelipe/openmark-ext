@@ -1,0 +1,66 @@
+<question class="samples.uned.replaceholder.wordselect.GenericQuestion">
+	
+	<parameters maxattempts="5" />
+	
+	<scoring><marks>5</marks></scoring>
+
+ 	<layout>
+  		<row height="1000"/>
+  		<column width="296"/>
+  		<column width="296"/>  
+ 	</layout>
+	
+	<replaceholder placeholder="RIGHT_VERB" set="@yes"/>
+	<replaceholder placeholder="RIGHT_COMMON_NOUN" set="@no"/>
+	
+ 	<!-- Defines the left-hand question box -->
+ 	<box gridx="0" gridy="0" id="inputbox" background="input">
+
+		<emphasis>Selecciona en los siguientes párrafos todas las formas verbales:</emphasis>
+		<gap/>
+		
+		<wordselect id="magneto">Magneto <sw id="es" right="__RIGHT_VERB__">es</sw> uno de los 
+		<sw id="supervillanos" right="__RIGHT_COMMON_NOUN__">supervillanos</sw> más poderosos de X-Men, 
+		con el <sw id="poder" right="__RIGHT_COMMON_NOUN__">poder</sw> de 
+		<sw id="manipular" right="__RIGHT_VERB__">manipular</sw> a 
+		<sw id="distancia" right="__RIGHT_COMMON_NOUN__">distancia</sw> cualquier 
+		<sw id="objeto" right="__RIGHT_COMMON_NOUN__">objeto</sw> metálico.</wordselect>
+		
+		<gap/>
+		
+	   	<button action="actionSubmit" label="%%lENTERANSWER%%"/>
+ 	</box>
+
+ 	<!-- Defines the right-hand answer box, which is initially hidden  -->
+ 	<box gridx="1" gridy="0" id="answerbox" display="no" background="answer">
+   
+		<t id="wrong">Your answer is <t id="still">still</t> incorrect.</t>
+		<t id="right">Your answer is correct.</t>
+		<t id="pass">You passed on this question.</t>
+			
+		<gap/>
+		
+		<t id="feedback">
+			<t id="highlighttip" attemptsmin="2" attemptsmax="4">Highlighted words are correct, 
+			so do not remove them from your answer.</t>
+			<gap/>
+		</t>
+			 
+		<t id="answer">
+			<t id="highlightright" test="wrong">The right answer has been highlighted.</t>
+		</t>
+   		
+	 	<button id="ok" action="actionOK" label="%%lTRYAGAIN%%"/>
+		<button id="next" action="actionOK" label="%%lNEXTQUESTION%%" display="no"/>
+
+ 	</box>
+ 	
+ 	<task task="highlighthits" when="endattempt" attemptsmin="2" />
+ 	
+ 	<task task="clearhighlight" when="startattempt" attemptsmin="2" attemptsmax="3" />
+ 	
+ 	<task task="clearwrong" when="startattempt" attemptsmin="3" attemptsmax="4" />
+ 	
+ 	<task task="highlighthitsandright" when="end" test="wrong" />
+ 	
+</question>

@@ -1,0 +1,151 @@
+<question class="samples.uned.random.households.GenericQuestion2">
+
+    <scoring>
+        <marks>3</marks>
+    </scoring>
+
+    <layout>
+        <row height="400"/>
+        <column width="290"/>
+        <column width="302"/>
+    </layout>
+	
+	<random id="randomX" max="4"/>
+	
+	<!-- childOrChildren=randomX==1?"child":"children" -->
+	<variable id="childOrChildren" 
+		set="randomX[nei&quot;1&quot;,&quot;child&quot;,&quot;children&quot;]"/>
+	
+	<!-- yDiv5 = __Y__ / 5 -->
+	<variable id="yDiv5" set="placeholderY[ndi&quot;5&quot;]"/>
+	
+	<!-- checkNoNumber="NaN" if response is not a valid double -->
+	<variable id="checkNoNumber" set="response[nf!&quot;NaN&quot;]"/>
+	
+	<replaceholder placeholder="X" set="randomX@"/>
+	
+	<replaceholder placeholder="CHILD(REN)" set="childOrChildren@"/>
+	
+	<replaceholder id="placeholderY" placeholder="Y" set="randomX">
+  		<option value="35"/>
+  		<option value="20"/>
+  		<option value="25"/>
+  		<option value="15"/>
+  		<option value="5"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="Y/5" set="yDiv5@"/>
+	
+    <!-- Defines the question box -->
+    <box gridx="0" gridy="0" id="inputbox" background="input"
+		questionline="How many households have __X__ __CHILD(REN)__?">
+    	
+        The frequency chart below shows the number of households in a village
+        with differing numbers of children.
+        <gap/>
+        <canvas id="barchart" width="256" height="196">
+			<world id="w" px="19" py="0" pw="174" ph="157" 
+				xleft="-1" xright="5" ybottom="0" ytop="46.5">
+				
+				<xAxis ticks="1" tickSide="-" colour="#736FEA,fg"/>
+				
+				<text x="-1" y="-9.8" colour="#736FEA,fg" font="12px Dialog.plain"
+					align="left" text="Number of children per household"/>
+					
+				<yAxis x="-1" maxY="40" ticks="5" tickSide="-" numbers="40" 
+					colour="#736FEA,fg" numbersFont="12px Dialog.plain"/>
+				
+				<text x="-1" y="41.7" colour="#736FEA,fg" font="12px Dialog.plain"
+					align="left" text="Number of households"/>
+				
+				<barChart start="-1" width="1" separation="1" 
+					defaultColour="#736FEA,fg" defaultLabelFont="12px Dialog.plain"
+					value1="35" value2="20" value3="25" value4="15" value5="5" value6="0" 
+					label1="0" label2="1" label3="2" label4="3" label5="4" label6="5"
+					labelsMargin="4" labelsAlign="right"/>
+        	</world>
+        </canvas>	
+        <gap/>
+        How many households have __X__ __CHILD(REN)__
+        <gap/>
+
+        <indent>
+            <editfield id="response" label="enter value" cols="6" answertype="numeric"
+            	right="__Y__" singlespaces="no" tolerance="1E-6"/> households
+        </indent>
+        <gap/>
+
+        <button action="actionSubmit" label="%%lENTERANSWER%%"/>
+        <button id="hintButton" action="actionHint" label="Hint"/>
+        <!--button action="actionGiveUp" label="%%lGIVEUP%%"/-->
+    </box>
+
+    <!-- Defines the right-hand answer box, which is initially hidden  -->
+    <box gridx="1" gridy="0" id="answerbox" display="no" background="answer">
+		 
+        <t id="wrong">Your answer is <t id="still">still</t> incorrect.<gap/></t>
+        <t id="right">Your answer is correct.<gap/></t>
+        <t id="pass">You passed on this question.<gap/></t>
+
+        <t id="hints">
+            <t id="hint">
+                Start with the number of children on the horizontal axis.
+                <gap/>
+            </t>
+        </t>
+        <t id="feedback">
+            <t id="nonumber" answer="ansnonumber" attemptsmax="2">
+                You must enter a number for the 0 to 5.
+                <gap/>
+            </t>
+            <t id="toosmall" test="numcmp[response&lt;__Y__]" answer="!ansnonumber"
+            	attemptsmax="2">
+            	
+                Your number is too small.
+                <gap/>
+            </t>
+            <t id="toolarge" test="numcmp[response>__Y__]" answer="!ansnonumber"
+            	attemptsmax="2">
+                Your number is too big.
+                <gap/>
+            </t>
+            <t id="feedback1" attemptsmin="1" attemptsmax="1">
+                Look at the height of the bar with the required number of children on the horizontal axis,
+                taking account of the scale.
+                <gap/>
+            </t>   
+            <t id="feedback2" attemptsmin="2" attemptsmax="2">
+                Check the height of the __X__ bar against the left hand vertical scale,
+                and take care over the scale,
+                <gap/>
+            </t>   
+        </t>
+		
+        <t id="answer">
+            On the vertical scale,
+            8 divisions represent 40 households,
+            so each division represents 5.
+            Checking the height of the __X__ bar against the left hand vertical scale
+            shows that it is __Y/5__ divisions.
+            <break/>
+            So this is __Y/5__ × 5 = __Y__ households.
+            <gap/>
+        </t>
+
+        <t id="reference">
+            Please see MU120 Preparatory Resource Book B section 5.2.3
+            <gap/>
+        </t>
+     
+        <button id="ok" action="actionOK" label="%%lTRYAGAIN%%"/>
+        <button id="next" action="actionOK" label="%%lNEXTQUESTION%%" display="no"/>
+    </box>
+	
+	<answercombo id="ansnonumber" answer="checkNoNumber[NaN]"/>
+	
+	<summaryline type="answerline">__Y__</summaryline>
+	
+	<summaryline>Attempt <summaryattribute attribute="attempt"/>: 
+	<summaryattribute attribute="answerline[response]"/></summaryline>
+	
+</question>

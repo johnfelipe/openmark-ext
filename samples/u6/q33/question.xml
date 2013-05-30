@@ -1,0 +1,39 @@
+<question class="u6.q33.GenericQuestion">
+<scoring>
+<marks>3</marks>
+</scoring>
+<layout>
+<row height="0"/>
+<column width="296"/>
+<column width="296"/>
+</layout>
+<box background="input" gridx="0" gridy="0" id="inputbox">
+<image alt="" filePath="eq2plus2equal5.jpg"/>
+<gap/>¿Es correcta la ecuación?<gap/>
+<layoutgrid cols="1">
+<radiobox id="true">
+<t>Verdadero</t>
+</radiobox>
+<radiobox id="false" right="yes">
+<t>Falso</t>
+</radiobox>
+</layoutgrid>
+<gap/>
+<button action="actionSubmit" label="%%lENTERANSWER%%"/>
+<button action="actionGiveUp" label="%%lGIVEUP%%"/>
+</box>
+<box background="answer" display="no" gridx="1" gridy="0" id="answerbox">
+<t id="right">Estaba claro, 2+2=4, no 5<gap/>
+</t>
+<t id="wrong">Esto... ¿se te ha olvidado sumar?<t id="still"/>
+<gap/>
+</t>
+<t id="pass"/>
+<t id="feedback"/>
+<t id="answer"/>
+<button action="actionOK" id="ok" label="%%lTRYAGAIN%%"/>
+<button action="actionOK" display="no" id="next" label="%%lNEXTQUESTION%%"/>
+</box>
+<summaryline>Attempt <summaryattribute attribute="attempt"/>: Selected answer: <summaryattribute attribute="answerline"/>
+</summaryline>
+</question>

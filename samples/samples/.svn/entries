@@ -1,0 +1,49 @@
+10
+
+dir
+447
+https://svn.java.net/svn/openmark~svn/trunk/samples/samples
+https://svn.java.net/svn/openmark~svn
+
+
+
+2010-05-13T09:47:39.831403Z
+416
+tjhunt
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+3df17485-4164-4021-f6be-e1e3753b6e54
+
+misc
+dir
+
+mu120
+dir
+
+multichoice
+dir
+
+numeric
+dir
+
+shared
+dir
+
+textresponse
+dir
+
+twodresponse
+dir
+

@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/openmark~svn/!svn/ver/436/trunk/src/om/devservlet
+END
+DevServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/openmark~svn/!svn/ver/435/trunk/src/om/devservlet/DevServlet.java
+END
+RequestResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/openmark~svn/!svn/ver/430/trunk/src/om/devservlet/RequestResponse.java
+END
+questionbuild.xml
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/openmark~svn/!svn/ver/430/trunk/src/om/devservlet/questionbuild.xml
+END
+package.html
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/openmark~svn/!svn/ver/2/trunk/src/om/devservlet/package.html
+END
+RequestHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/openmark~svn/!svn/ver/430/trunk/src/om/devservlet/RequestHandler.java
+END
+RequestHandlingException.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/openmark~svn/!svn/ver/430/trunk/src/om/devservlet/RequestHandlingException.java
+END
+QuestionDefinitions.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/openmark~svn/!svn/ver/130/trunk/src/om/devservlet/QuestionDefinitions.java
+END
+QuestionDefinition.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/openmark~svn/!svn/ver/389/trunk/src/om/devservlet/QuestionDefinition.java
+END
+RequestAssociates.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/openmark~svn/!svn/ver/430/trunk/src/om/devservlet/RequestAssociates.java
+END

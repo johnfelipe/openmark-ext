@@ -1,0 +1,568 @@
+<html>
+<head>
+<title>How to create a new question component</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<style type="text/css">
+.codesample {
+    border: 1px solid #369;
+    background: #eee;
+    padding: 1em;
+}
+</style>
+</head>
+<body>
+
+<h1>How to create a new question component</h1>
+
+<h2>Overview</h2>
+	
+<p>
+	New question components should probably be created in the package <code>om.stdcomponent</code>. 
+	To develop a question component  a new class that is a subclass of <code>om.stdquestion.QComponent</code> is 
+	required. These are typically called <code>SomethingTypeComponent.java</code>.
+	In addition to the <code>SomethingTypeComponent.java</code> file, you may also have one or 
+	both of a <code>SomethingTypeComponent.js</code> and a <code>SomethingTypeComponent.css</code> file for 
+	Javascript and styles. If either of these exist, the question engine 
+	automatically processes them for you.
+</p>
+	
+<p>
+	e.g. the RadioBoxComponent has java, javascript and css files.
+</p>
+<ul>
+	<li><code>RadioBoxComponent.java</code> -  
+		The java file contains the code for initialising, rendering and handling student inputs.</li>
+	<li><code>RadioBoxComponent.js</code> - 
+		The javascript file typically contains event handling for student interaction with 
+		the component on the webpage. For the RadioBoxComponent it handles the onClick event 
+		for the radiobox</li>
+	<li><code>RadioBoxComponent.css</code> - 
+		Adds styles and alignment information for the radiobox.</li>	
+</ul>
+
+<p>
+	To add a component to Openmark you will need to edit the 
+	<code>om.stdcomponent.ComponentRegistry</code>.  The new class should be 
+	added to the COMPONENTCLASSES array (alphabetical order has been used).
+</p>
+	
+<p>
+	Once you have created the files that you need , <code>SomethingTypeComponent .java, .js, .css</code> 
+	and added the component to the Component registry you will need  to implement the 
+	functionality of your new question component. There are four parts to this 
+	outlined in the sections below.	
+</p>
+	
+
+<h2>1. Initialisation</h2>
+
+	<p>Your component will require a tag name for use in the question.xml.</p>
+	
+	<p>e.g. from the IndentComponent</p>
+	
+	<pre class="codesample">
+		/** @return Tag name (introspected; this may be replaced by a 1.5 annotation) */
+		public static String getTagName()
+		{
+			return "indent";
+		}
+	</pre>	
+	
+
+<p><strong>Adding parameters</strong></p>
+	<p>
+		<code>QComponent</code> has the method defineProperties() that is intended 
+		for overriding. As default it is set to allow an 'id', 'display'(true)  
+		and 'enabled'(true). If you require more properties then override this 
+		method, remembering to call the superclass if you want to keep the defaults.
+	</p>
+	
+	<p>
+		e.g. Your component requires a highlight property and you want to set 
+		the initial/default value to false.
+	</p>
+	
+	<pre class="codesample">
+		/** Property name for being highlighted (boolean) */
+		public static final String PROPERTY_HIGHLIGHT="highlight";
+		@Override
+		protected void defineProperties() throws OmDeveloperException
+		{
+			super.defineProperties();
+			defineBoolean(PROPERTY_HIGHLIGHT);
+			setBoolean(PROPERTY_HIGHLIGHT,false);
+		}
+	</pre>
+
+<p><strong>init</strong></p>
+	
+	<p>
+		As part of the initialisation <code>QComponent</code> init calls 
+		initChildren(Element eThis). This initialises children 
+		based on the given XML element.	
+	</p>
+		
+	<p>
+		The default implementation treats all child elements as components. 
+		If you want to include text as well or treat elements differently 
+		(i.e. your component will have it's own internal tags with a specific meaning) 
+		you will need  to override this method.
+	</p>
+	
+	<p>
+		You want to include text
+	</p>
+	
+	<p>
+		e.g. from the text component
+	</p>
+	
+	<pre class="codesample">
+		@Override
+		protected void initChildren(Element eThis) throws OmException
+		{
+			getQDocument().buildInsideWithText(this,eThis);
+		}
+	</pre>
+	
+	<p>
+		You do not want your component to have any child elements
+	</p>
+	
+	<p>
+		e.g. from the gap component
+	</p>
+	
+	<pre class="codesample">
+		@Override
+		protected void initChildren(Element eThis) throws OmException
+		{
+			if(eThis.getFirstChild()!=null) throw new OmFormatException(
+				"<gap> may not contain other content");
+		}	
+	</pre>
+		
+	<p>
+		for examples of components with their own internal tags that are not components see the 
+		DropdownComponent, EquationComponent, TableComponent, WordselectComponent.
+	</p>
+		
+		
+
+<h2>2. Rendering</h2>
+	
+	<p>
+		Instructions for how the content of the component should be built up and displayed 
+		should be done by overriding the produceVisibleOutput method.
+	</p>
+		
+	<p>
+		The example below is from the GapComponent
+	</p>
+		
+	<pre class="codesample">
+		@Override
+		public void produceVisibleOutput(QContent qc,boolean bInit,boolean bPlain) throws OmException
+		{
+			if(bPlain)
+			{
+				Element eDiv=qc.createElement("div");
+				qc.addInlineXHTML(eDiv);
+				XML.createChild(eDiv,"br");
+			}
+			else
+			{
+				Element eDiv=qc.createElement("div");
+				eDiv.setAttribute("class","gap");
+				qc.addInlineXHTML(eDiv);
+			}
+		}
+	</pre>
+		
+	<p>
+		Note that the code has an if statement for <code>bPlain</code>. Here if the display is to 
+		be in plain mode then a standard html break tag is added as opposed to a 
+		div with a class that then picks up it's spacing properties from the 
+		<code>GapComponent.css</code> file, (see notes on accessibility below).
+	</p>
+		
+	<p>
+		so, if in plain mode the component produces the following output in the html
+	</p>
+	
+	<pre>
+		&lt;div>&lt;br />&lt;/div>
+	</pre>
+		
+	<p>
+		A div element is created, it is added in line and the break is added as a child to the div.
+	</p>
+		
+	<p>
+		In all other modes
+	</p>
+		
+	<pre>
+		&lt;div class="gap">&lt;/div>
+	</pre>
+		
+	<p>
+		A div element is created, it is given a class attribute called gap and is added to the XHTML.
+	</p>
+		
+	<p>
+		The above code is a fairly simple example of a component producing an html output. 
+		Below are some code samples for adding id and name attributes and for adding resources. 
+	</p>
+		
+	<p>
+		 When a question is built Openmark builds a Tree of QComponents 
+		used for the question using om.stdquestion.QDocument. If you wish to create 
+		an id and/or name attributes for an instance of the component in the 
+		html then the properties within the component Tree should be used.
+	</p>
+		
+	<p>
+		Below is an example from the EditFieldComponent. 
+		In the  produceVisibleOutput method the following can be found.
+	</p>
+		
+	<pre class="codesample">
+		eInput.setAttribute("name",QDocument.ID_PREFIX+QDocument.VALUE_PREFIX+getID());
+		eInput.setAttribute("id",QDocument.ID_PREFIX+QDocument.VALUE_PREFIX+getID());
+	</pre>
+		
+	<p>
+		The name and id attributes are being built from the values held in 
+		QDocument for the question and the id value for the instance of the 
+		component. If an id is not specified then Openmark will automatically 
+		generate a unique id.
+	</p>
+		
+	<p>If in the question.xml we have the following</p>
+		
+	<pre>
+		&lt;editfield id="edit1" label=""/>
+	</pre>
+	
+	<p>then the html output will be</p>
+		
+	<pre>
+		&lt;input class="editfieldnonscary" <strong>id="omval_edit1" name="omval_edit1"</strong> size="20" type="text" value="" />
+	</pre>
+		
+	<p>
+		Resources can be added using the getQuestion.loadResource(String filepath) 
+		and qc.addResource(String sFilename,String sMimeType,byte[] abContent) methods.	
+	</p>
+		
+	<p>
+		The example below is from the ImageComponent	
+	</p>
+		
+	<pre class="codesample">
+		/** loads image data from file if not yet loaded */
+			if (sFilePath == null || !sFilePath.equals(getString(PROPERTY_FILEPATH)))
+			{
+				sFilePath=getString(PROPERTY_FILEPATH);
+
+				//get image mime type
+				String sFL = sFilePath.toLowerCase();
+				if (sFL.endsWith(".jpg")) sMimeType = "image/jpeg";
+				else if(sFL.endsWith(".gif")) sMimeType = "image/gif";
+				else if(sFL.endsWith(".png")) sMimeType = "image/png";
+				else if (sFL.endsWith(".jpeg")) sMimeType = "image/jpeg";
+				else if(sFL.endsWith(".jpe")) sMimeType = "image/jpeg";
+				else throw new OmException("Invalid image file type: "+sFilePath);
+
+				try
+				{
+					imageData = getQuestion().loadResource(sFilePath);
+					findImageSize();
+				}
+				catch (IOException e)
+				{
+					throw new OmException("Image file not found: "+sFilePath,e);
+				}
+				if(!sAddedResources.contains(sFilePath))
+				{
+					sAddedResources.add(sFilePath);
+					qc.addResource(sFilePath,sMimeType,imageData);
+				}
+			}
+	</pre>
+		
+	<p>
+		Similar code can be found in produceVisibleOutput(..) for the AudioComponent 
+		and FlashComponent where .mp3 and .swf files are loaded.
+	</p>
+		
+
+<h2>3. Recieving the student's response</h2>
+
+	<p>
+		On submission of the form (i.e. a student has clicked the submit button) 
+		then all components receive a call from the Openmark framework to the 
+		formAllValuesSet method. The QComponent default does nothing.
+	</p>
+		
+	<p>
+		Items with action parameters that begin with QDocument.VALUE_PREFIX will have 
+		the method formSetValue called first on all items on submission of the form 
+		before formAllValuesSet is called.
+	</p>
+		
+	<p>
+		Therefore to receive the student input you will need to override one or both of these methods.	
+	</p>
+		
+	<p>
+		e.g. Editfield component overrides the formSetValue method to obtain the students input 
+		to the  editfield on the form and then sets the property value for this instance of 
+		the component to store the input value.	
+	</p>
+		
+	<pre class="codesample">
+		@Override
+		protected void formSetValue(String sValue,ActionParams ap) throws OmException
+		{
+			sValue=sValue.replaceAll("\r\n","\n");
+			if(getInteger(PROPERTY_ROWS)==1) sValue=trim(sValue,MAXCHARS_SINGLELINE);
+			setString(PROPERTY_VALUE,sValue);
+		}
+	</pre>
+		
+	<p>
+		The CanvasComponent and WordSelect component override the formAllValuesSet method. 
+		These components may need to process multiple input items (canvas markers in the 
+		case of the Canvas component and checkboxes (selected words) in the case of the 
+		WordSelect component) and this can be done in the formAllValuesSet method.
+	</p>
+		
+	<p>
+		 In the Canvas component case the data for each marker is fetched and the 
+		x and y position of each of the markers on the canvas is stored in turn.
+	</p>
+		
+	<pre class="codesample">
+		@Override
+		protected void formAllValuesSet(ActionParams ap) throws OmException
+		{
+			if(!isEnabled()) return;
+	
+			// Get marker data
+			double dZoom=getQuestion().getZoom();
+			int i=0;
+			for(Marker m : lMarkers)
+			{
+				if(ap.hasParameter("canvasmarker_"+getID()+"_"+i+"x"))
+				{
+					try
+					{
+						m.iX=(int)(Integer.parseInt(
+							ap.getParameter("canvasmarker_"+getID()+"_"+i+"x")) / dZoom);
+						m.iY=(int)(Integer.parseInt(
+							ap.getParameter("canvasmarker_"+getID()+"_"+i+"y")) / dZoom);
+					}
+					catch(NumberFormatException nfe)
+					{
+						throw new OmException("Unexpected canvas marker value");
+					}
+				}
+				i++;
+			}
+		}
+
+	</pre>
+
+<h2>4. An interface for quesion authors</h2>
+
+	<p>
+		Finally you may need methods to allow question authors to retrieve input values/parameters 
+		for components and/or set parameters for the components from the question java file.
+	</p>
+		
+	<p>
+		For the Editfield Component in the example for the section above (Receiving the 
+		student's response) we have the code for retrieving the student input and 
+		storing this for the component. To allow question authors to access this 
+		value then a public method is required.
+	</p>
+		
+	<p>Getting the current value.</p>
+		
+	<pre class="codesample">
+		/** @return Current value of edit field. For single-line editfield,
+	 	* value is trimmed to be no more than 100 characters.
+		 */
+		public String getValue()
+		{
+			try
+			{
+				return getString(PROPERTY_VALUE);
+			}
+			catch(OmDeveloperException e)
+			{
+				throw new OmUnexpectedException(e);
+			}
+		}
+	</pre>
+		
+	<p>Setting the current value.</p>
+		
+	<pre class="codesample">
+		/** @param sValue New value for edit field */
+		public void setValue(String sValue)
+		{
+			try
+			{
+				setString(PROPERTY_VALUE,sValue);
+			}
+			catch(OmDeveloperException e)
+			{
+				throw new OmUnexpectedException(e);
+			}
+		}
+
+	</pre>
+		
+	<h2>Notes on accessibility</h2>
+		
+	<p>
+		Accessibility is considered to be of great importance and component authors 
+		should strive to ensure that the components they develop work in the different 
+		accessibility modes, full colour, alt colours, plain mode and big mode.
+	</p>
+		
+	<p><strong>Keyboard accessibility</strong></p>
+		
+	<p>
+		Components that require inputs (edit boxes, check boxes, radio boxes etc) or 
+		movement (marker components) are expected to be keyboard accessible and can 
+		usually be tabbed to and gain focus. Therefore you should ensure that they are 
+		added to the list of items so that the tab order is correct by including code 
+		along the following lines in the produceVisibleOutput(...) method
+	</p>
+		
+	<pre>
+		if(isEnabled()) qc.informFocusable(eInput.getAttribute("id"),bPlain);
+	</pre>
+		
+	<p>
+		The above example is taken from the Radiobox component, though you will find 
+		similar code in many of the other components.
+	</p>
+		
+	<p><strong>Colours</strong></p>
+		
+	<p>
+		Time has been spent ensuring that any colours used are as accessible as possible. 
+		Consideration has been given to users who are colour blind, suffer from 
+		dyslexia or require high contrast. Therefore, Openmark has a number of colour options 
+		and predefined colours. 
+		A number of colours are defined in QComponent,  <code>om.stdquestion.QComponent</code>. 
+		Where possible developers should use these predefined colours. If used in the 
+		components .css file then the colours will be automatically adjusted as users move 
+		through the different colour options.
+	</p>
+		
+	<p>e.g. You will see the following in some of the .css files</p>
+		
+	<pre>
+		border:1px solid %%COLOUR:text%%
+	</pre>
+		
+	<p>
+		where a border is being drawn with the current text colour.	
+	</p>
+		
+	<p>
+		Note that colour should not be used alone to denote a change of state for components. 
+		If you have a selectable component then in addition to a colour change you 
+		should also consider the use of a border/underline to indicate when a component 
+		has been selected or highlighted.
+	</p>
+		
+	<p>
+		e.g. radiobox and checkbox components use a single line border to show when  highlighted, 
+		the wordselect component uses both single and double underlines.
+	</p>
+		
+	<h2>The Hello world component</h2>
+		
+	<p><strong>In the openmark_public java project go to <code>src.om.stdcomponent</code></strong></p>
+		
+	<p>1. Go to the <code>GapComponent.java</code> and save as <code>HelloComponent.java</code> </p>
+		
+	<p>2. Go to the  <code>GapComponent.css</code> and save as <code>HelloComponent.css</code></p>
+	
+	<p>3. Open <code>ComponentRegistry.java</code> and add HelloComponent.class to the array of classes</p>
+		
+	<p><strong>Open  HelloComponent.java</strong></p>
+		
+	<p>4. change public class GapComponent extends QComponent to public class HelloComponent extends QComponent</p>
+		
+	<p>5. in getTagName change gap to hello</p>
+		
+	<pre>
+		public static String getTagName()
+		{
+			return "hello";
+		} 
+	</pre>
+		
+	<p>6. in initChildren change &lt;gap> to &lt;hello></p>
+		
+	<pre>
+		@Override
+		protected void initChildren(Element eThis) throws OmException
+		{
+			if(eThis.getFirstChild()!=null) throw new OmFormatException(
+				"&lt;hello> may not contain other content");
+		}
+	</pre>
+		
+	<p>7. create the output for the component by changing produceVisibleOutput to create a 
+		division with a class attribute called hello, containing the text hello world.</p>
+		
+	<pre>
+		@Override
+		public void produceVisibleOutput(QContent qc,boolean bInit,boolean bPlain) throws OmException
+		{
+				Element div=qc.createElement("div");
+				div.setAttribute("class","hello");
+				XML.createText(div, "hello world");
+				qc.addInlineXHTML(div);
+		}
+	</pre>
+		
+	<p><strong>Open HelloComponent.css</strong></p>
+		
+	<p>8. Add some styles by deleting .om . gap and adding .om .hello</p>
+		
+	<pre>
+		.om .hello
+		{
+		  padding:4px;
+		  background-color: %%COLOUR:innerbg3%%;
+		  font-style:italic;
+		  font-weight:bold;
+		}
+	</pre>
+		
+	<p>9. Run the ant build on openmark_ou project to build your new component into Openmark.</p>
+		
+	<p><strong>Test the component by using it in a question.</strong></p>
+		
+	<p>10. Create a test question, or use an existing one.</p>
+		
+	<p>11. To the question.xml add the hello tag i.e. &lt;hello/> in an appropriate place</p>
+		
+	<p>12. In the question development environment build your question.</p>
+		
+	<p><strong>The result should look something like this</strong></p>
+		
+	<p><img src="hworld.png" alt="Output of hello world component" /></p>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<question class="u5.q25.GenericQuestion">
+<scoring>
+<marks>3</marks>
+</scoring>
+<layout>
+<row height="0"/>
+<column width="296"/>
+<column width="296"/>
+</layout>
+<box background="input" gridx="0" gridy="0" id="inputbox">¿Cuál de los siguientes personajes no salía en Barrio Sésamo?<gap/>
+<layoutgrid cols="1">
+<checkbox id="answer0">
+<t>1) Epi</t>
+</checkbox>
+<checkbox id="answer1">
+<t>2) El monstruo Coco</t>
+</checkbox>
+<checkbox id="answer2" right="yes">
+<t>3) Mortadelo</t>
+</checkbox>
+<checkbox id="answer3">
+<t>4) La rana Gustavo</t>
+</checkbox>
+<checkbox id="answer4" right="yes">
+<t>5) El galo Astérix</t>
+</checkbox>
+<checkbox id="answer5">
+<t>6) Blas</t>
+</checkbox>
+</layoutgrid>
+<gap/>
+<button action="actionSubmit" label="%%lENTERANSWER%%"/>
+<button action="actionGiveUp" label="%%lGIVEUP%%"/>
+</box>
+<box background="answer" display="no" gridx="1" gridy="0" id="answerbox">
+<t id="right">Correcto.<break/>Astérix es un personaje de comic muy conocido por liderar la resistencia a los romanos de una aldea de la Galia.<break/>Por otro lado Mortadelo es otro personaje de comic calvo que trabaja como espía para la agencia TIA junto a Filemon.<break/>Por tanto ni Astérix ni Mortadelo pertenecen a Barrio Sésamo<gap/>
+</t>
+<t id="wrong">La respuesta indicada no es correcta.<t id="still"/>
+<gap/>
+</t>
+<t id="pass"/>
+<t answer="answer0">El incorregible Epi que siempre despierta a Blas pertenece a Barrio Sesamo.<gap/>
+</t>
+<t answer="answer1">Deberías saber que Coco pertenece a Barrio Sesamo.<gap/>
+</t>
+<t answer="answer5">El pobre Blas que nunca consigue dormir pertenece a Barrio Sesamo.<gap/>
+</t>
+<t id="feedback"/>
+<t id="answer"/>
+<button action="actionOK" id="ok" label="%%lTRYAGAIN%%"/>
+<button action="actionOK" display="no" id="next" label="%%lNEXTQUESTION%%"/>
+</box>
+<summaryline>Attempt <summaryattribute attribute="attempt"/>: Selected answer: <summaryattribute attribute="answerline"/>
+</summaryline>
+</question>

@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/openmark~svn/!svn/ver/385/trunk/src/om/question
+END
+Resource.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/openmark~svn/!svn/ver/130/trunk/src/om/question/Resource.java
+END
+CustomResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/openmark~svn/!svn/ver/130/trunk/src/om/question/CustomResult.java
+END
+package.html
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/openmark~svn/!svn/ver/2/trunk/src/om/question/package.html
+END
+ActionParams.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/openmark~svn/!svn/ver/130/trunk/src/om/question/ActionParams.java
+END
+Rendering.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/openmark~svn/!svn/ver/130/trunk/src/om/question/Rendering.java
+END
+Results.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/openmark~svn/!svn/ver/161/trunk/src/om/question/Results.java
+END
+InitParams.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/openmark~svn/!svn/ver/385/trunk/src/om/question/InitParams.java
+END
+Question.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/openmark~svn/!svn/ver/130/trunk/src/om/question/Question.java
+END
+ActionRendering.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/openmark~svn/!svn/ver/130/trunk/src/om/question/ActionRendering.java
+END
+Score.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/openmark~svn/!svn/ver/130/trunk/src/om/question/Score.java
+END

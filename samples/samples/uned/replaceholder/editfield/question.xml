@@ -1,0 +1,84 @@
+<question class="samples.uned.replaceholder.editfield.GenericQuestion">
+	
+	<parameters maxattempts="5"></parameters>
+	
+	<scoring><marks>5</marks></scoring>
+
+	<layout>
+		<row height="400"/>
+		<column width="296"/>
+		<column width="296"/>  
+	</layout>
+ 	
+ 	<replaceholder placeholder="RIGHT_SUPERHEROE" set="@Spiderman"/>
+ 	
+	<!-- Defines the left-hand question box -->
+	<box gridx="0" gridy="0" id="inputbox" background="input">
+		¿Como se llama el superheroe de los comics que lanza telarañas?
+		<gap/>
+		
+		<editfield id="superheroe" cols="30" label="" right="__RIGHT_SUPERHEROE__" casesensitive="yes" />
+		
+		<gap/> 
+  
+		<button action="actionSubmit" label="%%lENTERANSWER%%"/>
+ 		<button action="actionGiveUp" label="%%lGIVEUP%%"/>
+  
+	</box>
+
+ <!-- Defines the right-hand answer box, which is initially hidden  -->
+ <box gridx="1" gridy="0" id="answerbox" display="no" background="answer">
+   
+	<t id="right">Tu respuesta es correcta.<gap/></t>
+	<t id="wrong">Tu respuesta<t id="still"> todavía</t> es incorrecta.<gap/></t>
+	<t id="pass">Has saltado la pregunta.<gap/></t>	
+
+	<t id="feedback">
+		<t id="wrongcase" answer="superheroe[spiderman]" casesensitive="no">
+		Has acertado el personaje pero debes escribirlo correctamente (primera letra en mayúsculas y
+		el resto en minúsculas)
+		<gap/>
+		</t>
+		
+		<t id="superman" answer="superheroe[superman]" casesensitive="no">
+		Superman es un superheroe procedente del planeta Cripton vulnerable a la criptonita
+		que puede volar pero no lanza telarañas
+		<gap/>
+		</t>
+		
+		<t id="batman" answer="superheroe[batman]" casesensitive="no">
+		Batman es un superheroe que lucha contra los villanos de Gotham disfrazado de murciélago y
+		aunque dispone de un montón de artilugios con los que puede descolgarse o salvar grandes alturas
+		no lanza telarañas
+		<gap/>
+		</t>
+		
+		<t id="feedback1" attemptsmax="1">
+			Te has equivocado, me parece que no te fijas demasiado.
+			<gap/>
+		</t>
+		<t id="feedback2" attemptsmin="2">
+			Vamos a centrarnos hombre, 
+			<emphasis type="italic">fíjate bien!!</emphasis>
+			<gap/>
+		</t>
+		Consulta el tema xxx para encontrar una solución a la pregunta.
+		<gap/>
+	</t>	 
+   
+	<t id="answer">
+		Spiderman es un superheroe que defiende la justicia con poderes que obtuvo de la picadura de una araña.
+		<gap/>
+		Y por supuesto entre los poderes de Spiderman está el de lanzar telarañas.
+		<gap/>
+	</t>
+		
+	<button id="ok" action="actionOK" label="%%lTRYAGAIN%%"/>
+	<button id="next" action="actionOK" label="%%lNEXTQUESTION%%" display="no"/>
+   	
+ </box>
+
+<summaryline answer="superheroe[superman],superheroe[batman]">Seleccionado Superman o Batman</summaryline>
+<summaryline>Respuesta seleccionada: <summaryattribute attribute="answerline"/></summaryline>
+
+</question>

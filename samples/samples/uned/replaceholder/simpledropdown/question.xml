@@ -1,0 +1,103 @@
+<question class="samples.uned.replaceholder.simpledropdown.GenericQuestion">
+	
+	<parameters maxattempts="5"></parameters>
+	
+	<scoring><marks>5</marks></scoring>
+
+	<layout>
+		<row height="200"/>
+		<column width="296"/>
+		<column width="296"/>  
+	</layout>
+ 	
+ 	<replaceholder placeholder="RIGHT_EPI" set="@no"/>
+ 	<replaceholder placeholder="RIGHT_COCO" set="@no"/>
+ 	<replaceholder placeholder="RIGHT_GUSTAVO" set="@no"/>
+ 	<replaceholder placeholder="RIGHT_ASTERIX" set="@yes"/>
+ 	<replaceholder placeholder="RIGHT_BLAS" set="@no"/>
+ 	
+ 	<replaceholder placeholder="DISPLAY_EPI" set="@Epi"/>
+ 	
+ 	
+ 	<replaceholder placeholder="COCO_OPTION" set="@coco"/>
+ 	
+	<!-- Defines the left-hand question box -->
+	<box gridx="0" gridy="0" id="inputbox" background="input" 
+		questionline="¿Qué personaje no salía en Barrio Sesamo?">
+		
+		¿Cuál de los siguientes personajes no salía en Barrio Sésamo?
+		<gap/>
+		
+		<dropdown id="nosesamo" selected="epi">
+ 			<option value="epi" display="__DISPLAY_EPI__" right="__RIGHT_EPI__"/>    <!-- wrong -->
+ 			<option value="coco" display="Coco" right="__RIGHT_COCO__"/>    <!-- wrong -->
+ 			<option value="gustavo" display="Gustavo" right="__RIGHT_GUSTAVO__"/>    <!-- wrong -->
+ 			<option value="asterix" display="Ásterix" right="__RIGHT_ASTERIX__"/>    <!-- right -->
+ 			<option value="blas" display="Blas" right="__RIGHT_BLAS__"/>    <!-- wrong -->
+ 		</dropdown>
+		
+		<gap/> 
+  
+		<button action="actionSubmit" label="%%lENTERANSWER%%"/>
+ 		<button action="actionGiveUp" label="%%lGIVEUP%%"/>
+  
+	</box>
+
+ <!-- Defines the right-hand answer box, which is initially hidden  -->
+ <box gridx="1" gridy="0" id="answerbox" display="no" background="answer" answerline="Pasando de todo">
+   
+	<t id="right">Tu respuesta es correcta.<gap/></t>
+	<t id="wrong">Tu respuesta<t id="still"> todavía</t> es incorrecta.<gap/></t>
+	<t id="pass">Has saltado la pregunta.<gap/></t>	
+
+	<t id="feedback">
+		<t id="cocofeedback" answer="nosesamo[__COCO_OPTION__]" attemptsmin="1">
+			Deberías saber que Coco pertenece a Barrio Sesamo.
+			<gap/>
+		</t>
+		<t id="epiblasfeedback" answer="nosesamo[epi],nosesamo[blas]">
+			Tanto Epi como Blas son de Barrio Sesamo.
+			<gap/>
+		</t>
+		<t id="feedback1" attemptsmax="1">
+			Te has equivocado, me parece que no te fijas demasiado.
+			<gap/>
+		</t>
+		<t id="feedback2" attemptsmin="2">
+			Vamos a centrarnos hombre, 
+			<emphasis type="italic">fíjate bien!!</emphasis>
+			<gap/>
+		</t>
+		Consulta el tema xxx para encontrar una solución a la pregunta.
+		<gap/>
+	</t>	 
+   
+	<t id="answer">
+		Astérix es un personaje de comic muy conocido por liderar la resistencia a los romanos de una aldea de la Galia.
+		<gap/>
+		Por tanto, no pertenece a la serie de televisión para niños Barrio Sesamo.
+		<gap/>
+	</t>
+		
+	<button id="ok" action="actionOK" label="%%lTRYAGAIN%%"/>
+	<button id="next" action="actionOK" label="%%lNEXTQUESTION%%" display="no"/>
+   	
+ </box>
+ 
+	<summaryline>     Siempre la 
+	misma    
+	línea   (intento número <summaryattribute attribute="attempt"/>) 
+	
+	</summaryline>
+	<summaryline answer="nosesamo[blas]">Seleccionaste a 
+	<summaryattribute attribute="answerline"/> en el 
+	<summaryattribute attribute="answertagname"/> 
+	</summaryline>
+	<summaryline attemptsmax="2">Llevas menos de 3 intentos</summaryline>
+	<summaryline attemptsmin="3">Llevas ya 3 o más intentos</summaryline>
+	<summaryline test="right">¡Bravo! Esta es la respuesta correcta</summaryline>
+	<summaryline test="wrong">Error. Respuesta incorrecta</summaryline>
+	<summaryline test="passed">Parece que te das por vencido</summaryline>
+	<summaryline>Default summary line: <summaryattribute attribute="defaultsummaryline"/></summaryline>
+ 
+</question>

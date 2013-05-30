@@ -1,0 +1,87 @@
+<question class="es.uned.lsi.gepec.questions.onechoice.OneChoiceQuestion">
+
+	<scoring><marks>3</marks></scoring>
+
+	<layout>
+		<row height="400"/>
+		<column width="296"/>
+		<column width="296"/>  
+	</layout>
+ 
+	<!-- Defines the left-hand question box -->
+	<box gridx="0" gridy="0" id="inputbox" background="input">
+		<t id="question" display="yes">
+				__QUESTION__
+		</t>
+
+		<gap/>
+		
+		<layoutgrid cols="1" shuffle="yes">	
+			<radiobox id="box0">    <!-- wrong -->
+				<t>__A__</t>
+			</radiobox>
+			
+			<radiobox id="box1">    <!-- wrong -->
+				<t>__B__</t>
+			</radiobox>
+			
+			<radiobox id="box2">    <!-- wrong -->
+				<t>__C__</t>
+			</radiobox>
+			
+			<radiobox id="box3">    <!-- right -->
+				<t>__D__</t>
+			</radiobox>		
+		</layoutgrid>
+	
+		<gap/> 
+  
+		<button action="actionSubmit" label="%%lENTERANSWER%%"/>
+<!-- 		<button action="actionGiveUp" label="%%lGIVEUP%%"/> -->
+  
+	</box>
+
+ <!-- Defines the right-hand answer box, which is initially hidden  -->
+ <box gridx="1" gridy="0" id="answerbox" display="no" background="answer">
+   
+	<t id="right">Tu respuesta es correcta.<gap/></t>
+	<t id="wrong">Tu respuesta es<t id="still">todavía </t> incorrecta.<gap/></t>
+	<t id="pass">Has saltado la pregunta.<gap/></t>	
+
+	<t id="feedback">
+		<t id="answer0">
+			Te has equivocado, me parece que no te fijas demasiado.
+			<gap/>
+		</t>
+		<t id="answer1">
+			Vamos a centrarnos hombre, 
+			<emphasis type="italic">fíjate bien!!</emphasis>
+			<gap/>
+		</t>
+		<t id="answer2">
+			Creo que deberías volver a mirar la teoría.
+			<gap/>
+		</t>
+		<t id="answer4">
+			Realmente no se puede fallar tantas veces, así no apruebas en la vida...
+			<gap/>
+		</t>
+		Consulta el tema xxx para encontrar una solución a la pregunta.
+		<gap/>
+	</t>	 
+   
+	<t id="answer">
+		En efecto, esa es la respuesta correcta.
+		<gap/>
+		Da gusto ver cómo aprenden los alumnos.
+		<gap/>
+		Ni yo mismo lo hubiera respondido mejor.
+		<gap/>
+	</t>
+		
+	<button id="ok" action="actionOK" label="%%lTRYAGAIN%%"/>
+	<button id="next" action="actionOK" label="%%lNEXTQUESTION%%" display="no"/>
+   
+ </box>
+ 
+</question>

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/openmark~svn/!svn/ver/239/trunk/src/om/tnavigator/auth/simple
+END
+SimpleUser.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/openmark~svn/!svn/ver/239/trunk/src/om/tnavigator/auth/simple/SimpleUser.java
+END
+SimpleAuth.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/openmark~svn/!svn/ver/197/trunk/src/om/tnavigator/auth/simple/SimpleAuth.java
+END
+SimpleUncheckedUser.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/openmark~svn/!svn/ver/130/trunk/src/om/tnavigator/auth/simple/SimpleUncheckedUser.java
+END

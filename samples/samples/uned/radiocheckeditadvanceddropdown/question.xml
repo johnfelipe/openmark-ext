@@ -1,0 +1,237 @@
+<question class="samples.uned.radiocheckeditadvanceddropdown.GenericQuestion">
+	
+	<parameters maxattempts="5"></parameters>
+	
+	<scoring><marks>5</marks></scoring>
+
+	<layout>
+		<row height="850"/>
+		<column width="296"/>
+		<column width="296"/>  
+	</layout>
+ 
+	<!-- Defines the left-hand question box -->
+	<box gridx="0" gridy="0" id="inputbox" background="input">
+		<emphasis>Varias preguntas de superheroes</emphasis>
+		<gap/>
+		Selecciona al supervillano:
+		<layoutgrid cols="1" shuffle="yes">	
+			<radiobox id="lobezno" group="supervillano">    <!-- wrong -->
+				<t>Lobezno</t>
+			</radiobox>
+			
+			<radiobox id="magneto" group="supervillano" right="yes">    <!-- right -->
+				<t>Magneto</t>
+			</radiobox>
+			
+			<radiobox id="tormenta" group="supervillano">    <!-- wrong -->
+				<t>Tormenta</t>
+			</radiobox>
+		</layoutgrid>
+		<gap/> 
+		Selecciona al personaje(superheroe o supervillano) que no es de Gotham:
+		<gap/>
+		<layoutgrid cols="1" shuffle="yes">	
+			<radiobox id="joker" group="nogotham">    <!-- wrong -->
+				<t>Joker</t>
+			</radiobox>
+			
+			<radiobox id="batman" group="nogotham">    <!-- wrong -->
+				<t>Batman</t>
+			</radiobox>
+			
+			<radiobox id="capitanamerica" group="nogotham" right="yes">    <!-- right -->
+				<t>Capitan América</t>
+			</radiobox>
+		</layoutgrid>
+		<gap/> 
+		Otros superheroes:
+		<gap/>
+		<layoutgrid cols="1" shuffle="yes">
+			<checkbox id="mahoma">    <!-- wrong -->
+				<t>Mahoma</t>
+			</checkbox>
+			
+			<checkbox id="obama">    <!-- wrong -->
+				<t>Obama</t>
+			</checkbox>
+			
+			<checkbox id="estelaplateada" right="yes">    <!-- right -->
+				<t>Estela plateada</t>
+			</checkbox>
+			
+			<checkbox id="picara" right="yes">    <!-- right -->
+				<t>Pícara</t>
+			</checkbox>
+		</layoutgrid>
+		<gap/> 
+		
+		¿Qué superheroe lanza telarañas?
+		<editfield id="telaranyas" cols="30" label="" right="spiderman" casesensitive="no" />
+		<gap/> 
+  		
+		¿Qué superheroe es vulnerable a la criptonita?
+		<editfield id="criptonita" cols="30" label="" right="superman" casesensitive="no" />
+		<gap/> 
+  		
+  		¿Fórmula química de la sustancia donde mejor se desenvuelve Aquaman?
+  		<advancedfield id="formulaaquaman" cols="12" type="subscript" label="formula" 
+  			right="H&lt;sub>2&lt;/sub>O" subprefix="" subsuffix="" />
+  		<gap/>
+  		
+  		¿Qué superheroe tiene el poder de controlar el clima?
+  		<gap/>
+		<dropdown id="poderclima">
+ 			<option value="ciclope" display="Cíclope"/>    <!-- wrong -->
+ 			<option value="lobezno" display="Lobezno"/>    <!-- wrong -->
+ 			<option value="tormenta" display="Tormenta" right="yes"/>    <!-- right -->
+ 			<option value="picara" display="Pícara"/>    <!-- wrong -->
+ 			<option value="magneto" display="Magneto"/>    <!-- wrong -->
+ 		</dropdown>
+  		<gap/>
+  		
+		<button action="actionSubmit" label="%%lENTERANSWER%%"/>
+ 		<button action="actionGiveUp" label="%%lGIVEUP%%"/>
+  
+	</box>
+
+ <!-- Defines the right-hand answer box, which is initially hidden  -->
+ <box gridx="1" gridy="0" id="answerbox" display="no" background="answer">
+   
+	<t id="right">Tu respuesta es correcta.<gap/></t>
+	<t id="wrong">Tu respuesta<t id="still"> todavía</t> es incorrecta.<gap/></t>
+	<t id="pass">Has saltado la pregunta.<gap/></t>	
+	
+	<t answer="lobezno,tormenta" attemptsmin="2">
+	<t answer="lobezno">Lobezno</t><t answer="tormenta">Tormenta</t> forma parte de la patrulla X, pero
+	no es supervillano
+	<gap/>
+	</t>
+	
+	<t answer="joker" attemptsmin="2">
+	Joker es un supervillano de la ciudad de Gotham, el archienemigo de Batman
+	<gap/>
+	</t>
+	
+	<t answer="mahoma" attemptsmin="2">
+	Mahoma es el profeta de Ala, Dios de los musulmanes, no un superheroe
+	<gap/>
+	</t>
+	
+	<t answer="obama" attemptsmin="2">
+	Obama es el presidente de Estados Unidos, no un superheroe
+	<gap/>
+	</t>
+	
+	<t answer="telaranyas[superman]" attemptsmin="2">
+	Superman puede volar pero no lanza telarañas
+	<gap/>
+	</t>
+	
+	<t answer="criptonita[spiderman]" attemptsmin="2">
+	Spiderman no es vulnerable a la criptonita
+	<gap/>
+	</t>
+	
+	<t answer="batman,telaranyas[batman],criptonita[batman]" attemptsmin="2">
+	Batman es un superheroe que lucha contra los villanos<t answer="batman"> de Gotham</t> 
+	disfrazado de murciélago<t answer="telaranyas[batman]"> y aunque dispone de un montón de artilugios con los que 
+	puede descolgarse o salvar grandes alturas no lanza telarañas</t><t answer="criptonita[batman]"> y 
+	por supuesto no es vulnerable a la criptonita</t>
+	<gap/>
+	</t>
+	
+	<t id="wrongcase" test="wrong[formulaaquaman]" 
+		answer="formulaaquaman[H&lt;sub>2&lt;/sub>O],formulaaquaman[H2O]+!wrongbutexactcase" 
+		attemptsmin="2" casesensitive="no">
+	La fórmula es esa pero está escrita mal. Los símbolos químicos siempre comienzan
+	con la primera letra en mayúsculas.
+	<gap/>
+	</t>
+	 
+	<t id="usesub" test="wrong[formulaaquaman]" answer="formulaaquaman[H2O]" attemptsmin="2" 
+		casesensitive="no">
+	Los atomos de una fórmula química se escriben como subíndices.
+	<gap/>
+	</t> 
+	
+	<t answer="poderclima[ciclope]" attemptsmin="2">
+	El poder de Cíclope es un rayo muy destructivo que emite por los ojos, pero no tiene
+	ningun control sobre el clima. 
+	<gap/>
+	</t>
+	
+	<t answer="poderclima[lobezno]" attemptsmin="2">
+	Lobezno posee una capacidad de regeneración y fuerza asombrosas pero no controla el clima. 
+	<gap/>
+	</t>
+	
+	<t answer="poderclima[picara]" attemptsmin="2">
+	Pícara absorbe los poderes de cualquier mutante al que toca, pero que se sepa no ha tocado
+	a ningún mutante capaz de controlar el clima. 
+	<gap/>
+	</t>
+	
+	<t answer="poderclima[magneto]" attemptsmin="2">
+	Magneto puede manipular a distancia cualquier objeto metálico, pero no tiene control sobre
+	los elementos metereológicos. 
+	<gap/>
+	</t>
+	
+	<t id="feedback">
+		<t id="feedback1" attemptsmax="1">
+			Te has equivocado, me parece que no te fijas demasiado.
+			<gap/>
+		</t>
+		<t id="feedback2" attemptsmin="2">
+			Vamos a centrarnos hombre, 
+			<emphasis type="italic">fíjate bien!!</emphasis>
+			<gap/>
+		</t>
+		Consulta el tema xxx para encontrar una solución a la pregunta.
+		<gap/>
+	</t>	 
+   
+	<t id="answer">
+		Magneto es uno de los supervillanos más poderosos de X-Men, con el poder de poder manipular a
+		distancia cualquier objeto metálico.
+		<gap/>
+		Capitán América es un supersoldado que lucha conta los nazis, por tanto no pertenece a la ciudad
+		de Gotham.
+		<gap/>
+		Estela plateada era el heraldo de Galactus, el devorador de planetas, pero al encontrar la
+		Tierra se rebelo y la protegio contra Galactus, es por tanto un superheroe.
+		<gap/>
+		Pícara es una mutante de la patrulla X que mata a cualquiera que toca, absorbiendo sus poderes
+		si se trata de otro mutante, es por tanto una superheroe.
+		<gap/>
+		Spiderman es un superheroe que defiende la justicia con poderes que obtuvo de la picadura de una araña.
+		<gap/>
+		Y por supuesto entre los poderes de Spiderman está el de lanzar telarañas.
+		<gap/>
+		Por otra parte Superman es un superheroe procedente del planeta Cripton
+		que puede volar pero no lanza telarañas
+		<gap/>
+		Y es muy conocida su vulnerabilidad a la criptonita.
+		<gap/>
+		También está claro que la sustancia donde mejor se desenvuelve Aquaman es el
+		agua, cuya fórmula química es: <eq>\mbox{H}_2\mbox{O}</eq>
+		<gap/>
+		Finalmente Tormenta, una de las mutantes más poderosas de Expediente X, tiene el poder
+		de controlar el clima a voluntad.
+		<gap/>
+	</t>
+		
+	<button id="ok" action="actionOK" label="%%lTRYAGAIN%%"/>
+	<button id="next" action="actionOK" label="%%lNEXTQUESTION%%" display="no"/>
+   	
+ </box>
+
+	<summaryline answer="batman,telaranyas[superman],telaranyas[batman],criptonita[superman],criptonita[batman]">
+	Seleccionado Superman o Batman en alguno de los componentes de respuesta</summaryline>
+	
+	<summaryline>Respuesta seleccionada: <summaryattribute attribute="answerline"/></summaryline>
+
+ 	<answercombo id="wrongbutexactcase" test="wrong[formulaaquaman]" answer="formulaaquaman[H2O]"/>
+
+</question>

@@ -1,0 +1,551 @@
+<question class="samples.uned.random.coordinates.GenericQuestion2">
+
+    <scoring>
+        <marks>3</marks>
+    </scoring>
+
+    <layout>
+        <row height="330"/>
+        <row height="370"/>
+        <column width="592"/>
+    </layout>
+	
+	<!-- Random values -->
+	<random id="randomAB" max="1"/>
+	<random id="randomCD" max="1"/>
+	<random id="randomEF" max="1"/>
+	<random id="randomGH" max="1"/>
+	
+	<replaceholder placeholder="ABs" set="randomAB">
+  		<option value="A"/>
+  		<option value="B"/>
+	</replaceholder>
+	
+	<replaceholder id="ABx" placeholder="ABx" set="randomAB">
+  		<option value="1"/>
+  		<option value="2"/>
+	</replaceholder>
+	
+	<replaceholder id="ABy" placeholder="ABy" set="randomAB">
+  		<option value="2"/>
+  		<option value="1"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="CDs" set="randomCD">
+  		<option value="C"/>
+  		<option value="D"/>
+	</replaceholder>
+	
+	<replaceholder id="CDx" placeholder="CDx" set="randomCD">
+  		<option value="-1"/>
+  		<option value="-2"/>
+	</replaceholder>
+	
+	<replaceholder id="CDy" placeholder="CDy" set="randomCD">
+  		<option value="2"/>
+  		<option value="1"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="EFs" set="randomEF">
+  		<option value="E"/>
+  		<option value="F"/>
+	</replaceholder>
+	
+	<replaceholder id="EFx" placeholder="EFx" set="randomEF">
+  		<option value="2"/>
+  		<option value="1"/>
+	</replaceholder>
+	
+	<replaceholder id="EFy" placeholder="EFy" set="randomEF">
+  		<option value="-1"/>
+  		<option value="-2"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="GHs" set="randomGH">
+  		<option value="G"/>
+  		<option value="H"/>
+	</replaceholder>
+	
+	<replaceholder id="GHx" placeholder="GHx" set="randomGH">
+  		<option value="-1"/>
+  		<option value="-2"/>
+	</replaceholder>
+	
+	<replaceholder id="GHy" placeholder="GHy" set="randomGH">
+  		<option value="-2"/>
+  		<option value="-1"/>
+	</replaceholder>
+	
+	<!-- noNumberABx=(rABx valid double)?rABx:"NaN" -->
+	<variable id="noNumberABx" set="rABx[nf!&quot;NaN&quot;]"/>
+	
+	<!-- noNumberABy=(rABy valid double)?rABy:"NaN" -->
+	<variable id="noNumberABy" set="rABy[nf!&quot;NaN&quot;]"/>
+	
+	<!-- noNumberCDx=(rCDx valid double)?rCDx:"NaN" -->
+	<variable id="noNumberCDx" set="rCDx[nf!&quot;NaN&quot;]"/>
+	
+	<!-- noNumberCDy=(rCDy valid double)?rCDy:"NaN" -->
+	<variable id="noNumberCDy" set="rCDy[nf!&quot;NaN&quot;]"/>
+	
+	<!-- noNumberEFx=(rEFx valid double)?rEFx:"NaN" -->
+	<variable id="noNumberEFx" set="rEFx[nf!&quot;NaN&quot;]"/>
+	
+	<!-- noNumberEFy=(rEFy valid double)?rEFy:"NaN" -->
+	<variable id="noNumberEFy" set="rEFy[nf!&quot;NaN&quot;]"/>
+	
+	<!-- noNumberGHx=(rGHx valid double)?rGHx:"NaN" -->
+	<variable id="noNumberGHx" set="rGHx[nf!&quot;NaN&quot;]"/>
+	
+	<!-- noNumberGHy=(rGHy valid double)?rGHy:"NaN" -->
+	<variable id="noNumberGHy" set="rGHy[nf!&quot;NaN&quot;]"/>
+	
+	<!-- correctABx=rABx==ABx?1:0 -->
+	<variable id="correctABx" set="rABx[neABx@,&quot;1&quot;,&quot;0&quot;ni!&quot;0&quot;]" 
+		tolerance="1E-6"/>
+	
+	<!-- correctABy=rABy==ABy?1:0 -->
+	<variable id="correctABy" set="rABy[neABy@,&quot;1&quot;,&quot;0&quot;ni!&quot;0&quot;]" 
+		tolerance="1E-6"/>
+	
+	<!-- correctAB=(correctABx+correctABy)==2?1:0 -->
+	<variable id="correctAB" set="correctABx[naicorrectABy@nei&quot;2&quot;,&quot;1&quot;,&quot;0&quot;]"/>
+	
+	<!-- correctCDx=rCDx==CDx?1:0 -->
+	<variable id="correctCDx" set="rCDx[neCDx@,&quot;1&quot;,&quot;0&quot;ni!&quot;0&quot;]" 
+		tolerance="1E-6"/>
+	
+	<!-- correctCDy=rCDy==CDy?1:0 -->
+	<variable id="correctCDy" set="rCDy[neCDy@,&quot;1&quot;,&quot;0&quot;ni!&quot;0&quot;]" 
+		tolerance="1E-6"/>
+	
+	<!-- correctCD=(correctCDx+correctCDy)==2?1:0 -->
+	<variable id="correctCD" set="correctCDx[naicorrectCDy@nei&quot;2&quot;,&quot;1&quot;,&quot;0&quot;]"/>
+	
+	<!-- correctEFx=rEFx==EFx?1:0 -->
+	<variable id="correctEFx" set="rEFx[neEFx@,&quot;1&quot;,&quot;0&quot;ni!&quot;0&quot;]" 
+		tolerance="1E-6"/>
+	
+	<!-- correctEFy=rEFy==EFy?1:0 -->
+	<variable id="correctEFy" set="rEFy[neEFy@,&quot;1&quot;,&quot;0&quot;ni!&quot;0&quot;]" 
+		tolerance="1E-6"/>
+
+	<!-- correctEF=(correctEFx+correctEFy)==2?1:0 -->
+	<variable id="correctEF" set="correctEFx[naicorrectEFy@nei&quot;2&quot;,&quot;1&quot;,&quot;0&quot;]"/>
+
+	<!-- correctGHx=rGHx==GHx?1:0 -->
+	<variable id="correctGHx" set="rGHx[neGHx@,&quot;1&quot;,&quot;0&quot;ni!&quot;0&quot;]" 
+		tolerance="1E-6"/>
+	
+	<!-- correctGHy=rGHy==GHy?1:0 -->
+	<variable id="correctGHy" set="rGHy[neGHy@,&quot;1&quot;,&quot;0&quot;ni!&quot;0&quot;]" 
+		tolerance="1E-6"/>
+	
+	<!-- correctGH=(correctGHx+correctGHy)==2?1:0 -->
+	<variable id="correctGH" set="correctGHx[naicorrectGHy@nei&quot;2&quot;,&quot;1&quot;,&quot;0&quot;]"/>
+	
+	<!-- correct=correctAB+correctCD+correctEF+correctGH -->
+	<variable id="correct" set="correctAB[naicorrectCD@naicorrectEF@naicorrectGH@]"/>
+	
+	<!-- switchedABx=rABx==ABy?1:0 -->
+	<variable id="switchedABx" set="rABx[neABy@,&quot;1&quot;,&quot;0&quot;ni!&quot;0&quot;]" 
+		tolerance="1E-6"/>
+	
+	<!-- switchedABy=rABy==ABx?1:0 -->
+	<variable id="switchedABy" set="rABy[neABx@,&quot;1&quot;,&quot;0&quot;ni!&quot;0&quot;]" 
+		tolerance="1E-6"/>
+	
+	<!-- switchedAB=(switchedABx+switchedABy)==2?1:0 -->
+	<variable id="switchedAB" set="switchedABx[naiswitchedABy@nei&quot;2&quot;,&quot;1&quot;,&quot;0&quot;]"/>
+	
+	<!-- switchedCDx=rCDx==CDy?1:0 -->
+	<variable id="switchedCDx" set="rCDx[neCDy@,&quot;1&quot;,&quot;0&quot;ni!&quot;0&quot;]" 
+		tolerance="1E-6"/>
+	
+	<!-- switchedCDy=rCDy==CDx?1:0 -->
+	<variable id="switchedCDy" set="rCDy[neCDx@,&quot;1&quot;,&quot;0&quot;ni!&quot;0&quot;]" 
+		tolerance="1E-6"/>
+	
+	<!-- switchedCD=(switchedCDx+switchedCDy)==2?1:0 -->
+	<variable id="switchedCD" set="switchedCDx[naiswitchedCDy@nei&quot;2&quot;,&quot;1&quot;,&quot;0&quot;]"/>
+	
+	<!-- switchedEFx=rEFx==EFy?1:0 -->
+	<variable id="switchedEFx" set="rEFx[neEFy@,&quot;1&quot;,&quot;0&quot;ni!&quot;0&quot;]" 
+		tolerance="1E-6"/>
+	
+	<!-- switchedEFy=rEFy==EFx?1:0 -->
+	<variable id="switchedEFy" set="rEFy[neEFx@,&quot;1&quot;,&quot;0&quot;ni!&quot;0&quot;]" 
+		tolerance="1E-6"/>
+
+	<!-- switchedEF=(switchedEFx+switchedEFy)==2?1:0 -->
+	<variable id="switchedEF" set="switchedEFx[naiswitchedEFy@nei&quot;2&quot;,&quot;1&quot;,&quot;0&quot;]"/>
+
+	<!-- switchedGHx=rGHx==GHy?1:0 -->
+	<variable id="switchedGHx" set="rGHx[neGHy@,&quot;1&quot;,&quot;0&quot;ni!&quot;0&quot;]" 
+		tolerance="1E-6"/>
+	
+	<!-- switchedGHy=rGHy==GHx?1:0 -->
+	<variable id="switchedGHy" set="rGHy[neGHx@,&quot;1&quot;,&quot;0&quot;ni!&quot;0&quot;]" 
+		tolerance="1E-6"/>
+	
+	<!-- switchedGH=(switchedGHx+switchedGHy)==2?1:0 -->
+	<variable id="switchedGH" set="switchedGHx[naiswitchedGHy@nei&quot;2&quot;,&quot;1&quot;,&quot;0&quot;]"/>
+	
+	<!-- switched=switchedAB+switchedCD+switchedEF+switchedGH -->
+	<variable id="switched" set="switchedAB[naiswitchedCD@naiswitchedEF@naiswitchedGH@]"/>
+	
+	<!-- displayIcons="yes" -->
+	<variable id="displayIcons" set="@yes"/>
+	
+	<!-- CORRECT=correct--> 
+	<replaceholder placeholder="CORRECT" set="correct@"/>
+	
+	<!-- SWITCHED=switched--> 
+	<replaceholder placeholder="SWITCHED" set="switched@"/>
+	
+    <!-- Defines the question box -->
+    <box gridx="0" gridy="0" id="inputbox" background="input"
+    	questionline="find (x,y) coordinates for: __ABs__, __CDs__, __EFs__, __GHs__">
+    	
+        <layoutgrid cols ="2">
+            <t>
+                On the right is a graph with a number of points marked on it.
+                <gap/>
+                What are the co-ordinates of the following points?
+                <gap/>
+                <layoutgrid cols ="4" widths="30%,25%,25%,20%">
+                    <t>point __ABs__,</t>
+                    <t>x: <editfield id="rABx" label="enter value" cols="3" answertype="numeric" 
+                    			right="__ABx__" singlespaces="no" tolerance="1E-6"/></t>
+                    <t>y: <editfield id="rABy" label="enter value" cols="3" answertype="numeric" 
+                    			right="__ABy__" singlespaces="no" tolerance="1E-6"/></t>
+                    <t>
+                        <image id="wrong0" display="no" filePath="wrong.gif" alt="part 1 is wrong"
+                        	answer="correctAB[0]"/>
+                        <image id="right0" display="no" filePath="right.gif" alt="part 1 is right"
+                        	answer="correctAB[1]"/>
+                    </t>
+                    <t>point __CDs__,</t>
+                    <t>x: <editfield id="rCDx" label="enter value" cols="3" answertype="numeric" 
+                    			right="__CDx__" singlespaces="no" tolerance="1E-6"/></t>
+                    <t>y: <editfield id="rCDy" label="enter value" cols="3" answertype="numeric" 
+                    			right="__CDy__" singlespaces="no" tolerance="1E-6"/></t>
+                    <t>
+                        <image id="wrong1" display="no" filePath="wrong.gif" alt="part 2 is wrong"
+                        	answer="correctCD[0]"/>
+                        <image id="right1" display="no" filePath="right.gif" alt="part 2 is right"
+                        	answer="correctCD[1]"/>
+                    </t>
+                    <t>point __EFs__,</t>
+                    <t>x: <editfield id="rEFx" label="enter value" cols="3" answertype="numeric" 
+                    			right="__EFx__" singlespaces="no" tolerance="1E-6"/></t>
+                    <t>y: <editfield id="rEFy" label="enter value" cols="3" answertype="numeric" 
+                    			right="__EFy__" singlespaces="no" tolerance="1E-6"/></t>
+                    <t>
+                        <image id="wrong2" display="no" filePath="wrong.gif" alt="part 3 is wrong"
+                        	answer="correctEF[0]"/>
+                        <image id="right2" display="no" filePath="right.gif" alt="part 3 is right"
+                        	answer="correctEF[1]"/>
+                    </t>
+                    <t>point __GHs__,</t>
+                    <t>x: <editfield id="rGHx" label="enter value" cols="3" answertype="numeric" 
+                    			right="__GHx__" singlespaces="no" tolerance="1E-6"/></t>
+                    <t>y: <editfield id="rGHy" label="enter value" cols="3" answertype="numeric" 
+                    			right="__GHy__" singlespaces="no" tolerance="1E-6"/></t>
+                    <t>
+                        <image id="wrong3" display="no" filePath="wrong.gif" alt="part 4 is wrong"
+                        	answer="correctGH[0]"/>
+                        <image id="right3" display="no" filePath="right.gif" alt="part 4 is right"
+                        	answer="correctGH[1]"/>
+                    </t>
+                </layoutgrid>
+            </t>
+            <canvas id="graph1" width="256" height="256">
+            	<world id="w1" px="21" py="16" pw="220" ph="204"
+            		xleft="-2" xright="2" ybottom="-2" ytop="2">
+            		
+            		<grid colour="lightGray" xSpacing="1" ySpacing="1" minX="-2" maxX="2" minY="-2"
+            			maxY="2" opacity="1"/>
+            		
+					<xAxis ticks="1" tickSide="-" colour="black" numbers="1" omitNumbers="0" 
+						numbersMargin="7" numbersFont="12px Dialog.plain"/>
+            		
+					<yAxis ticks="1" tickSide="-" colour="black" numbers="1" omitNumbers="0"
+						numbersMargin="1" numbersFont="12px Dialog.plain"/>
+            		
+            		<text x="0:-12" y="0:20" text="0" colour="black" font="12px Dialog.plain" 
+            			align="left"/>
+            		
+            		<text x="2:3" y="0:0" text="x" colour="black" font="12px Dialog.plain" 
+            			align="left"/>
+            		
+            		<text x="0:1" y="2:-3" text="y" colour="black" font="12px Dialog.plain" 
+            			align="left"/>
+            		
+            		<!-- A -->
+            		<polygon x1="1:3" y1="2" x2="1" y2="2:-3" x3="1:-3" y3="2" x4="1" y4="2:3"
+            			fillColour="#5C2F8A,fg"/>
+            		
+            		<text x="1:1" y="2:-3" text="A" colour="#5C2F8A,fg" font="12px Dialog.plain"
+            			align="left"/>
+            		
+            		<!-- B -->
+            		<polygon x1="2:3" y1="1" x2="2" y2="1:-3" x3="2:-3" y3="1" x4="2" y4="1:3"
+            			fillColour="#5C2F8A,fg"/> 
+            		
+            		<text x="2:6" y="1:2" text="B" colour="#5C2F8A,fg" font="12px Dialog.plain"
+            			align="left"/>
+            		
+            		<!-- C -->
+            		<polygon x1="-1:3" y1="2" x2="-1" y2="2:-3" x3="-1:-3" y3="2" x4="-1" y4="2:3"
+            			fillColour="#5C2F8A,fg"/> 
+            		
+            		<text x="-1:-9" y="2:-3" text="C" colour="#5C2F8A,fg" font="12px Dialog.plain"
+            			align="left"/>
+            		
+            		<!-- D -->
+            		<polygon x1="-2:3" y1="1" x2="-2" y2="1:-3" x3="-2:-3" y3="1" x4="-2" y4="1:3"
+            			fillColour="#5C2F8A,fg"/> 
+            		
+            		<text x="-2:-14" y="1:2" text="D" colour="#5C2F8A,fg" font="12px Dialog.plain"
+            			align="left"/>
+            		
+            		<!-- E -->
+            		<polygon x1="2:3" y1="-1" x2="2" y2="-1:-3" x3="2:-3" y3="-1" x4="2" y4="-1:3"
+            			fillColour="#5C2F8A,fg"/> 
+            		
+            		<text x="2:6" y="-1:12" text="E" colour="#5C2F8A,fg" font="12px Dialog.plain"
+            			align="left"/>
+            		
+            		<!-- F -->
+            		<polygon x1="1:3" y1="-2" x2="1" y2="-2:-3" x3="1:-3" y3="-2" x4="1" y4="-2:3"
+            			fillColour="#5C2F8A,fg"/> 
+            		
+            		<text x="1:1" y="-2:17" text="F" colour="#5C2F8A,fg" font="12px Dialog.plain"
+            			align="left"/>
+            		
+            		<!-- G -->
+            		<polygon x1="-1:3" y1="-2" x2="-1" y2="-2:-3" x3="-1:-3" y3="-2" x4="-1" y4="-2:3"
+            			fillColour="#5C2F8A,fg"/> 
+            		
+            		<text x="-1:-9" y="-2:17" text="G" colour="#5C2F8A,fg" font="12px Dialog.plain"
+            			align="left"/>
+            		
+            		<!-- H -->
+            		<polygon x1="-2:3" y1="-1" x2="-2" y2="-1:-3" x3="-2:-3" y3="-1" x4="-2" y4="-1:3"
+            			fillColour="#5C2F8A,fg"/> 
+            		
+            		<text x="-2:-14" y="-1:12" text="H" colour="#5C2F8A,fg" font="12px Dialog.plain"
+            			align="left"/>
+            	</world>
+            </canvas>	
+        </layoutgrid>
+
+        <button action="actionSubmit" label="%%lENTERANSWER%%"/>
+        <button id="hintButton" action="actionHint" label="Hint"/>
+        <!--button action="actionGiveUp" label="%%lGIVEUP%%"/-->
+    </box>
+
+    <!-- Defines the right-hand answer box, which is initially hidden  -->
+    <box gridx="0" gridy="1" id="answerbox" display="no" background="answer">
+		 
+        <t id="wrong">Your answer is <t id="still">still</t> incorrect.<gap/></t>
+        <t id="right">Your answer is correct.<gap/></t>
+        <t id="pass">You passed on this question.<gap/></t>
+
+        <t id="hints">
+            <t id="hint">
+                Find the named point on the graph,
+                pick out the X coordinate on the horizontal axis,
+                the Y coordinate on the vertical axis
+                to complete your answer.
+                <gap/>
+            </t>
+        </t>
+
+        <t id="feedback">
+            <t id="nonumber" answer="ansNoNumber">
+                The answer is incomplete,
+                please enter two numbers for each point,
+                i.e. eight in all.
+                <gap/>
+            </t>
+            <t id="correct">
+                You have __CORRECT__ out of 4 correct answers.
+                <gap/>
+            </t>
+            <t id="switched" answer="!switched[0]">
+                __SWITCHED__ of your answers are correct but the wrong way round.
+                <gap/>
+            </t>
+            <t id="feedback2" attemptsmin="2" attemptsmax="2">
+                The first, or x co-ordinate of the point is the position on the x axis
+                and the second the position on the y axis,
+                whether positive or negative..
+                <gap/>
+            </t>   
+        </t>
+
+        <t id="answer">
+            <layoutgrid cols ="2">
+                <t>
+                    Please verify the following against the graph
+                    <gap/>
+                    <gap/>
+                    point __ABs__ has coordinates x: __ABx__, y: __ABy__
+                    <break/>
+                    point __CDs__ has coordinates x: __CDx__, y: __CDy__
+                    <break/>
+                    point __EFs__ has coordinates x: __EFx__, y: __EFy__
+                    <break/>
+                    point __GHs__ has coordinates x: __GHx__, y: __GHy__
+                    <break/>
+                </t>
+                <canvas id="graph2" width="256" height="256">
+            		<world id="w2" px="21" py="16" pw="220" ph="204"
+            			xleft="-2" xright="2" ybottom="-2" ytop="2">
+            		
+            			<!-- AB -->
+            			<line lineColour="lightGray" x="0" y="__ABy__" x2="__ABx__" y2="__ABy__"/>
+            			<line lineColour="lightGray" x="__ABx__" y="0" x2="__ABx__" y2="__ABy__"/>
+            			
+            			<!-- CD -->
+            			<line lineColour="lightGray" x="0" y="__CDy__" x2="__CDx__" y2="__CDy__"/>
+            			<line lineColour="lightGray" x="__CDx__" y="0" x2="__CDx__" y2="__CDy__"/>
+            			
+            			<!-- EF -->
+            			<line lineColour="lightGray" x="0" y="__EFy__" x2="__EFx__" y2="__EFy__"/>
+            			<line lineColour="lightGray" x="__EFx__" y="0" x2="__EFx__" y2="__EFy__"/>
+            			
+            			<!-- GH -->
+            			<line lineColour="lightGray" x="0" y="__GHy__" x2="__GHx__" y2="__GHy__"/>
+            			<line lineColour="lightGray" x="__GHx__" y="0" x2="__GHx__" y2="__GHy__"/>
+            			
+						<xAxis ticks="1" tickSide="-" colour="black" numbers="1" omitNumbers="0" 
+							numbersMargin="7" numbersFont="12px Dialog.plain"/>
+            			
+						<yAxis ticks="1" tickSide="-" colour="black" numbers="1" omitNumbers="0"
+							numbersMargin="1" numbersFont="12px Dialog.plain"/>
+            			
+            			<text x="0:-12" y="0:20" text="0" colour="black" font="12px Dialog.plain" 
+            				align="left"/>
+            			
+            			<text x="2:3" y="0:0" text="x" colour="black" font="12px Dialog.plain" 
+            				align="left"/>
+            			
+            			<text x="0:1" y="2:-3" text="y" colour="black" font="12px Dialog.plain" 
+            				align="left"/>
+            			
+            			<!-- A -->
+            			<polygon x1="1:3" y1="2" x2="1" y2="2:-3" x3="1:-3" y3="2" x4="1" y4="2:3"
+            				fillColour="#5C2F8A,fg"/>
+            			
+            			<text x="1:1" y="2:-3" text="A" colour="#5C2F8A,fg" font="12px Dialog.plain"
+            				align="left"/>
+            			
+            			<!-- B -->
+            			<polygon x1="2:3" y1="1" x2="2" y2="1:-3" x3="2:-3" y3="1" x4="2" y4="1:3"
+            				fillColour="#5C2F8A,fg"/> 
+	            		
+            			<text x="2:6" y="1:2" text="B" colour="#5C2F8A,fg" font="12px Dialog.plain"
+            				align="left"/>
+            			
+            			<!-- C -->
+            			<polygon x1="-1:3" y1="2" x2="-1" y2="2:-3" x3="-1:-3" y3="2" x4="-1" y4="2:3"
+            				fillColour="#5C2F8A,fg"/> 
+            			
+            			<text x="-1:-9" y="2:-3" text="C" colour="#5C2F8A,fg" font="12px Dialog.plain"
+            				align="left"/>
+            			
+            			<!-- D -->
+            			<polygon x1="-2:3" y1="1" x2="-2" y2="1:-3" x3="-2:-3" y3="1" x4="-2" y4="1:3"
+            				fillColour="#5C2F8A,fg"/> 
+            			
+            			<text x="-2:-14" y="1:2" text="D" colour="#5C2F8A,fg" font="12px Dialog.plain"
+            				align="left"/>
+            			
+            			<!-- E -->
+            			<polygon x1="2:3" y1="-1" x2="2" y2="-1:-3" x3="2:-3" y3="-1" x4="2" y4="-1:3"
+            				fillColour="#5C2F8A,fg"/> 
+            			
+            			<text x="2:6" y="-1:12" text="E" colour="#5C2F8A,fg" font="12px Dialog.plain"
+            				align="left"/>
+            			
+            			<!-- F -->
+            			<polygon x1="1:3" y1="-2" x2="1" y2="-2:-3" x3="1:-3" y3="-2" x4="1" y4="-2:3"
+            				fillColour="#5C2F8A,fg"/> 
+            			
+            			<text x="1:1" y="-2:17" text="F" colour="#5C2F8A,fg" font="12px Dialog.plain"
+            				align="left"/>
+            			
+            			<!-- G -->
+            			<polygon x1="-1:3" y1="-2" x2="-1" y2="-2:-3" x3="-1:-3" y3="-2" 
+            				x4="-1" y4="-2:3" fillColour="#5C2F8A,fg"/> 
+            			
+            			<text x="-1:-9" y="-2:17" text="G" colour="#5C2F8A,fg" font="12px Dialog.plain"
+            				align="left"/>
+            			
+            			<!-- H -->
+            			<polygon x1="-2:3" y1="-1" x2="-2" y2="-1:-3" x3="-2:-3" y3="-1" 
+            				x4="-2" y4="-1:3" fillColour="#5C2F8A,fg"/> 
+            		
+            			<text x="-2:-14" y="-1:12" text="H" colour="#5C2F8A,fg" font="12px Dialog.plain"
+            				align="left"/>
+            		</world>
+                </canvas>	
+            </layoutgrid>
+        </t>
+
+        <t id="reference">
+            Please see MU120 Preparatory Resource Book B section 5.3.1
+            <gap/>
+        </t>
+     
+        <button id="ok" action="actionOK" label="%%lTRYAGAIN%%"/>
+        <button id="next" action="actionOK" label="%%lNEXTQUESTION%%" display="no"/>
+   
+    </box>
+	
+	<task task="setvariable" when="hint" parameters="displayIcons,@no"/>
+	
+	<task task="setvariable" when="startattempt" parameters="displayIcons,@yes"/>
+	<task task="setproperty" when="startattempt" parameters="wrong0,display,@no"/>
+	<task task="setproperty" when="startattempt" parameters="right0,display,@no"/>
+	<task task="setproperty" when="startattempt" parameters="wrong1,display,@no"/>
+	<task task="setproperty" when="startattempt" parameters="right1,display,@no"/>
+	<task task="setproperty" when="startattempt" parameters="wrong2,display,@no"/>
+	<task task="setproperty" when="startattempt" parameters="right2,display,@no"/>
+	<task task="setproperty" when="startattempt" parameters="wrong3,display,@no"/>
+	<task task="setproperty" when="startattempt" parameters="right3,display,@no"/>
+	
+	<task task="setproperty" when="endattempt" parameters="wrong0,display,displayIcons"/>
+	<task task="setproperty" when="endattempt" parameters="right0,display,displayIcons"/>
+	<task task="setproperty" when="endattempt" parameters="wrong1,display,displayIcons"/>
+	<task task="setproperty" when="endattempt" parameters="right1,display,displayIcons"/>
+	<task task="setproperty" when="endattempt" parameters="wrong2,display,displayIcons"/>
+	<task task="setproperty" when="endattempt" parameters="right2,display,displayIcons"/>
+	<task task="setproperty" when="endattempt" parameters="wrong3,display,displayIcons"/>
+	<task task="setproperty" when="endattempt" parameters="right3,display,displayIcons"/>
+	
+	<task task="setproperty" when="end" parameters="wrong0,display,@yes" test="wrong"/>
+	<task task="setproperty" when="end" parameters="right0,display,@yes" test="wrong"/>
+	<task task="setproperty" when="end" parameters="wrong1,display,@yes" test="wrong"/>
+	<task task="setproperty" when="end" parameters="right1,display,@yes" test="wrong"/>
+	<task task="setproperty" when="end" parameters="wrong2,display,@yes" test="wrong"/>
+	<task task="setproperty" when="end" parameters="right2,display,@yes" test="wrong"/>
+	<task task="setproperty" when="end" parameters="wrong3,display,@yes" test="wrong"/>
+	<task task="setproperty" when="end" parameters="right3,display,@yes" test="wrong"/>
+	
+	<answercombo id="ansNoNumber" 
+		answer="noNumberABx[NaN],noNumberABy[NaN],noNumberCDx[NaN],noNumberCDy[NaN],noNumberEFx[NaN],noNumberEFy[NaN],noNumberGHx[NaN],noNumberGHy[NaN]"/>
+	
+	<summaryline type="answerline">((__ABx__,__ABy__), (__CDx__,__CDy__), (__EFx__,__EFy__), 
+	(__GHx__,__GHy__))</summaryline>
+	
+	<summaryline>Attempt <summaryattribute attribute="attempt"/>: 
+	((<summaryattribute attribute="answerline[rABx]"/>,<summaryattribute attribute="answerline[rABy]"/>), 
+	(<summaryattribute attribute="answerline[rCDx]"/>,<summaryattribute attribute="answerline[rCDy]"/>), 
+	(<summaryattribute attribute="answerline[rEFx]"/>,<summaryattribute attribute="answerline[rEFy]"/>), 
+	(<summaryattribute attribute="answerline[rGHx]"/>,<summaryattribute attribute="answerline[rGHy]"/>))</summaryline>
+	
+</question>

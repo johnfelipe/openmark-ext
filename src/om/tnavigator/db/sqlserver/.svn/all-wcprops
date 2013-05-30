@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/openmark~svn/!svn/ver/430/trunk/src/om/tnavigator/db/sqlserver
+END
+createdb.sql
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/openmark~svn/!svn/ver/430/trunk/src/om/tnavigator/db/sqlserver/createdb.sql
+END
+SQLServer.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/openmark~svn/!svn/ver/251/trunk/src/om/tnavigator/db/sqlserver/SQLServer.java
+END

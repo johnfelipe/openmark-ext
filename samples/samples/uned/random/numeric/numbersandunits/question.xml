@@ -1,0 +1,119 @@
+<question class="samples.uned.random.numeric.numbersandunits.GenericQuestion" plainmode="no">
+	
+	<parameters answerline="no"/>
+	
+	<scoring>
+		<marks>3</marks>
+	</scoring>	
+
+	<layout>
+		<row height="540"/>
+		<column width="312"/>
+		<column width="280"/>  
+	</layout>
+	
+  	<random id="mass" min="5" max="10"/>
+  	
+  	<replaceholder placeholder="MASS" set="mass@"/>
+  	
+  	<replaceholder placeholder="4MASS" set="mass">
+  		<option id="5" value="20"/>
+  		<option id="6" value="24"/>
+  		<option id="7" value="28"/>
+  		<option id="8" value="32"/>
+  		<option id="9" value="36"/>
+  		<option id="10" value="40"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="ANS" set="mass">
+  		<option id="5" value="15"/>
+  		<option id="6" value="19"/>
+  		<option id="7" value="23"/>
+  		<option id="8" value="27"/>
+  		<option id="9" value="31"/>
+  		<option id="10" value="35"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="ANSRIGHT" set="mass">
+  		<option id="5" value="15,&amp;g&amp;"/>
+  		<option id="6" value="19,&amp;g&amp;"/>
+  		<option id="7" value="23,&amp;g&amp;"/>
+  		<option id="8" value="27,&amp;g&amp;"/>
+  		<option id="9" value="31,&amp;g&amp;"/>
+  		<option id="10" value="35,&amp;g&amp;"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="TEMPERATURE" set="mass">
+  		<option id="5" value="52.0"/>
+  		<option id="6" value="60.0"/>
+  		<option id="7" value="68.0"/>
+  		<option id="8" value="72.0"/>
+  		<option id="9" value="78.0"/>
+  		<option id="10" value="82.0"/>
+  	</replaceholder>
+	
+	<!-- Defines the left-hand question box -->
+	<box gridx="0" gridy="0" id="inputbox" background="input" 
+			questionline="What is the solubility of potassium chlorate at __TEMPERATURE__ °C?">
+		A solution is made by dissolving <eq>__4MASS__\mbox{ g}</eq> of potassium chlorate
+		in <eq>100\mbox{ g}</eq> water at <eq>90</eq> ºC. The solution is then cooled to 
+		<eq>10</eq> ºC.
+		<gap/>
+		What <label for="input">mass of crystals</label> is deposited?
+		Give your answer to the nearest whole number and include the correct unit.
+		<gap/>
+		<editfield id="input" cols="6" answertype="numpmatch[ ,ow]" tolerance="1.1" 
+			right="__ANSRIGHT__"/>
+		<gap/>
+		<image id="solubilityCurve" filePath="q18a.png" alt="" width="273" height="317"/>
+		<gap/>
+
+		<button action="actionSubmit" label="%%lENTERANSWER%%"/>
+  
+	</box>
+
+	<!-- Defines the right-hand answer box, which is initially hidden  -->
+	<box gridx="1" gridy="0" id="answerbox" display="no" background="answer">
+   
+		<t id="wrong">Your answer is <t id="still">still</t> incorrect.</t>
+		<t id="right">Your answer is correct.</t>
+		<t id="pass">You passed on this question.</t>	
+		<gap/>
+	
+		<t id="unitsWrong" display="no" answertype="numeric" answer="input[__ANS__]" 
+			attemptsmax="2">
+			Your numerical value is correct but your unit is not.
+			<gap/>
+		</t>
+		
+		<t id="feedback">
+			<t id="default" attemptsmin="2" attemptsmax="2">
+				From the graph read off the concentration of a saturated solution at
+				<eq>10</eq> ºC. Then subtract this from the value of the initial concentration.
+				<gap/>
+			</t>
+		</t>	 
+	   
+		<t id="answer">
+			A saturated solution of potassium chlorate at <eq>10</eq> ºC contains
+			<eq>5 \mbox{ g}</eq> per <eq>100\mbox{ g}</eq> water. This means that
+			<eq>__4MASS__ \mbox{ g} – 5 \mbox{ g} = __ANS__ \mbox{ g}</eq>
+			are deposited.
+		    <gap/>
+			Solubility is discussed in Section 7 of S103 
+			<emphasis type="italic">Discovering Science</emphasis>
+			Block 8.
+			<gap/>
+		</t>
+		
+		<button id="ok" action="actionOK" label="%%lTRYAGAIN%%"/>
+		<button id="next" action="actionOK" label="%%lNEXTQUESTION%%" display="no"/>
+   
+	</box>
+	
+	<summaryline>Correct ans:__ANS__ 
+	Attempt <summaryattribute attribute="attempt"/>: 
+	<summaryattribute attribute="answerline[input]"/>
+	</summaryline>
+	
+</question>

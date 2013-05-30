@@ -1,0 +1,173 @@
+<question class="samples.uned.random.audio.GenericStandardQuestion">
+
+ <scoring><marks>3</marks></scoring>
+
+ <layout>
+  <row height="340"/>
+  <column width="156"/>  
+  <column width="436"/>
+ </layout>
+ 
+ <!-- Random values to initialize question -->
+ <random id="randomVariant1" max="1"/>
+ <random id="randomVariant2" max="1"/>
+ 
+ <!-- iPlace=randomVariant1*2+randomVariant2 -->
+ <variable id="iPlace" set="randomVariant1[nmi&quot;2&quot;nairandomVariant2@]"/>
+ 
+ <!-- Placeholders -->
+ <replaceholder id="pJunction" placeholder="JUNCTION" set="randomVariant1">
+ 	<option value="migi"/>
+ 	<option value="hidari"/>
+ </replaceholder>
+ 
+ <replaceholder id="pPlace" placeholder="PLACE" set="iPlace">
+ 	<option value="depaato"/>
+ 	<option value="toshokan"/>
+ 	<option value="kissaten"/>
+ 	<option value="panya"/>
+ </replaceholder>
+ 
+ <!-- junction=pJunction -->
+ <variable id="junction" set="pJunction"/>
+ 
+ <!-- place=pPlace -->
+ <variable id="place" set="pPlace"/>
+ 
+ <!-- Defines the left-hand question box -->
+ <box gridx="1" gridy="0" id="inputbox" background="input">
+
+	<image filePath="map.png" alt="Map depicting a T-junction in a road">
+		<iplace label="At the junction:" left="199" top="204"><audio id="audio1" filePath="__JUNCTION__.mp3"/></iplace>
+		<iplace label="Taking a left:" left="144" top="143"><button id="hereL" action="actionCustom" custom="left" label="Here"/></iplace>
+		<iplace label="Taking a right:" left="226" top="143"><button id="hereR" action="actionCustom" custom="right" label="Here"/></iplace>
+		<iplace label="After turning left:" left="167" top="146"><audio id="audio2l" display="no" filePath="__PLACE__.mp3"/></iplace>
+		<iplace label="After turning right" left="230" top="146"><audio id="audio2r" display="no" filePath="__PLACE__.mp3"/></iplace>
+		<iplace label="A large shop:" left="296" top="117"><button id="hereD" display="no" action="actionCustom" custom="depaato" label="Here"/></iplace>
+		<iplace label="A public library:" left="296" top="169"><button id="hereT" display="no" action="actionCustom" custom="toshokan" label="Here"/></iplace>
+		<iplace label="A cafe:" left="80" top="117"><button display="no" id="hereK" action="actionCustom" custom="kissaten" label="Here"/></iplace>
+		<iplace label="A baker's:" left="80" top="169"><button display="no" id="hereP" action="actionCustom" custom="panya" label="Here"/></iplace>
+	</image>
+	
+ </box>
+ 
+ <box gridx="0" gridy="0" id="part1" background="answer">
+	You have agreed to meet a friend in town. Nearing the 
+	area, you phone to find out where he is.
+	<gap/>	
+	Listen to his response by clicking the play button, then click on the 
+	appropriate button to select a direction.
+	<t id="wrong1" display="no">
+	 <gap/>
+	 <emphasis>No!</emphasis> He said the other way. Listen again to the audio.
+	 Once you're ready to continue, click on the direction button.		
+	</t>
+ </box>
+
+ <box gridx="0" gridy="0" id="part2" background="answer" display="no">
+	<t id="right1">
+	 <emphasis>That's right!</emphasis> 
+	 <gap/>
+	</t>
+	Your friend continues. Listen to him again, and follow his instructions by
+	clicking on the right button.
+	<t id="wrong2" display="no">
+	 <gap/>
+	 <emphasis>No!</emphasis> He asked you to enter the other building. 
+	 Listen again to the audio. Once you're ready to continue, click on the 
+	 correct button.		
+	</t>
+ </box>
+
+ <box gridx="0" gridy="0" id="part3" background="answer" display="no">
+	<emphasis>That's right!</emphasis> 
+
+	Well done. You can now continue to the next question.
+	<gap/>
+  <button action="actionCustom" custom="ok" label="OK"/>
+ </box>
+ 
+ <!-- start tasks -->
+ <task task="initializerandoms" when="start" parameters="++all++"/>
+ <task task="initializeplaceholders" when="start" parameters="++all++"/>
+ 
+ <!-- left tasks -->
+ <!-- left tasks: wrong direction -->
+ <task task="setproperty" when="custom[left]" parameters="wrong1,display,@yes" answer="junction[migi]"/>
+ <task task="disable" when="custom[left]" parameters="hereL" answer="junction[migi]"/>
+ <!-- left tasks: correct direction-->
+ <task task="setproperty" when="custom[left]" parameters="hereL,display,@no" answer="junction[hidari]"/>
+ <task task="setproperty" when="custom[left]" parameters="hereR,display,@no" answer="junction[hidari]"/>
+ <task task="setproperty" when="custom[left]" parameters="audio1,display,@no" answer="junction[hidari]"/>
+ <task task="setproperty" when="custom[left]" parameters="part1,display,@no" answer="junction[hidari]"/>
+ <task task="setproperty" when="custom[left]" parameters="part2,display,@yes" answer="junction[hidari]"/>
+ <task task="setproperty" when="custom[left]" parameters="audio2l,display,@yes" answer="junction[hidari]"/>
+ <task task="setproperty" when="custom[left]" parameters="hereK,display,@yes" answer="junction[hidari]"/>
+ <task task="setproperty" when="custom[left]" parameters="hereP,display,@yes" answer="junction[hidari]"/>
+ 
+ <!-- right tasks -->
+ <!-- right tasks: wrong direction -->
+ <task task="setproperty" when="custom[right]" parameters="wrong1,display,@yes" answer="junction[hidari]"/>
+ <task task="disable" when="custom[right]" parameters="hereR" answer="junction[hidari]"/>
+ <!-- right tasks: correct direction -->
+ <task task="setproperty" when="custom[right]" parameters="hereL,display,@no" answer="junction[migi]"/>
+ <task task="setproperty" when="custom[right]" parameters="hereR,display,@no" answer="junction[migi]"/>
+ <task task="setproperty" when="custom[right]" parameters="audio1,display,@no" answer="junction[migi]"/>
+ <task task="setproperty" when="custom[right]" parameters="part1,display,@no" answer="junction[migi]"/>
+ <task task="setproperty" when="custom[right]" parameters="part2,display,@yes" answer="junction[migi]"/>
+ <task task="setproperty" when="custom[right]" parameters="audio2r,display,@yes" answer="junction[migi]"/>
+ <task task="setproperty" when="custom[right]" parameters="hereD,display,@yes" answer="junction[migi]"/>
+ <task task="setproperty" when="custom[right]" parameters="hereT,display,@yes" answer="junction[migi]"/>
+ 
+ <!-- depaato tasks -->
+ <task task="setproperty" when="custom[depaato]" parameters="right1,display,@no"/>
+ <!-- depaato tasks: wrong direction -->
+ <task task="disable" when="custom[depaato]" parameters="hereD" answer="place[toshokan]"/>
+ <task task="setproperty" when="custom[depaato]" parameters="wrong2,display,@yes" answer="place[toshokan]"/>
+ <!-- depaato tasks: correct direction -->
+ <task task="setproperty" when="custom[depaato]" parameters="part2,display,@no" answer="place[depaato]"/>
+ <task task="disable" when="custom[depaato]" parameters="hereD" answer="place[depaato]"/>
+ <task task="disable" when="custom[depaato]" parameters="hereT" answer="place[depaato]"/>
+ <task task="disable" when="custom[depaato]" parameters="audio2r" answer="place[depaato]"/>
+ <task task="setproperty" when="custom[depaato]" parameters="part3,display,@yes" answer="place[depaato]"/>
+ 
+ <!-- toshokan tasks -->
+ <task task="setproperty" when="custom[toshokan]" parameters="right1,display,@no"/>
+ <!-- toshokan tasks: wrong direction -->
+ <task task="disable" when="custom[toshokan]" parameters="hereT" answer="place[depaato]"/>
+ <task task="setproperty" when="custom[toshokan]" parameters="wrong2,display,@yes" answer="place[depaato]"/>
+ <!-- toshokan tasks: correct direction -->
+ <task task="setproperty" when="custom[toshokan]" parameters="part2,display,@no" answer="place[toshokan]"/>
+ <task task="disable" when="custom[toshokan]" parameters="hereD" answer="place[toshokan]"/>
+ <task task="disable" when="custom[toshokan]" parameters="hereT" answer="place[toshokan]"/>
+ <task task="disable" when="custom[toshokan]" parameters="audio2r" answer="place[toshokan]"/>
+ <task task="setproperty" when="custom[toshokan]" parameters="part3,display,@yes" answer="place[toshokan]"/>
+ 
+ <!-- kissaten tasks -->
+ <task task="setproperty" when="custom[kissaten]" parameters="right1,display,@no"/>
+ <!-- kissaten tasks: wrong direction -->
+ <task task="disable" when="custom[kissaten]" parameters="hereK" answer="place[panya]"/>
+ <task task="setproperty" when="custom[kissaten]" parameters="wrong2,display,@yes" answer="place[panya]"/>
+ <!-- kissaten tasks: correct direction -->
+ <task task="setproperty" when="custom[kissaten]" parameters="part2,display,@no" answer="place[kissaten]"/>
+ <task task="disable" when="custom[kissaten]" parameters="hereK" answer="place[kissaten]"/>
+ <task task="disable" when="custom[kissaten]" parameters="hereP" answer="place[kissaten]"/>
+ <task task="disable" when="custom[kissaten]" parameters="audio2l" answer="place[kissaten]"/>
+ <task task="setproperty" when="custom[kissaten]" parameters="part3,display,@yes" answer="place[kissaten]"/>
+ 
+ <!-- panya tasks -->
+ <task task="setproperty" when="custom[panya]" parameters="right1,display,@no"/>
+ <!-- panya tasks: wrong direction -->
+ <task task="disable" when="custom[panya]" parameters="hereP" answer="place[kissaten]"/>
+ <task task="setproperty" when="custom[panya]" parameters="wrong2,display,@yes" answer="place[kissaten]"/>
+ <!-- panya tasks: correct direction -->
+ <task task="setproperty" when="custom[panya]" parameters="part2,display,@no" answer="place[panya]"/>
+ <task task="disable" when="custom[panya]" parameters="hereK" answer="place[panya]"/>
+ <task task="disable" when="custom[panya]" parameters="hereP" answer="place[panya]"/>
+ <task task="disable" when="custom[panya]" parameters="audio2l" answer="place[panya]"/>
+ <task task="setproperty" when="custom[panya]" parameters="part3,display,@yes" answer="place[panya]"/>
+ 
+ <!-- ok tasks-->
+ <task task="end" when="custom[ok]"/>
+ 
+</question>

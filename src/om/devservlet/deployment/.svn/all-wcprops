@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/openmark~svn/!svn/ver/436/trunk/src/om/devservlet/deployment
+END
+DeploymentRequestHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/openmark~svn/!svn/ver/430/trunk/src/om/devservlet/deployment/DeploymentRequestHandler.java
+END
+QuestionTransporter.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/openmark~svn/!svn/ver/430/trunk/src/om/devservlet/deployment/QuestionTransporter.java
+END
+QuestionTransporterException.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/openmark~svn/!svn/ver/430/trunk/src/om/devservlet/deployment/QuestionTransporterException.java
+END
+QuestionDeploymentRenderer.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/openmark~svn/!svn/ver/436/trunk/src/om/devservlet/deployment/QuestionDeploymentRenderer.java
+END
+RenderedOutput.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/openmark~svn/!svn/ver/430/trunk/src/om/devservlet/deployment/RenderedOutput.java
+END
+QuestionDeploymentException.java
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/openmark~svn/!svn/ver/430/trunk/src/om/devservlet/deployment/QuestionDeploymentException.java
+END
+QuestionHolder.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/openmark~svn/!svn/ver/430/trunk/src/om/devservlet/deployment/QuestionHolder.java
+END

@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/openmark~svn/!svn/ver/429/trunk/src/om/tnavigator/reports/std
+END
+DeployedTestsReport.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/openmark~svn/!svn/ver/289/trunk/src/om/tnavigator/reports/std/DeployedTestsReport.java
+END
+QuestionTestReport.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/openmark~svn/!svn/ver/225/trunk/src/om/tnavigator/reports/std/QuestionTestReport.java
+END
+MoodleFormatReport.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/openmark~svn/!svn/ver/429/trunk/src/om/tnavigator/reports/std/MoodleFormatReport.java
+END
+DeployedQuestionsReport.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/openmark~svn/!svn/ver/247/trunk/src/om/tnavigator/reports/std/DeployedQuestionsReport.java
+END
+MonthlyUsageReport.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/openmark~svn/!svn/ver/309/trunk/src/om/tnavigator/reports/std/MonthlyUsageReport.java
+END
+HomeTestReport.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/openmark~svn/!svn/ver/197/trunk/src/om/tnavigator/reports/std/HomeTestReport.java
+END
+VariantsTestReport.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/openmark~svn/!svn/ver/272/trunk/src/om/tnavigator/reports/std/VariantsTestReport.java
+END
+TestUsageReport.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/openmark~svn/!svn/ver/256/trunk/src/om/tnavigator/reports/std/TestUsageReport.java
+END
+UserTestReport.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/openmark~svn/!svn/ver/257/trunk/src/om/tnavigator/reports/std/UserTestReport.java
+END

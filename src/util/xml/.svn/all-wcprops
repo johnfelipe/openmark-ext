@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/openmark~svn/!svn/ver/446/trunk/src/util/xml
+END
+package.html
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/openmark~svn/!svn/ver/2/trunk/src/util/xml/package.html
+END
+XMLException.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/openmark~svn/!svn/ver/130/trunk/src/util/xml/XMLException.java
+END
+XML.java
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/openmark~svn/!svn/ver/381/trunk/src/util/xml/XML.java
+END
+XHTMLStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/openmark~svn/!svn/ver/130/trunk/src/util/xml/XHTMLStream.java
+END
+XHTML.java
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/openmark~svn/!svn/ver/446/trunk/src/util/xml/XHTML.java
+END
+XSL.java
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/openmark~svn/!svn/ver/130/trunk/src/util/xml/XSL.java
+END

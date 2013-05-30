@@ -1,0 +1,34 @@
+10
+
+dir
+447
+https://svn.java.net/svn/openmark~svn/trunk/samples/tests
+https://svn.java.net/svn/openmark~svn
+
+
+
+2008-01-29T11:45:54.982177Z
+229
+tjhunt
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+3df17485-4164-4021-f6be-e1e3753b6e54
+
+questionbank
+dir
+
+testbank
+dir
+

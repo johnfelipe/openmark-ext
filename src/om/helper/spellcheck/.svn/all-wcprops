@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/openmark~svn/!svn/ver/403/trunk/src/om/helper/spellcheck
+END
+ou_words.dic
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/openmark~svn/!svn/ver/403/trunk/src/om/helper/spellcheck/ou_words.dic
+END
+eng_com.dic
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/openmark~svn/!svn/ver/403/trunk/src/om/helper/spellcheck/eng_com.dic
+END
+SpellCheckerUtil.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/openmark~svn/!svn/ver/403/trunk/src/om/helper/spellcheck/SpellCheckerUtil.java
+END
+labeled.dic
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/openmark~svn/!svn/ver/403/trunk/src/om/helper/spellcheck/labeled.dic
+END
+color.dic
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/openmark~svn/!svn/ver/403/trunk/src/om/helper/spellcheck/color.dic
+END
+ize.dic
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/openmark~svn/!svn/ver/403/trunk/src/om/helper/spellcheck/ize.dic
+END
+yze.dic
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/openmark~svn/!svn/ver/403/trunk/src/om/helper/spellcheck/yze.dic
+END
+center.dic
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/openmark~svn/!svn/ver/403/trunk/src/om/helper/spellcheck/center.dic
+END
+labelled.dic
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/openmark~svn/!svn/ver/403/trunk/src/om/helper/spellcheck/labelled.dic
+END
+centre.dic
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/openmark~svn/!svn/ver/403/trunk/src/om/helper/spellcheck/centre.dic
+END
+ise.dic
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/openmark~svn/!svn/ver/403/trunk/src/om/helper/spellcheck/ise.dic
+END
+yse.dic
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/openmark~svn/!svn/ver/403/trunk/src/om/helper/spellcheck/yse.dic
+END
+colour.dic
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/openmark~svn/!svn/ver/403/trunk/src/om/helper/spellcheck/colour.dic
+END

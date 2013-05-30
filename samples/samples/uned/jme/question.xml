@@ -1,0 +1,145 @@
+<question class="samples.uned.jme.GenericQuestion" plainmode="no">
+
+	<scoring><marks>3</marks></scoring>
+
+	<layout>
+		<row height="420"/>
+		<row height="240"/>
+		<column width="592"/>  
+	</layout>
+ 
+	<!-- Defines the left-hand question box -->
+	<box gridx="0" gridy="0" id="inputbox" background="input" 
+		questionline="Draw the structure of the compound that gives the 13C shown.">
+	
+		What is the most likely structure for the compound that
+		gives rise to the <eq>\mbox{^{13}C}</eq> NMR spectrum shown below.
+		<gap/>
+		<image id="chart" alt="13C correleation chart" filePath="q13chart.png"></image>
+		<gap/>
+		<image id="chart" alt="13C spectrum" filePath="q13.png"></image>
+		<gap/>
+		Using the JME editor draw your answer and click on OK in the JME window.
+		<jme id="myjme" action="actionSubmit" label="Start JME" right="CCCCCCC=O" ignorewedgebounds="yes"/>
+		<!--<button action="actionGiveUp" label="pass"/>-->
+	
+	</box>
+
+	<!-- Defines the right-hand answer box, which is initially hidden  -->
+	<box gridx="0" gridy="1" id="answerbox" display="no" background="answer">
+   
+		<t id="wrong">Your answer is <t id="still">still</t> incorrect.</t>
+		<t id="right">Your answer is correct.</t>
+		<t id="pass">You passed on this question.</t>	
+		<gap/>
+	
+		<t id="feedback">
+			<t id="default" answer="!msg_rightgroupwrongcarbons" attemptsmin="1" attemptsmax="1">
+				To answer this question you need to evaluate the three pieces of
+				information provided by the NMR spectrum, namely the number of
+				peaks, the chemical shift and the results from the off-resonance
+				spectrum.
+				<gap/>
+			</t>
+		</t>	 
+		<t id="formula" answer="!msg_rightgroupwrongcarbons" attemptsmin="2" attemptsmax="2">
+			The chemical formula is <eq>\mbox{C_7H_{14}O}</eq>.
+			<gap/>
+		</t>
+		
+		<t id="rightgroupwrongcarbons" answer="msg_rightgroupwrongcarbons" attemptsmax="2">
+			You have the correct functional group but an incorrect
+			number of carbon atoms.
+			<break/>
+		</t>
+		<t id="rightoxygens" answer="!msg_rightgroupwrongcarbons+bRightOxygens[yes]" attemptsmax="2">
+			Your answer contains the right number of oxygen atoms.
+			<break/>
+		</t>
+		<t id="rightcarbons" answer="!msg_rightgroupwrongcarbons+bRightCarbons[yes]" attemptsmax="2">
+			Your answer contains the right number of carbon atoms.
+			<break/>
+		</t>
+		
+<!--	<gap/> -->
+		
+		<t id="nooxygen" answer="!msg_rightgroupwrongcarbons+bNoOxygen[yes]" attemptsmax="2">
+			Your compound does not have the functional group that leads to the peak
+			at just over 200 ppm.
+			<break/>
+		</t>
+		<t id="tooManyCarbons" answer="!msg_rightgroupwrongcarbons+bTooManyCarbons[yes]" attemptsmax="2">
+			Your answer contains too many carbon atoms.
+			<break/>
+		</t>
+
+		<t id="tooFewCarbons" answer="!msg_rightgroupwrongcarbons+bTooFewCarbons[yes]" attemptsmax="2">
+			Your answer contains too few carbon atoms.
+			<break/>
+		</t>
+		
+		<t id="nonitrogen" answer="!msg_rightgroupwrongcarbons+bNoNitrogen[yes]" attemptsmax="2">
+			There are no nitrogen atoms in this compound.
+			<break/>
+		</t>
+		<t id="notriple" answer="!msg_rightgroupwrongcarbons+bNoTriple[yes]" attemptsmax="2">
+			There are no triple bonds in this compound.
+			<break/>
+		</t>
+		
+		<t id="answer">
+			There are seven peaks in the n.m.r. spectrum so there must be seven
+			non-equivalent carbon environments. The peak at 202 ppm is labelled a doublet and is
+			therefore an aldehyde. The remaining six peaks are in the alkane region
+			and with five triplets and one quartet there can be no chain branching.
+			The molecule is therefore heptanal.
+			<break/>
+			<image id="heptanal" alt="heptanal" filePath="q13ans.png"></image>
+
+			<gap/>
+		</t>
+		<button id="ok" action="actionOK" label="OK"/>
+		<button id="next" action="actionOK" label="Next" display="no"/>
+   
+	</box>
+	
+	<!-- oxigenCount = number of ocurrences of element O inside SMILES -->
+	<variable id="oxygenCount" set="myjme[c&quot;O&quot;]"/>
+	
+	<!-- bNoOxygen = oxygenCount==0 ? "yes" : oxygenCount -->
+	<variable id="bNoOxygen" set="oxygenCount[nei&quot;0&quot;,&quot;yes&quot;]"/>
+	
+	<!-- bRightOxygens = oxygenCount==1 ? "yes" : oxygenCount -->
+	<variable id="bRightOxygens" set="oxygenCount[nei&quot;1&quot;,&quot;yes&quot;]"/>
+	
+	<!-- carbonCount = number of ocurrences of element C inside SMILES -->
+	<variable id="carbonCount" set="myjme[c&quot;C&quot;,&quot;Ca,Cd,Ce,Cf,Cl,Cm,Co,Cr,Cs,Cu&quot;]"/>
+	
+	<!-- bTooManyCarbons = carbonCount>7 ? "yes" : carbonCount -->
+	<variable id="bTooManyCarbons" set="carbonCount[ngi&quot;7&quot;,&quot;yes&quot;]"/>
+	
+	<!-- bTooFewCarbons = carbonCount<7 ? "yes" : carbonCount -->
+	<variable id="bTooFewCarbons" set="carbonCount[nli&quot;7&quot;,&quot;yes&quot;]"/>
+	
+	<!-- bRightCarbons = carbonCount==7 ? "yes" : carbonCount -->
+	<variable id="bRightCarbons" set="carbonCount[nei&quot;7&quot;,&quot;yes&quot;]"/>
+	
+	<!-- nitrogenCount = number of ocurrences of element N inside SMILES -->
+	<variable id="nitrogenCount" set="myjme[c&quot;N&quot;,&quot;Na,Nb,Nd,Ne,Ni,No,Np&quot;]"/>
+	
+	<!-- bNoNitrogen = nitrogenCount>0 ? "yes" : nitrogenCount -->
+	<variable id="bNoNitrogen" set="nitrogenCount[ngi&quot;0&quot;,&quot;yes&quot;]"/>
+	
+	<!-- tripleCount = number ocurrences of triple bonds inside SMILES -->
+	<variable id="tripleCount" set="myjme[c&quot;#&quot;]"/>
+	
+	<!-- bNoTriple = tripleCount>0 ? "yes" : tripleCount -->
+	<variable id="bNoTriple" set="tripleCount[ngi&quot;0&quot;,&quot;yes&quot;]"/>
+	
+	<!-- msg_rightgroupwrongcarbons: true if SMILES without wedge bounds is equal to CCCCCC=O -->
+	<answercombo id="msg_rightgroupwrongcarbons" answer="myjme[CCCCCC=O]"/>
+	
+	<summaryline>Attempt <summaryattribute attribute="attempt"/>: 
+	<summaryattribute attribute="answerline"/></summaryline>
+	
+</question>

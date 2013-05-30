@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/tnavigator/scores
+END
+RemappingPart.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/tnavigator/scores/RemappingPart.java
+END
+CombinedScore.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/tnavigator/scores/CombinedScore.java
+END
+package.html
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/tnavigator/scores/package.html
+END
+ScoreRemapping.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/tnavigator/scores/ScoreRemapping.java
+END
+ScoreOnAxis.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/tnavigator/scores/ScoreOnAxis.java
+END

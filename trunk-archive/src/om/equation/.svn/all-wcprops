@@ -1,0 +1,149 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/equation
+END
+Text.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/equation/Text.java
+END
+Integral.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/equation/Integral.java
+END
+EquationFormatException.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/equation/EquationFormatException.java
+END
+Equation.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/equation/Equation.java
+END
+Sum.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/equation/Sum.java
+END
+Brackets.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/equation/Brackets.java
+END
+SuperSub.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/equation/SuperSub.java
+END
+grammar.jjt
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/equation/grammar.jjt
+END
+Fraction.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/equation/Fraction.java
+END
+SquareRoot.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/equation/SquareRoot.java
+END
+MBox.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/equation/MBox.java
+END
+TextSizeChange.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/equation/TextSizeChange.java
+END
+package.html
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/equation/package.html
+END
+ItemCreator.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/equation/ItemCreator.java
+END
+TextEquation.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/equation/TextEquation.java
+END
+ItemFactory.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/equation/ItemFactory.java
+END
+LimitsThing.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/equation/LimitsThing.java
+END
+SimpleNode.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/equation/SimpleNode.java
+END
+TextEquation.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/equation/TextEquation.xsl
+END
+Line.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/equation/Line.java
+END
+Placeholder.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/equation/Placeholder.java
+END
+Item.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/equation/Item.java
+END
+Test.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/equation/Test.java
+END
+SuperSubHolder.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/equation/SuperSubHolder.java
+END

@@ -1,0 +1,163 @@
+<question class="samples.uned.radiocheck.GenericQuestion">
+	
+	<parameters maxattempts="5"></parameters>
+	
+	<scoring><marks>5</marks></scoring>
+
+	<layout>
+		<row height="600"/>
+		<column width="296"/>
+		<column width="296"/>  
+	</layout>
+ 
+	<!-- Defines the left-hand question box -->
+	<box gridx="0" gridy="0" id="inputbox" background="input">
+		¿Qué personajes no salían en Barrio Sésamo?
+		<gap/>
+		Primer personaje:
+		<gap/>
+		<layoutgrid cols="1" shuffle="yes">	
+			<radiobox id="otraRespuesta" group="personaje1" answerline="Coco">    <!-- wrong -->
+				<t>El monstruo Coco</t>
+			</radiobox>
+			
+			<radiobox id="asterixGalo" group="personaje1" right="yes" answerline="Asterix">    <!-- right -->
+				<t>El galo Astérix</t>
+			</radiobox>
+			
+			<radiobox id="blas" group="personaje1">    <!-- wrong -->
+				<t>Blas</t>
+			</radiobox>
+		</layoutgrid>
+		<gap/> 
+		Segundo personaje:
+		<gap/>
+		<layoutgrid cols="1" shuffle="yes">	
+			<radiobox id="unaRespuesta" group="personaje2">    <!-- wrong -->
+				<t>Epi</t>
+			</radiobox>
+			
+			<radiobox id="ranaGustavo" group="personaje2" answerline="Gustavo">    <!-- wrong -->
+				<t>La rana Gustavo</t>
+			</radiobox>
+			
+			<radiobox id="mortadelo" group="personaje2" right="yes">    <!-- right -->
+				<t>Mortadelo</t>
+			</radiobox>
+		</layoutgrid>
+		<gap/> 
+		Otros personajes:
+		<gap/>
+		<layoutgrid cols="1" shuffle="yes">	
+			<checkbox id="espinete">    <!-- wrong -->
+				<t>Espinete</t>
+			</checkbox>
+			
+			<checkbox id="chema">    <!-- wrong -->
+				<t>Chema</t>
+			</checkbox>
+			
+			<checkbox id="filemon" right="yes">    <!-- right -->
+				<t>Filemon</t>
+			</checkbox>
+			
+			<checkbox id="spiderman" right="yes">    <!-- right -->
+				<t>Spiderman</t>
+			</checkbox>
+		</layoutgrid>
+  		
+		<button action="actionSubmit" label="%%lENTERANSWER%%"/>
+ 		<button action="actionGiveUp" label="%%lGIVEUP%%"/>
+  
+	</box>
+
+ <!-- Defines the right-hand answer box, which is initially hidden  -->
+ <box gridx="1" gridy="0" id="answerbox" display="no" background="answer" answerline="Pasando de todo">
+   
+	<t id="right">Tu respuesta es correcta.<gap/></t>
+	<t id="wrong">Tu respuesta<t id="still"> todavía</t> es incorrecta.<gap/></t>
+	<t id="pass">Has saltado la pregunta.<gap/></t>	
+	
+	<t selectedrightanswersmax="0">No elegiste ninguna de las respuestas correctas</t>
+	<t selectedrightanswersmin="1" selectedrightanswersmax="1">
+	Elegiste una de las respuestas correctas</t>
+	<t selectedrightanswersmin="2" selectedrightanswersmax="3">
+	Elegiste algunas de las respuestas correctas</t>
+	<t selectedrightanswersmin="4">
+	Elegiste todas las respuestas correctas<t selectedwronganswersmin="1">
+	pero también alguna incorrecta</t></t>
+	<gap/>
+	<t rightdistancemin="1" rightdistancemax="1">¡Casi aciertas!</t>
+	<t rightdistancemin="2" rightdistancemax="2">No vas desencaminado</t>
+	<t rightdistancemin="3">De momento vas muy mal</t>
+	<gap/>
+	<t id="feedback">
+		<t id="epiblasfeedback" answer="unaRespuesta+blas">
+			Tanto Epi como Blas son de Barrio Sesamo.
+			<gap/>
+		</t>
+		<t id="feedback1" attemptsmax="1">
+			Te has equivocado, me parece que no te fijas demasiado.
+			<gap/>
+		</t>
+		<t id="feedback2" attemptsmin="2">
+			Vamos a centrarnos hombre, 
+			<emphasis type="italic">fíjate bien!!</emphasis>
+			<gap/>
+		</t>
+		Consulta el tema xxx para encontrar una solución a la pregunta.
+		<gap/>
+	</t>
+   
+	<t id="answer">
+		Astérix es un personaje de comic muy conocido por liderar la resistencia a los romanos de una aldea de la Galia.
+		<gap/>
+		Mortadelo es otro personaje de comic calvo que trabaja como espía para la agencia TIA junto a Filemon.
+		<gap/>
+		Filemon es el inseparable compañero de Mortadelo, tiene solo 2 pelos en la cabeza.
+		<gap/>
+		Y Spiderman es un superheroe que defiende la justicia con poderes que obtuvo de la picadura de una araña.
+		<gap/>
+		Por tanto, Astérix, Mortadelo, Filemon y Spiderman no pertenecen a la serie de televisión para niños Barrio Sesamo.
+		<gap/>
+	</t>
+	
+	<button id="ok" action="actionOK" label="%%lTRYAGAIN%%"/>
+	<button id="next" action="actionOK" label="%%lNEXTQUESTION%%" display="no"/>
+   	
+ </box>
+ 
+	<summaryline>     Siempre la 
+	misma    
+	línea   (intento número <summaryattribute attribute="attempt"></summaryattribute>) 
+	</summaryline>
+	<summaryline>
+	Acertaste <summaryattribute attribute="selectedrightanswers"/> de las
+	<summaryattribute attribute="selectablerightanswers"/> respuestas correctas.
+	</summaryline>
+	<summaryline>
+	Ejemplo con summaryfor. 
+	Selected answers: 
+	<summaryfor separator=" -- ">
+		<summaryattribute attribute="answertagname"></summaryattribute>:
+		<summaryattribute attribute="answerline"></summaryattribute> 
+	</summaryfor>
+	
+	</summaryline>
+	
+	<summaryline answer="unaRespuesta+blas">Seleccionaste a 
+	<summaryattribute attribute="answerline[unaRespuesta]"></summaryattribute> y 
+	<summaryattribute attribute="answerline[blas]"></summaryattribute></summaryline>
+	<summaryline answer="blas">Seleccionaste el 
+	<summaryattribute attribute="answertagname[blas]"></summaryattribute> 
+	de Blas</summaryline>
+	<summaryline attemptsmax="2">Llevas menos de 3 intentos</summaryline>
+	<summaryline attemptsmin="3">Llevas ya 3 o más intentos</summaryline>
+	<summaryline test="right">¡Bravo! Esta es la respuesta correcta</summaryline>
+	<summaryline test="wrong">Error. Respuesta incorrecta</summaryline>
+	<summaryline test="passed">Parece que te das por vencido</summaryline>
+	<summaryline>Default summary line:
+	<summaryattribute attribute="defaultsummaryline"></summaryattribute>
+	</summaryline>
+	
+</question>

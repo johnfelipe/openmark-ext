@@ -1,0 +1,345 @@
+<question class="samples.uned.random.barchart.GenericQuestion">
+
+    <scoring>
+        <marks>3</marks>
+    </scoring>
+
+    <layout>
+        <row height="430"/>
+        <column width="290"/>
+        <column width="302"/>
+    </layout>
+	
+	<random id="randomBarchart" max="5"/>
+	
+	<replaceholder placeholder="BASEX" set="randomBarchart">
+  		<option value="-15"/>
+  		<option value="-15"/>
+  		<option value="-15"/>
+  		<option value="15"/>
+  		<option value="-15"/>
+  		<option value="0"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="BASEY" set="randomBarchart">
+  		<option value="-15"/>
+  		<option value="15"/>
+  		<option value="-15"/>
+  		<option value="-15"/>
+  		<option value="0"/>
+  		<option value="-15"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="BASE" set="randomBarchart">
+  		<option value="-15"/>
+  		<option value="15"/>
+  		<option value="-15"/>
+  		<option value="15"/>
+  		<option value="0"/>
+  		<option value="0"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="DIRECTION" set="randomBarchart">
+  		<option value="vertical"/>
+  		<option value="vertical"/>
+  		<option value="horizontal"/>
+  		<option value="horizontal"/>
+  		<option value="vertical"/>
+  		<option value="horizontal"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="SEPARATION" set="randomBarchart">
+  		<option value="1"/>
+  		<option value="0"/>
+  		<option value="2"/>
+  		<option value="1"/>
+  		<option value="2"/>
+  		<option value="1"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="VALUE1" set="randomBarchart">
+  		<option value="-10"/>
+  		<option value="5"/>
+  		<option value="-10"/>
+  		<option value="5"/>
+  		<option value="-10"/>
+  		<option value="5"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="VALUE2" set="randomBarchart">
+  		<option value="-5"/>
+  		<option value="10"/>
+  		<option value="-5"/>
+  		<option value="10"/>
+  		<option value="-5"/>
+  		<option value="10"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="VALUE3" set="randomBarchart">
+  		<option value="15"/>
+  		<option value="-10"/>
+  		<option value="15"/>
+  		<option value="-10"/>
+  		<option value="15"/>
+  		<option value="-10"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="VALUE4" set="randomBarchart">
+  		<option value="0"/>
+  		<option value="-15"/>
+  		<option value="0"/>
+  		<option value="-15"/>
+  		<option value="0"/>
+  		<option value="-15"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="VALUE5" set="randomBarchart">
+  		<option value="5"/>
+  		<option value="15"/>
+  		<option value="5"/>
+  		<option value="15"/>
+  		<option value="5"/>
+  		<option value="15"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="VALUE6" set="randomBarchart">
+  		<option value="-15"/>
+  		<option value="-5"/>
+  		<option value="-15"/>
+  		<option value="-5"/>
+  		<option value="-15"/>
+  		<option value="-5"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="LABEL1" set="randomBarchart">
+  		<option value="A"/>
+  		<option value="I"/>
+  		<option value="6"/>
+  		<option value="f"/>
+  		<option value="Li"/>
+  		<option value="Be"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="LABEL2" set="randomBarchart">
+  		<option value="B"/>
+  		<option value="II"/>
+  		<option value="5"/>
+  		<option value="e"/>
+  		<option value="Na"/>
+  		<option value="Mg"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="LABEL3" set="randomBarchart">
+  		<option value="C"/>
+  		<option value="III"/>
+  		<option value="4"/>
+  		<option value="d"/>
+  		<option value="K"/>
+  		<option value="Ca"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="LABEL4" set="randomBarchart">
+  		<option value="D"/>
+  		<option value="IV"/>
+  		<option value="3"/>
+  		<option value="c"/>
+  		<option value="Rb"/>
+  		<option value="Sr"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="LABEL5" set="randomBarchart">
+  		<option value="E"/>
+  		<option value="V"/>
+  		<option value="2"/>
+  		<option value="b"/>
+  		<option value="Cs"/>
+  		<option value="Ba"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="LABEL6" set="randomBarchart">
+  		<option value="F"/>
+  		<option value="VI"/>
+  		<option value="1"/>
+  		<option value="a"/>
+  		<option value="Fr"/>
+  		<option value="Ra"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="BARCOLOR1" set="randomBarchart">
+  		<option value="blue"/>
+  		<option value="red"/>
+  		<option value="orange"/>
+  		<option value="red"/>
+  		<option value="green"/>
+  		<option value="red"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="BARCOLOR2" set="randomBarchart">
+  		<option value="null"/>
+  		<option value="blue"/>
+  		<option value="red"/>
+  		<option value="null"/>
+  		<option value="orange"/>
+  		<option value="yellow"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="BARCOLOR3" set="randomBarchart">
+  		<option value="null"/>
+  		<option value="null"/>
+  		<option value="blue"/>
+  		<option value="null"/>
+  		<option value="pink"/>
+  		<option value="pink"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="LABELCOLOR1" set="randomBarchart">
+  		<option value="black"/>
+  		<option value="red"/>
+  		<option value="black"/>
+  		<option value="blue"/>
+  		<option value="black"/>
+  		<option value="darkGray"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="LABELCOLOR2" set="randomBarchart">
+  		<option value="null"/>
+  		<option value="blue"/>
+  		<option value="null"/>
+  		<option value="null"/>
+  		<option value="null"/>
+  		<option value="null"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="LABELFONT1" set="randomBarchart">
+  		<option value="Arial"/>
+  		<option value="9px Verdana"/>
+  		<option value="Times New Roman"/>
+  		<option value="14px Arial"/>
+  		<option value="12px Arial"/>
+  		<option value="10px Verdana"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="LABELFONT2" set="randomBarchart">
+  		<option value="null"/>
+  		<option value="null"/>
+  		<option value="null"/>
+  		<option value="12px Arial"/>
+  		<option value="null"/>
+  		<option value="null"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="LABELFONT3" set="randomBarchart">
+  		<option value="null"/>
+  		<option value="null"/>
+  		<option value="null"/>
+  		<option value="10px Arial"/>
+  		<option value="null"/>
+  		<option value="null"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="LABELSPOSITION" set="randomBarchart">
+  		<option value="base"/>
+  		<option value="value"/>
+  		<option value="inside"/>
+  		<option value="base"/>
+  		<option value="inside"/>
+  		<option value="inside"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="LABELSALIGN" set="randomBarchart">
+  		<option value="center"/>
+  		<option value="left"/>
+  		<option value="middle center"/>
+  		<option value="bottom"/>
+  		<option value="top center"/>
+  		<option value="middle right"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="LABELSMARGIN" set="randomBarchart">
+  		<option value="3"/>
+  		<option value="2"/>
+  		<option value="0"/>
+  		<option value="4"/>
+  		<option value="0"/>
+  		<option value="0"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="ROTATE" set="randomBarchart">
+  		<option value="no"/>
+  		<option value="no"/>
+  		<option value="yes"/>
+  		<option value="yes"/>
+  		<option value="yes"/>
+  		<option value="no"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="ROTATEFLIP" set="randomBarchart">
+  		<option value="no"/>
+  		<option value="no"/>
+  		<option value="no"/>
+  		<option value="yes"/>
+  		<option value="yes"/>
+  		<option value="no"/>
+	</replaceholder>
+	
+    <!-- Defines the question box -->
+    <box gridx="0" gridy="0" id="inputbox" background="input">
+    	
+		This is an example to show several possibilities of new &lt;barChart&gt; graph item.
+		 
+        <gap/>
+        <canvas id="barchart" width="256" height="196">
+			<world id="w" px="19" py="0" pw="174" ph="157" 
+				xleft="-20" xright="20" ybottom="-20" ytop="20">
+				
+				<xAxis y="__BASEY__" minX="-15" maxX="15" ticks="5" tickSide="-" colour="#736FEA,fg"/>
+				
+				<yAxis x="__BASEX__" minY="-15" maxY="15" ticks="5" tickSide="-" colour="#736FEA,fg"/>
+				
+				<barChart base="__BASE__" start="-15" width="5" 
+					direction="__DIRECTION__" separation="__SEPARATION__" 
+					value1="__VALUE1__" value2="__VALUE2__" value3="__VALUE3__" 
+					value4="__VALUE4__" value5="__VALUE5__" value6="__VALUE6__" 
+					label1="__LABEL1__" label2="__LABEL2__" label3="__LABEL3__" 
+					label4="__LABEL4__" label5="__LABEL5__" label6="__LABEL6__" 
+					defaultBarColour1="__BARCOLOR1__" defaultBarColour2="__BARCOLOR2__" 
+					defaultBarColour3="__BARCOLOR3__" defaultLabelColour1="__LABELCOLOR1__" 
+					defaultLabelColour2="__LABELCOLOR2__" defaultLabelFont1="__LABELFONT1__" 
+					defaultLabelFont2="__LABELFONT2__" defaultLabelFont3="__LABELFONT3__" 
+					labelsPosition="__LABELSPOSITION__" labelsAlign="__LABELSALIGN__" 
+					labelsMargin="__LABELSMARGIN__" rotateLabels="__ROTATE__" rotateFlip="__ROTATEFLIP__"/>
+        	</world>
+        </canvas>	
+        <gap/>
+			This example has the only purpose of showing several possibilities of new &lt;barChart&gt; 
+			graph item.
+        <gap/>
+        
+		<radiobox id="endExample" right="yes">    <!-- right -->
+			<t>End example</t>
+		</radiobox>
+		<gap/> <break/>
+
+        <button action="actionSubmit" label="%%lENTERANSWER%%"/>
+    </box>
+	
+    <!-- Defines the right-hand answer box, which is initially hidden  -->
+    <box gridx="1" gridy="0" id="answerbox" display="no" background="answer">
+		 
+        <t id="wrong">Your answer is <t id="still">still</t> incorrect.<gap/></t>
+        <t id="right">Your answer is correct.<gap/></t>
+        <t id="pass">You passed on this question.<gap/></t>
+
+        <t id="feedback">
+        </t>
+		
+        <t id="answer">
+			Restart the example to see a new bar chart in the canvas.
+			<gap/>
+        </t>
+     	
+        <button id="ok" action="actionOK" label="%%lTRYAGAIN%%"/>
+        <button id="next" action="actionOK" label="%%lNEXTQUESTION%%" display="no"/>
+    </box>
+    
+</question>

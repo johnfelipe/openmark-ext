@@ -1,0 +1,49 @@
+.om .selectdiv
+{
+	line-height: 1.6;
+	display: inline;
+}
+.om .selectworddiv
+{
+	display: inline;
+}
+
+.om .geckoselectworddiv
+{
+	border: 1px solid transparent;
+}
+
+.om .selectword
+{
+	display: inline;
+}
+.om .spanclass
+{
+	display: inline;
+}
+.om .selectedhilight
+{
+	background: %%COLOUR:innerbg0%%;
+	border-bottom: 3px solid %%COLOUR:text%%;
+}
+.om .secondhilight
+{
+	background-color: %%COLOUR:innerbg3%%;
+	border-bottom: 5px double %%COLOUR:text%%;
+}
+
+.om .thirdhilight
+{
+	background-color: %%COLOUR:innerbg1%%;
+	border-bottom: 4px dotted %%COLOUR:text%%;
+}
+.om .borderfocus
+{
+	padding-bottom: 1px;
+	border: 1px dotted %%COLOUR:text%%;
+}
+.om .offscreen
+{
+	position: absolute;
+	left: -10000px;
+}

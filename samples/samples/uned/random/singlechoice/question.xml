@@ -1,0 +1,225 @@
+<question class="samples.uned.random.singlechoice.GenericQuestion">
+
+	<scoring><marks>3</marks></scoring>
+
+	<layout>
+		<row height="400"/>
+		<column width="296"/>
+		<column width="296"/>  
+	</layout>
+ 	
+  	<random id="randomformula" max="4"/>
+  	
+  	<replaceholder placeholder="A" set="randomformula">
+  		<option value="F"/>
+  		<option value="F"/>
+  		<option value="W"/>
+  		<option value="F_\mbox{e}"/>
+  		<option value="F"/>
+  	</replaceholder>
+ 	
+  	<replaceholder placeholder="APM" set="randomformula">
+  		<option value="F"/>
+  		<option value="F"/>
+  		<option value="W"/>
+  		<option value="F subscript e"/>
+  		<option value="F"/>
+  	</replaceholder>
+ 	
+  	<replaceholder placeholder="B" set="randomformula">
+  		<option value="d"/>
+  		<option value="r"/>
+  		<option value="R_\mbox{E}"/>
+  		<option value="R"/>
+  		<option value="D"/>
+  	</replaceholder>
+ 	
+  	<replaceholder placeholder="BPM" set="randomformula">
+  		<option value="d"/>
+  		<option value="r"/>
+  		<option value="R subscript E"/>
+  		<option value="R"/>
+  		<option value="D"/>
+  	</replaceholder>
+ 	
+  	<replaceholder placeholder="C" set="randomformula">
+  		<option value="G"/>
+  		<option value="q_\mbox{1}"/>
+  		<option value="m"/>
+  		<option value="Q_\mbox{1}"/>
+  		<option value="q"/>
+  	</replaceholder>
+ 	
+  	<replaceholder placeholder="CPM" set="randomformula">
+  		<option value="G"/>
+  		<option value="q subscript 1"/>
+  		<option value="m"/>
+  		<option value="Q subscript 1"/>
+  		<option value="q"/>
+  	</replaceholder>
+ 	
+  	<replaceholder placeholder="D" set="randomformula">
+  		<option value="m_\mbox{1}"/>
+  		<option value="q_\mbox{2}"/>
+  		<option value="M_\mbox{E}"/>
+  		<option value="Q_\mbox{2}"/>
+  		<option value="Q"/>
+  	</replaceholder>
+ 	
+  	<replaceholder placeholder="DPM" set="randomformula">
+  		<option value="m subscript 1"/>
+  		<option value="q subscript 2"/>
+  		<option value="M subscript E"/>
+  		<option value="Q subscript 2"/>
+  		<option value="Q"/>
+  	</replaceholder>
+ 	
+  	<replaceholder placeholder="E" set="randomformula">
+  		<option value="m_\mbox{2}"/>
+  		<option value="ε_\mbox{0}"/>
+  		<option value="G"/>
+  		<option value="ε_\mbox{0}"/>
+  		<option value="ε_\mbox{0}"/>
+  	</replaceholder>
+ 	
+  	<replaceholder placeholder="EPM" set="randomformula">
+  		<option value="m subscript 2"/>
+  		<option value="ε subscript 0"/>
+  		<option value="G"/>
+  		<option value="ε subscript 0"/>
+  		<option value="ε subscript 0"/>
+  	</replaceholder>
+ 	
+	<!-- Defines the left-hand question box -->
+	<box gridx="0" gridy="0" id="inputbox" background="input" 
+		questionline="Which plot gives a straight line?">
+		Given the following
+		<t id="formula0" test="random[randomformula:0]">
+			<equation alt="__APM__ = (__CPM__ times __DPM__ times __EPM__ ) over (__BPM__ to the power 2)">
+				{__A__} = \frac{{__C__}{__D__}{__E__}}{{__B__}^2}
+			</equation>
+		</t>
+		<t id="formula1" test="random[randomformula:1]">
+			<equation alt="__APM__ = (__CPM__ times __DPM__) over (4 PI times __EPM__ times (__BPM__ to the power 2))">
+				{__A__} = \frac{{__C__}{__D__}}{4π{__E__}{__B__}^2}
+			</equation>
+		</t>
+		<t id="formula2" test="random[randomformula:2]">
+			<equation alt="__APM__ = __EPM__ times (__CPM__ times __DPM__) over (__BPM__ to the power 2)">
+				{__A__} = __E__\frac{{__C__}{__D__}}{{__B__}^2}
+			</equation>
+		</t>
+		<t id="formula3" test="random[randomformula:3]">
+			<equation alt="__APM__ = (__CPM__ times __DPM__) over (4 PI times __EPM__ times (__BPM__ to the power 2))">
+				{__A__} = \frac{{__C__}{__D__}}{4π{__E__}{__B__}^2}
+			</equation>
+		</t>
+		<t id="formula4" test="random[randomformula:4]">
+			<equation alt="__APM__ = (__CPM__ times __DPM__) over (PI times __EPM__ times (__BPM__ to the power 2))">
+				{__A__} = \frac{{__C__}{__D__}}{π{__E__}{__B__}^2}
+			</equation>
+		</t>
+		<gap/>
+		where <eq alt="__APM__">__A__</eq> and <eq alt="__BPM__">__B__</eq> are variables, and <eq alt="__CPM__">__C__</eq>,
+		<eq alt="__DPM__">__D__</eq> and <eq alt="__EPM__">__E__</eq> are constants.
+		<gap/>
+		Which <emphasis>one</emphasis> of the following graphs would be a
+		straight line? 
+		<gap/>
+
+		<layoutgrid cols="2" shuffle="yes">	
+			<radiobox id="box0">    <!-- wrong -->
+				<equation alt="__APM__ against __BPM__ to the power 2 ">__A__ \mbox{ against } __B__ ^2</equation>
+			</radiobox>
+			
+			<radiobox id="box1">    <!-- wrong -->
+				<equation alt="square root __APM__ against __BPM__">\sqrt{__A__} \mbox{ against } __B__</equation>
+			</radiobox>
+			
+			<radiobox id="box2">    <!-- wrong -->
+				<equation alt="__APM__ against one over __BPM__ ">__A__ \mbox{ against } \frac{1}{__B__}</equation>
+			</radiobox>
+			
+			<radiobox id="box3" right="yes">    <!-- right -->
+				<equation alt="__APM__ against one over __BPM__ to the power 2">__A__ \mbox{ against } \frac{1}{{__B__}^2}</equation>
+			</radiobox>
+			
+			<radiobox id="box4">    <!-- wrong -->
+				<equation alt="__APM__ to the power 2 against one over __BPM__ ">__A__^2 \mbox{ against } \frac{1}{__B__}</equation>
+			</radiobox>
+			
+		</layoutgrid>
+	
+		<gap/> 
+  
+		<button action="actionSubmit" label="%%lENTERANSWER%%"/>
+<!-- 		<button action="actionGiveUp" label="%%lGIVEUP%%"/> -->
+  
+	</box>
+
+ <!-- Defines the right-hand answer box, which is initially hidden  -->
+ <box gridx="1" gridy="0" id="answerbox" display="no" background="answer">
+   
+	<t id="right">Your answer is correct.<gap/></t>
+	<t id="wrong">Your answer is <t id="still">still</t> incorrect.<gap/></t>
+	<t id="pass">You passed on this question.<gap/></t>	
+
+	<t id="feedback">
+		<t id="answer0" answer="box0" attemptsmin="2" attemptsmax="2">
+			Your response implies that <eq alt="__APM__">__A__</eq> is proportional to
+			<eq alt="__BPM__ to the power 2">__B__^2</eq>, which is not true. These variables are
+			<emphasis type="italic">inversely</emphasis> proportional.
+			<gap/>
+		</t>
+		<t id="answer1" answer="box1" attemptsmin="2" attemptsmax="2">
+			Your response implies that 
+			<equation alt="square root __APM__">\sqrt{__A__}</equation>
+			is proportional to <eq alt="__BPM__">__B__</eq>, i.e. that <eq alt="__APM__">__A__</eq>
+			is proportional to <eq alt="__BPM__ to the power 2">__B__^2</eq>, which is not true.
+			These variables are
+			<emphasis type="italic">inversely</emphasis> proportional.
+			<gap/>
+		</t>
+		<t id="answer2" answer="box2" attemptsmin="2" attemptsmax="2">
+			Your response implies that <eq alt="__APM__">__A__</eq> is proportional to
+			<equation alt="one over __BPM__ ">\frac{1}{__B__}</equation>, 
+			which is not true.
+			<gap/>
+		</t>
+		<t id="answer4" answer="box4" attemptsmin="2" attemptsmax="2">
+			Your response implies that <eq alt="__APM__ to the power 2">__A__^2</eq> is proportional to
+			<equation alt="one over __BPM__ ">\frac{1}{__B__}</equation>, 
+			i.e. that __A__ is proportional to 
+			<equation alt="square root of one over __BPM__">\sqrt{\frac{1}{__B__}}</equation>,
+			which is not true.
+			<gap/>
+		</t>
+		You may find Section 5.4 useful in helping you to decide which one of the
+		graphs would be a straight line.
+		<gap/>
+	</t>	 
+   
+	<t id="answer">
+		<eq alt="__APM__">__A__</eq> is inversely proportional to <eq alt="__BPM__ to the power 2">__B__^2</eq>
+		<gap/>
+		i.e. <eq alt="__APM__">__A__</eq> is proportional to 
+		<equation alt="one over __BPM__ to the power 2">\frac{1}{{__B__}^2}</equation>
+		<gap/>
+		so only 
+		<equation alt="__APM__ against one over __BPM__ to the power 2">
+			__A__ \mbox{ against } \frac{1}{{__B__}^2}
+		</equation>
+		will be a straight line.
+		<gap/>
+	</t>
+		
+	<button id="ok" action="actionOK" label="%%lTRYAGAIN%%"/>
+	<button id="next" action="actionOK" label="%%lNEXTQUESTION%%" display="no"/>
+   
+ </box>
+ 
+ <!-- summaryline type="answerline">Selected equation box:<summaryattribute attribute="ifanswered[box0?0]"/><summaryattribute attribute="ifanswered[box1?1]"/><summaryattribute attribute="ifanswered[box2?2]"/><summaryattribute attribute="ifanswered[box3?3]"/><summaryattribute attribute="ifanswered[box4?4]"/></summaryline>-->
+ <summaryline type="answerline">Selected equation box:<summaryattribute attribute="answermap[box0,box1,box2,box3,box4:0,1,2,3,4]"/></summaryline>
+ <summaryline>Attempt <summaryattribute attribute="attempt"/>: <summaryattribute attribute="answerid"/></summaryline>
+ 
+</question>

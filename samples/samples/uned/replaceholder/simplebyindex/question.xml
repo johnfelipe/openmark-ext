@@ -1,0 +1,120 @@
+<question class="samples.uned.replaceholder.simplebyindex.GenericQuestion">
+	
+	<parameters maxattempts="5"></parameters>
+	
+	<scoring><marks>5</marks></scoring>
+
+	<layout>
+		<row height="400"/>
+		<column width="296"/>
+		<column width="296"/>  
+	</layout>
+ 	
+ 	<replaceholder placeholder="SERIE" set="#1">
+ 		<option value="Fraguel Rock"/>
+ 		<option value="Barrio Sésamo"/>
+ 		<option value="Ásterix y Obelix"/>
+ 		<option value="Smallville"/>
+ 	</replaceholder>
+ 	
+ 	<replaceholder placeholder="RIGHT_EPI" set="@no"/>
+ 	<replaceholder placeholder="RIGHT_COCO" set="@no"/>
+ 	<replaceholder placeholder="RIGHT_GUSTAVO" set="@no"/>
+ 	<replaceholder placeholder="RIGHT_ASTERIX" set="@yes"/>
+ 	<replaceholder placeholder="RIGHT_BLAS" set="@no"/>
+ 	
+	<!-- Defines the left-hand question box -->
+	<box gridx="0" gridy="0" id="inputbox" background="input" 
+		questionline="¿Qué personaje no salía en __SERIE__?">
+		
+		¿Cuál de los siguientes personajes no salía en __SERIE__?
+		<gap/>
+		
+		<layoutgrid cols="1" shuffle="yes">	
+			<radiobox id="unaRespuesta" right="__RIGHT_EPI__">    <!-- wrong -->
+				<t>Epi</t>
+			</radiobox>
+			
+			<radiobox id="otraRespuesta" right="__RIGHT_COCO__" answerline="Coco">    <!-- wrong -->
+				<t>El monstruo Coco</t>
+			</radiobox>
+			
+			<radiobox id="ranaGustavo" right="__RIGHT_GUSTAVO__" answerline="Gustavo">    <!-- wrong -->
+				<t>La rana Gustavo</t>
+			</radiobox>
+			
+			<radiobox id="asterixGalo" right="__RIGHT_ASTERIX__" answerline="Asterix">    <!-- right -->
+				<t>El galo Astérix</t>
+			</radiobox>
+			
+			<radiobox id="blas" right="__RIGHT_BLAS__">    <!-- wrong -->
+				<t>Blas</t>
+			</radiobox>
+		</layoutgrid>
+	
+		<gap/> 
+  
+		<button action="actionSubmit" label="%%lENTERANSWER%%"/>
+ 		<button action="actionGiveUp" label="%%lGIVEUP%%"/>
+  
+	</box>
+
+ <!-- Defines the right-hand answer box, which is initially hidden  -->
+ <box gridx="1" gridy="0" id="answerbox" display="no" background="answer" answerline="Pasando de todo">
+   
+	<t id="right">Tu respuesta es correcta.<gap/></t>
+	<t id="wrong">Tu respuesta<t id="still"> todavía</t> es incorrecta.<gap/></t>
+	<t id="pass">Has saltado la pregunta.<gap/></t>	
+	
+	<t id="feedback">
+		<t id="cocofeedback" answer="otraRespuesta" attemptsmin="1">
+			Deberías saber que el famoso monstruo de la galletas pertenece a __SERIE__.
+			<gap/>
+		</t>
+		<t id="epiblasfeedback" answer="unaRespuesta,blas">
+			Tanto Epi como Blas son de Barrio Sesamo.
+			<gap/>
+		</t>
+		<t id="feedback1" attemptsmax="1">
+			Te has equivocado, me parece que no te fijas demasiado.
+			<gap/>
+		</t>
+		<t id="feedback2" attemptsmin="2">
+			Vamos a centrarnos hombre, 
+			<emphasis type="italic">fíjate bien!!</emphasis>
+			<gap/>
+		</t>
+		Consulta el tema xxx para encontrar una solución a la pregunta.
+		<gap/>
+	</t>	 
+   
+	<t id="answer">
+		Astérix es un personaje de comic muy conocido por liderar la resistencia a los romanos de una aldea de la Galia.
+		<gap/>
+		Por tanto, no pertenece a la serie de televisión para niños __SERIE__.
+		<gap/>
+	</t>
+		
+	<button id="ok" action="actionOK" label="%%lTRYAGAIN%%"/>
+	<button id="next" action="actionOK" label="%%lNEXTQUESTION%%" display="no"/>
+   	
+ </box>
+ 
+	<summaryline>     Siempre la 
+	misma    
+	línea   (intento número <summaryattribute attribute="attempt"></summaryattribute>) 
+	
+	</summaryline>
+	<summaryline answer="blas">Seleccionaste el 
+	<summaryattribute attribute="answertagname"></summaryattribute> 
+	de Blas</summaryline>
+	<summaryline attemptsmax="2">Llevas menos de 3 intentos</summaryline>
+	<summaryline attemptsmin="3">Llevas ya 3 o más intentos</summaryline>
+	<summaryline test="right">¡Bravo! Esta es la respuesta correcta</summaryline>
+	<summaryline test="wrong">Error. Respuesta incorrecta</summaryline>
+	<summaryline test="passed">Parece que te das por vencido</summaryline>
+	<summaryline>Default summary line:
+	<summaryattribute attribute="defaultsummaryline"></summaryattribute>
+	</summaryline>
+ 
+</question>

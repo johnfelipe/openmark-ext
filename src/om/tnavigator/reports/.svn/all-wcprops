@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/openmark~svn/!svn/ver/429/trunk/src/om/tnavigator/reports
+END
+TsvReportWriter.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/openmark~svn/!svn/ver/204/trunk/src/om/tnavigator/reports/TsvReportWriter.java
+END
+XmlReportWriter.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/openmark~svn/!svn/ver/247/trunk/src/om/tnavigator/reports/XmlReportWriter.java
+END
+CsvReportWriter.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/openmark~svn/!svn/ver/204/trunk/src/om/tnavigator/reports/CsvReportWriter.java
+END
+ReportDispatcher.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/openmark~svn/!svn/ver/258/trunk/src/om/tnavigator/reports/ReportDispatcher.java
+END
+TabularReportWriter.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/openmark~svn/!svn/ver/204/trunk/src/om/tnavigator/reports/TabularReportWriter.java
+END
+OmTestReport.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/openmark~svn/!svn/ver/130/trunk/src/om/tnavigator/reports/OmTestReport.java
+END
+TextReportWriter.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/openmark~svn/!svn/ver/204/trunk/src/om/tnavigator/reports/TextReportWriter.java
+END
+TabularReportBase.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/openmark~svn/!svn/ver/251/trunk/src/om/tnavigator/reports/TabularReportBase.java
+END
+OmReport.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/openmark~svn/!svn/ver/225/trunk/src/om/tnavigator/reports/OmReport.java
+END
+HtmlReportWriter.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/openmark~svn/!svn/ver/386/trunk/src/om/tnavigator/reports/HtmlReportWriter.java
+END
+XmlForDownloadReportWriter.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/openmark~svn/!svn/ver/204/trunk/src/om/tnavigator/reports/XmlForDownloadReportWriter.java
+END

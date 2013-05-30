@@ -1,0 +1,173 @@
+<question class="samples.uned.random.garden.GenericQuestion2">
+
+    <scoring>
+        <marks>3</marks>
+    </scoring>
+
+    <layout>
+        <row height="420"/>
+        <column width="390"/>
+        <column width="202"/>  
+    </layout>
+	
+	<random id="randomNumber">
+		<option value="0.5"/>
+		<option value="2.0"/>
+		<option value="3.0"/>
+	</random>
+	
+	<random id="randomFeature" max="4"/>
+	
+	<variable id="whitespace" set="@ "/>
+	
+	<!-- AnsW=W*X -->
+	<variable id="AnsW" set="placeholderW[nmplaceholderX@]"/>
+	
+	<!-- AnsL=L*X -->
+	<variable id="AnsL" set="placeholderL[nmplaceholderX@]"/>
+	
+	<!-- dbl1=(double)response1 , 
+		 we convert string to double with this trick: dbl1=response1+0.0
+		 moreover if value is not a valid double we return NaN -->
+	<variable id="dbl1" set="response1[na&quot;0.0&quot;nf!&quot;NaN&quot;]"/>
+	
+	<!-- dbl2=(double)response2 , 
+		 we convert string to double with this trick: dbl2=response2+0.0 
+		 moreover if value is not a valid double we return NaN -->
+	<variable id="dbl2" set="response2[na&quot;0.0&quot;nf!&quot;NaN&quot;]"/>
+	
+	<!-- dblW=min(dbl1,dbl2) : width -->
+	<variable id="dblW" set="dbl1[ngdbl2@,dbl2@]" answerenabled="yes" valuetype="numeric" 
+		right="__AnsW__" tolerance="1E-6"/>
+	
+	<!-- dblL=max(dbl1,dbl2) : length -->
+	<variable id="dblL" set="dbl1[nldbl2@,dbl2@]" answerenabled="yes" valuetype="numeric" 
+		right="__AnsL__" tolerance="1E-6"/>
+	
+	<replaceholder id="placeholderX" placeholder="X" set="randomNumber@"/>
+	
+	<replaceholder placeholder="Y" set="randomFeature">
+  		<option value="Patio"/>
+  		<option value="Summer House"/>
+  		<option value="Flowerbed"/>
+  		<option value="Vegetable Plot"/>
+  		<option value="Pond"/>
+	</replaceholder>
+	
+	<replaceholder id="placeholderW" placeholder="W" set="randomFeature">
+  		<option value="4"/>
+  		<option value="3"/>
+  		<option value="2"/>
+  		<option value="3"/>
+  		<option value="2"/>
+	</replaceholder>
+	
+	<replaceholder id="placeholderL" placeholder="L" set="randomFeature">
+  		<option value="7"/>
+  		<option value="5"/>
+  		<option value="7"/>
+  		<option value="10"/>
+  		<option value="3"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="AnsW" set="AnsW@"/>
+	
+	<replaceholder placeholder="AnsL" set="AnsL@"/>
+	
+    <!-- Defines the question box -->
+    <box gridx="0" gridy="0" id="inputbox" background="input" 
+    	questionline="What is (X*W) __X__*__W__, (X*L) __X__*__L__?">
+    	
+        Below is a plan of a proposed garden.
+        The scale is that each division in the plan
+        represents a length in the garden of __X__ metres.
+        What is the proposed length and width of the __Y__ in the garden?
+        <gap/>
+        <image id="flowerbed" display="yes" filePath="flowerbed.gif" alt=""></image>
+        <gap/>
+
+        The __Y__ is 
+        <editfield id="response1" label="length" cols="4" answerenabled="no" singlespaces="no"/> metres by	
+        <editfield id="response2" label="width" cols="4" answerenabled="no" singlespaces="no"/>  metres.
+        <gap/>
+
+        <button action="actionSubmit" label="%%lENTERANSWER%%"/>
+        <button id="hintButton" action="actionHint" label="Hint" display="yes"/>
+        <!--button action="actionGiveUp" label="%%lGIVEUP%%"/-->
+    </box>
+
+    <!-- Defines the right-hand answer box, which is initially hidden  -->
+    <box gridx="1" gridy="0" id="answerbox" display="no" background="answer">
+		 
+        <t id="wrong">Your answer is <t id="still">still</t> incorrect.<gap/></t>
+        <t id="right">Your answer is correct.<gap/></t>
+        <t id="pass">You passed on this question.<gap/></t>
+
+        <t id="hints">
+            <t id="hint">
+                Count the number of divisions in each length and multiply by the scale.
+                <gap/>
+            </t>
+        </t>
+
+        <t id="feedback">
+            <t id="nonumber" answer="ansnonumber">
+                You must enter two numbers for the length and the width.
+                <gap/>
+            </t>
+            <t id="lokwtoobig" answer="!ansnonumber+dblL[__AnsL__]" test="numcmp[dblW>__AnsW__]"
+            	tolerance="1E-6">
+                The length is correct but the width is too big.
+            </t>
+            <t id="lokwtoosmall" answer="!ansnonumber+dblL[__AnsL__]" test="numcmp[dblW&lt;__AnsW__]"
+            	tolerance="1E-6">
+                The length is correct but the width is too small.
+            </t>
+            <t id="wokltoobig" answer="!ansnonumber+dblW[__AnsW__]" test="numcmp[dblL>__AnsL__]" 
+            	tolerance="1E-6">
+                The width is correct but the length is too big.
+            </t>
+            <t id="wokltoosmall" answer="!ansnonumber+dblW[__AnsW__]" test="numcmp[dblL&lt;__AnsL__]" 
+            	tolerance="1E-6">
+                
+                The width is correct but the length is too small.
+            </t>
+            <t id="allwrong" answer="!ansnonumber+!dblW[__AnsW__]+!dblL[__AnsL__]">
+                Neither the width or the length are correct.
+            </t>
+            <t id="feedback1" attemptsmin="2" attemptsmax="2">
+                Remember to multiply the number of divisions on the plan by the scale.
+                <gap/>
+            </t>   
+        </t>
+		
+        <t id="answer">
+            Each division on the plan represents __X__ metres on the garden.
+            The __Y__ is __L__ divisions by __W__ divisions on the plan. 
+            Multiplying by the scale __X__ metres,
+            gives the proposed __Y__ in the garden as 
+            __L__×__X__ metres by __W__×__X__ metres, 
+            Which is __AnsL__ metres by __AnsW__ metres.
+            <gap/>
+        </t>
+
+        <t id="reference">
+            Please see MU120 Preparatory Resource Book B section 5.1
+            <gap/>
+        </t>
+     
+        <button id="ok" action="actionOK" label="%%lTRYAGAIN%%"/>
+        <button id="next" action="actionOK" label="%%lNEXTQUESTION%%" display="no"/>
+   
+    </box>
+	
+	<answercombo id="ansnonumber" answer="dbl1[NaN],dbl2[NaN]"/>
+	
+	<summaryline type="answerline"><summaryattribute attribute="variable[whitespace]"/><summaryattribute attribute="variable[dbl1]"/> 
+	<summaryattribute attribute="variable[dbl2]"/></summaryline>
+	
+	<summaryline>Attempt <summaryattribute attribute="attempt"/>: 
+	<summaryattribute attribute="answerline[response1]"/>, 
+	<summaryattribute attribute="answerline[response2]"/></summaryline>
+	
+</question>

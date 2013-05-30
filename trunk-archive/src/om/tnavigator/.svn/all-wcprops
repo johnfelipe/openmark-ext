@@ -1,0 +1,125 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/tnavigator
+END
+TestLeaf.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/tnavigator/TestLeaf.java
+END
+NavigatorServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/tnavigator/NavigatorServlet.java
+END
+LogProcessor.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/tnavigator/LogProcessor.java
+END
+OmServiceBalancer.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/tnavigator/OmServiceBalancer.java
+END
+TestGroup.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/tnavigator/TestGroup.java
+END
+UserSession.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/tnavigator/UserSession.java
+END
+LogInputStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/tnavigator/LogInputStream.java
+END
+TestDefinition.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/tnavigator/TestDefinition.java
+END
+TestItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/tnavigator/TestItem.java
+END
+Log.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/tnavigator/Log.java
+END
+TestInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/tnavigator/TestInfo.java
+END
+LogProcessorHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/tnavigator/LogProcessorHandler.java
+END
+TestRealisation.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/tnavigator/TestRealisation.java
+END
+NavigatorConfig.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/tnavigator/NavigatorConfig.java
+END
+TestQuestion.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/tnavigator/TestQuestion.java
+END
+ShutdownManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/tnavigator/ShutdownManager.java
+END
+TestDeployment.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/tnavigator/TestDeployment.java
+END
+Mail.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/tnavigator/Mail.java
+END
+StatusPages.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/tnavigator/StatusPages.java
+END
+TestMarkedItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/tnavigator/TestMarkedItem.java
+END

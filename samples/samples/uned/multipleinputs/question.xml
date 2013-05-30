@@ -1,0 +1,109 @@
+<question class="samples.uned.multipleinputs.GenericQuestion">
+
+	<scoring>
+		<marks>3</marks>
+	</scoring>	
+
+  	<layout>
+    	<row height="400"/>
+    	<column width="326"/>
+    	<column width="266"/>  
+  	</layout>
+
+  	<box gridx="0" gridy="0" id="inputbox" background="input" 
+  		questionline="Sketch a Lewis structure for SnCl_2. How many repulsion axes are there and how are they arranged?">
+  		
+  		This question requires two answers.
+  		<gap/>
+		On paper, sketch a Lewis structure for
+		<eq italic="no">SnCl_2</eq>.
+		<gap/>
+		How many repulsion axes are there?
+		<gap/>
+		<label for="input"></label><editfield id="input" cols="2" right="3" strip="yes"/> repulsion axes
+    	<gap/>
+		<gap/>
+		How are they arranged? 
+		<gap/>
+		<layoutgrid cols="2" shuffle="yes">	
+			<radiobox id="box0">
+				<eq textfont="yes">\mbox{Trigonal bipyramid}</eq>
+			</radiobox>
+			<radiobox id="box1">
+				<eq textfont="yes">\mbox{Octahedron}</eq>
+			</radiobox>
+			<radiobox id="box2">
+				<eq textfont="yes">\mbox{Square pyramid}</eq>
+			</radiobox>
+			<radiobox id="box3" right="yes">
+				<eq textfont="yes">\mbox{Trigonal planar}</eq>
+			</radiobox>
+			<radiobox id="box4">
+				<eq textfont="yes">\mbox{Square planar}</eq>
+			</radiobox>
+		</layoutgrid>
+		<gap/>
+		
+      	<button action="actionSubmit" label="%%lENTERANSWER%%"/>
+      	<!--<button action="actionGiveUp" label="%%lGIVEUP%%"/>-->
+ 	</box>
+
+  	<box gridx="1" gridy="0" id="answerbox" display="no" background="answer">
+  		
+    	<t id="wrong">Your answer is <t id="still">still</t> incorrect.</t>
+    	<t id="right">Your answer is correct.</t>
+    	<t id="pass">You passed on this question.</t> 
+    	<gap/>
+    	
+    	<t id="nWrong" test="wrong[input]" attemptsmax="2">
+    		Your value for the number of repulsion axes is incorrect.
+    		<gap/>
+    	</t>
+    	
+    	<t id="geometryWrong" answer="!box3" attemptsmax="2">
+    		You have not chosen the correct arrangement of repulsion axes.
+    		<gap/>
+    	</t>
+    	
+		<t id="hint1" attemptsmin="1" attemptsmax="1">
+			Determine the number of outer electrons on the central atom.
+			<gap/>
+		</t>  
+
+		<t id="hint2" attemptsmin="2" attemptsmax="2">
+			Assign the outer electrons on the central atom to bonds.
+			<gap/>
+		</t>  
+
+    	<t id="feedback">
+    	</t>   
+
+    	<t id="answer">
+	    	There are <eq>3</eq> repulsion axes which should therefore be 
+	    	disposed in a triangular sense. The molecule itself should be V-shaped
+	    	with a bond angle slightly less than <eq>120°</eq> because of the primacy
+	    	of the non-bonded pair–bond	pair repulsions. Experimentally, this is 
+	    	found to be the case.
+	    	<gap/>
+	    	<indent>
+	    		<image filePath="fig0.png" alt="Lewis diagram of SnCl_2"/>
+	    	</indent>
+	    	<gap/>
+	    </t>
+
+		<button id="ok" action="actionOK" label="%%lTRYAGAIN%%"/>
+		<button id="next" action="actionOK" label="%%lNEXTQUESTION%%" display="no"/>
+	</box>
+	
+	<summaryline type="answerline"><summaryattribute attribute="answerline[input]"/>, 
+	(<summaryattribute attribute="if[radioboxselected?1:0]"/> selected)</summaryline>
+	
+	<summaryline>Attempt <summaryattribute attribute="attempt"/>: 
+	<summaryattribute attribute="answerline[input]"/>, 
+	<summaryattribute attribute="answermap[box0,box1,box2,box3,box4:Box 0 (Trigonal bipyramid);,Box 1 (Octahedron);,Box 2 (Square pyramid);,Box 3 (Trigonal planar);,Box 4 (Square planar);]"/>
+	</summaryline>
+	
+	<!-- radioboxselected: true if one radiobox has been selected -->
+	<answercombo id="radioboxselected" answer="box0,box1,box2,box3,box4"/>
+	
+</question>

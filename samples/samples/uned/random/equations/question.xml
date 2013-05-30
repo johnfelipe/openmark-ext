@@ -1,0 +1,233 @@
+<question class="samples.uned.random.equations.GenericQuestion" plainmode="no">
+
+	<scoring>
+		<marks>3</marks>
+	</scoring>
+
+	<layout>
+		<row height="300"/>
+		<row height="200"/>
+		<column width="590"/>
+	</layout>
+	
+	<random id="randomeq" group="eigen" max="4"/>
+	
+	<replaceholder placeholder="RANMDOMEQ" set="randomeq@"/>
+	
+  	<replaceholder placeholder="EQ" set="randomeq">
+  		<option value="\Psi (x,t) = \frac{1}{2}\psi _0 (x) exp\left( \frac{-i\omega _{0}t}{2}\right) + \frac{\sqrt{3}}{2}\psi _3 (x) exp\left( \frac{-5i\omega _{0}t}{2}\right)"/>
+  		<option value="\Psi (x,t) = \frac{1}{2}\psi _0 (x) exp\left( \frac{-i\omega _{0}t}{2}\right) + \frac{\sqrt{3}}{2}\psi _3 (x) exp\left( \frac{-7i\omega _{0}t}{2}\right)"/>
+  		<option value="\Psi (x,t) = \frac{1}{2}\psi _0 (x) exp\left( \frac{-3i\omega _{0}t}{2}\right) + \frac{\sqrt{3}}{2}\psi _3 (x) exp\left( \frac{-7i\omega _{0}t}{2}\right)"/>
+  		<option value="\Psi (x,t) = \frac{4}{5}\psi _0 (x) exp\left( \frac{-i\omega _{0}t}{2}\right) + \frac{3}{5}\psi _3 (x) exp\left( \frac{-5i\omega _{0}t}{2}\right)"/>
+  		<option value="\Psi (x,t) = \frac{3}{5}\psi _0 (x) exp\left( \frac{-3i\omega _{0}t}{2}\right) + \frac{4}{5}\psi _3 (x) exp\left( \frac{-7i\omega _{0}t}{2}\right)"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="C" set="randomeq">
+  		<option value="\frac{\sqrt{3} }{2}"/>
+  		<option value="0"/>
+  		<option value="0"/>
+  		<option value="\frac{3 }{5}"/>
+  		<option value="0"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="E" set="randomeq">
+  		<option value="2"/>
+  		<option value="3"/>
+  		<option value=""/>
+  		<option value="2"/>
+  		<option value="3"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="EE" set="randomeq">
+  		<option value="2"/>
+  		<option value="3"/>
+  		<option value="1"/>
+  		<option value="2"/>
+  		<option value="3"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="E2" set="randomeq">
+  		<option value="\frac{\sqrt{3} }{2}"/>
+  		<option value="\frac{\sqrt{3} }{2}"/>
+  		<option value="\frac{1 }{2}"/>
+  		<option value="\frac{3 }{5}"/>
+  		<option value="\frac{4 }{5}"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="F" set="randomeq">
+  		<option value="5"/>
+  		<option value="7"/>
+  		<option value="3"/>
+  		<option value="5"/>
+  		<option value="7"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="G" set="randomeq">
+  		<option value="c_2"/>
+  		<option value="c_3"/>
+  		<option value="c_1"/>
+  		<option value="c_2"/>
+  		<option value="c_3"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="N" set="randomeq">
+  		<option value="3"/>
+  		<option value="3"/>
+  		<option value="1"/>
+  		<option value="9"/>
+  		<option value="16"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="D" set="randomeq">
+  		<option value="4"/>
+  		<option value="4"/>
+  		<option value="4"/>
+  		<option value="25"/>
+  		<option value="25"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="HN" set="randomeq">
+  		<option value="1.73"/>
+  		<option value="1.73"/>
+  		<option value="1"/>
+  		<option value="3"/>
+  		<option value="4"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="HD" set="randomeq">
+  		<option value="2"/>
+  		<option value="2"/>
+  		<option value="2"/>
+  		<option value="5"/>
+  		<option value="5"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="JN" set="randomeq">
+  		<option value="1"/>
+  		<option value="1"/>
+  		<option value="1.73"/>
+  		<option value="4"/>
+  		<option value="3"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="JD" set="randomeq">
+  		<option value="2"/>
+  		<option value="2"/>
+  		<option value="2"/>
+  		<option value="5"/>
+  		<option value="5"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="LN" set="randomeq">
+  		<option value="1"/>
+  		<option value="1"/>
+  		<option value="3"/>
+  		<option value="16"/>
+  		<option value="9"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="LD" set="randomeq">
+  		<option value="4"/>
+  		<option value="4"/>
+  		<option value="4"/>
+  		<option value="25"/>
+  		<option value="25"/>
+  	</replaceholder>
+	
+	<box gridx="0" gridy="0" id="inputbox" background="input" 
+		questionline="Variant (counting from zero): __RANMDOMEQ__">
+
+		The state of a certain one-dimensional quantum mechanical harmonic oscillator
+		at time <eq>t</eq> is represented by the wave function
+		<gap/>
+		<equation alt="Mark to provide words">__EQ__</equation>
+		<gap/>
+		where <equation alt="Mark to provide words">\Psi _n(x,t)</equation>
+		are normalised harmonic oscillator eigenfunctions with corresponding energy eigenvalues
+		<equation alt="Mark to provide words">E = \left(n+\frac{1}{2}\right)ћ\omega _0</equation>.
+		<break/>
+		What is the probability that a measurement of energy will yield a value of
+		<equation alt="Mark to provide words">__F__\frac{ћ\omega _0}{2}</equation>.
+		when the system is in the state represented by 
+		<equation alt="Mark to provide words">\Psi _n(x,t)</equation>?
+		Please express your answer as a fraction in its simplest form.
+			
+		<indent>
+			fraction = 
+			<equation alt="Enter two values, numerator and denominator">
+				\frac{<eplace label="Numerator"><editfield id="numerator" cols="3" answertype="numeric" right="__N__" singlespaces="no" tolerance="1E-6"/></eplace>}
+					 {<eplace label="Denominator"><editfield id="denominator" cols="3" answertype="numeric" right="__D__" singlespaces="no" tolerance="1E-6"/></eplace>}		
+			</equation>
+
+			<button action="actionSubmit" label="%%lENTERANSWER%%"/>
+		</indent>
+   
+	</box>
+
+	<box gridx="0" gridy="1" id="answerbox" display="no" background="answer">
+		 
+		<t id="wrong">Your answer is <t id="still">still</t> incorrect.</t>
+		<t id="right">Your answer is correct.</t>
+		<t id="pass"></t> 
+		<gap/>
+		<t id="wrongfunction" answer="numerator[__LN__]+denominator[__LD__]" attemptsmax="2">
+			You haven't identified the correct eigenfunction. Please think about which
+			eigenfunction corresponds to
+			<equation alt="Mark to provide words">E = __F__\frac{ћ\omega _0}{2}</equation>,
+			then calculate the probability that a measurement will find the
+			harmonic oscillator in this state.
+			<gap/>
+		</t>
+		<t id="coefficient" 
+			answer="numerator[__HN__]+denominator[__HD__],numerator[__JN__]+denominator[__JD__]"
+			tolerance="0.01" attemptsmax="2">
+			
+			Your answer is the <emphasis type="italic">coefficient</emphasis> of an eigenfunction.
+			Think about how the probability of measuring that eigenfunction is related
+			to the coefficient.
+			<gap/>
+		</t>
+		<t id="total" answer="numerator[1]+denominator[1]" attemptsmax="2">
+			You have given the <emphasis type="italic">total probability</emphasis> of measuring something.
+			What is the probability of measuring the value
+			<equation alt="Mark to provide words">E = __F__\frac{ћ\omega _0}{2}</equation>?
+			<gap/>
+		</t>
+	  
+		<t id="feedback">
+			<t id="default" attemptsmin="2" attemptsmax="2">
+				Please think about which eigenfunction corresponds to
+				<equation alt="Mark to provide words">E = __F__\frac{ћ\omega _0}{2}</equation>,
+				then calculate the probability that a measurement will find the harmonic
+				oscillator in this state.
+				<gap/>
+				</t>
+	    </t>   
+   
+		<t id="answer">
+			<equation alt="Mark to provide words">E = __F__\frac{ћ\omega _0}{2}</equation>
+			is the eigenvalue corresponding to the <emphasis type="italic">n</emphasis> = __EE__ eigenfunction.
+			<break/>
+			In the wave function, this eigenfunction has coefficient
+			<equation alt="Mark to provide words">__G__(x,t) = __E2__exp\left(\frac{-__F__i\omega _{0}t}{2}\right)</equation>.
+			<break/>
+			The probability of the measurement finding the oscillator in this state is
+			<gap/>
+			<eq>p = |__G__(x,t)|^2</eq>
+			= <equation alt="__N__ over __D__">\frac{__N__}{__D__}</equation>
+			<gap/>
+		</t>
+      
+	    <button id="ok" action="actionOK" label="%%lTRYAGAIN%%"/>
+		<button id="next" action="actionOK" label="%%lNEXTQUESTION%%" display="no"/>
+   
+	</box>
+	
+	<summaryline type="answerline"><summaryattribute attribute="answerline[numerator]"/>/<summaryattribute attribute="answerline[denominator]"/>
+	</summaryline>
+	
+	<summaryline>Attempt <summaryattribute attribute="attempt"/>: 
+	<summaryattribute attribute="answerline[numerator]"/>/<summaryattribute attribute="answerline[denominator]"/> 
+	</summaryline>
+	
+</question>

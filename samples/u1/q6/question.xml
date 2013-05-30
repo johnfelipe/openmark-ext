@@ -1,0 +1,40 @@
+<question class="u1.q6.GenericQuestion">
+<scoring>
+<marks>3</marks>
+</scoring>
+<layout>
+<row height="0"/>
+<column width="296"/>
+<column width="296"/>
+</layout>
+<box background="input" gridx="0" gridy="0" id="inputbox">
+<!-- tam real imagen: 208 x 45 -->
+<image alt="" filePath="eq2plus2equal4.jpg" width="312" height="68"/>
+<gap/>¿Es correcta la ecuación?<gap/>
+<layoutgrid cols="1">
+<radiobox id="true" right="yes">
+<t>Verdadero</t>
+</radiobox>
+<radiobox id="false">
+<t>Falso</t>
+</radiobox>
+</layoutgrid>
+<gap/>
+<button action="actionSubmit" label="%%lENTERANSWER%%"/>
+<button action="actionGiveUp" label="%%lGIVEUP%%"/>
+</box>
+<box background="answer" display="no" gridx="1" gridy="0" id="answerbox">
+<t id="right">Efectivamente, era simple, 2+2=4<gap/>
+</t>
+<t id="wrong">Esto... ¿se te ha olvidado sumar?<t id="still"/>
+<gap/>
+</t>
+<t id="pass"/>
+<t id="feedback"/>
+<t id="answer"/>
+<button action="actionOK" id="ok" label="%%lTRYAGAIN%%"/>
+<button action="actionOK" display="no" id="next" label="%%lNEXTQUESTION%%"/>
+</box>
+<summaryline>Attempt <summaryattribute attribute="attempt"/>: Selected answer: <summaryattribute attribute="answerline"/>
+</summaryline>
+</question>

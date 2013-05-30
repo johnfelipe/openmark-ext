@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/axis/qengine
+END
+ProcessReturn.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/axis/qengine/ProcessReturn.java
+END
+Resource.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/axis/qengine/Resource.java
+END
+CustomResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/axis/qengine/CustomResult.java
+END
+OmServiceService.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/axis/qengine/OmServiceService.java
+END
+OmSoapBindingStub.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/axis/qengine/OmSoapBindingStub.java
+END
+OmServiceServiceLocator.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/axis/qengine/OmServiceServiceLocator.java
+END
+OmService.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/axis/qengine/OmService.java
+END
+Results.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/axis/qengine/Results.java
+END
+Score.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/axis/qengine/Score.java
+END
+StartReturn.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/axis/qengine/StartReturn.java
+END
+OmException.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/axis/qengine/OmException.java
+END

@@ -1,0 +1,59 @@
+<question class="u8.q51.GenericQuestion">
+<scoring>
+<marks>3</marks>
+</scoring>
+<layout>
+<row height="0"/>
+<column width="296"/>
+<column width="296"/>
+</layout>
+<box background="input" gridx="0" gridy="0" id="inputbox">
+<image alt="" filePath="sesamo.jpg"/>
+<gap/>¿Cuál de los siguientes personajes no salía en Barrio Sésamo?<gap/>
+<layoutgrid cols="1">
+<radiobox id="answer0">
+<t>1) </t>
+<image alt="" filePath="epi.jpg"/>
+</radiobox>
+<radiobox id="answer1">
+<t>2) </t>
+<image alt="" filePath="coco.jpg"/>
+</radiobox>
+<radiobox id="answer2">
+<t>3) </t>
+<image alt="" filePath="gustavo.jpg"/>
+</radiobox>
+<radiobox id="answer3" right="yes">
+<t>4) </t>
+<image alt="" filePath="asterix.jpg"/>
+</radiobox>
+<radiobox id="answer4">
+<t>5) </t>
+<image alt="" filePath="blas.jpg"/>
+</radiobox>
+</layoutgrid>
+<gap/>
+<button action="actionSubmit" label="%%lENTERANSWER%%"/>
+<button action="actionGiveUp" label="%%lGIVEUP%%"/>
+</box>
+<box background="answer" display="no" gridx="1" gridy="0" id="answerbox">
+<t id="right">Correcto.<break/>Astérix es un personaje de comic muy conocido por liderar la resistencia a los romanos de una aldea de la Galia y no pertenece por tanto a Barrio Sésamo.<gap/>
+</t>
+<t id="wrong">La respuesta indicada no es correcta.<t id="still"/>
+<gap/>
+</t>
+<t id="pass"/>
+<t answer="answer0">Tanto Epi como su amigo Blas pertenecen a Barrio Sesamo.<gap/>
+</t>
+<t answer="answer1">Deberías saber que Coco pertenece a Barrio Sesamo.<gap/>
+</t>
+<t answer="answer4">Tanto Blas como su amigo Epi pertenecen a Barrio Sesamo.<gap/>
+</t>
+<t id="feedback"/>
+<t id="answer"/>
+<button action="actionOK" id="ok" label="%%lTRYAGAIN%%"/>
+<button action="actionOK" display="no" id="next" label="%%lNEXTQUESTION%%"/>
+</box>
+<summaryline>Attempt <summaryattribute attribute="attempt"/>: Selected answer: <summaryattribute attribute="answerline"/>
+</summaryline>
+</question>

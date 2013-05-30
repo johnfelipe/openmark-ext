@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/util/misc
+END
+CausedIOException.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/util/misc/CausedIOException.java
+END
+HTTPS.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/util/misc/HTTPS.java
+END
+IO.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/util/misc/IO.java
+END
+MimeTypes.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/util/misc/MimeTypes.java
+END
+PeriodicThread.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/util/misc/PeriodicThread.java
+END
+DataURL.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/util/misc/DataURL.java
+END
+ClosableClassLoader.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/util/misc/ClosableClassLoader.java
+END
+Exceptions.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/util/misc/Exceptions.java
+END
+Fonts.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/util/misc/Fonts.java
+END
+Strings.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/util/misc/Strings.java
+END
+DB.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/util/misc/DB.java
+END
+package.html
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/util/misc/package.html
+END
+UserAgent.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/util/misc/UserAgent.java
+END
+NullOKComparator.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/util/misc/NullOKComparator.java
+END
+ReverseComparator.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/util/misc/ReverseComparator.java
+END
+ImageUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/util/misc/ImageUtils.java
+END
+NameValuePairs.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/util/misc/NameValuePairs.java
+END
+mime.types
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/util/misc/mime.types
+END

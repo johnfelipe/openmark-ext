@@ -1,0 +1,637 @@
+<!-- S151 Chapter 5 Question 3
+	P G Butcher September 2005
+-->
+
+<question class="samples.uned.random.canvas.GenericQuestion">
+
+	<scoring><marks>3</marks></scoring>
+	<layout>
+		<row height="600"/>
+		<column width="376"/>
+		<column width="216"/>  
+	</layout>
+	
+	<random id="r" max="2"/>
+  	
+  	<replaceholder placeholder="XLABEL" set="r">
+  		<option value="m / s"/>
+  		<option value="temperature / °C"/>
+  		<option value="kw / h"/>
+  	</replaceholder>
+  	
+  	<replaceholder placeholder="XTICKS" set="r">
+  		<option value="20,10"/>
+  		<option value="15,5"/>
+  		<option value="10"/>
+  	</replaceholder>
+  	
+  	<replaceholder placeholder="XNUMBERS" set="r">
+  		<option value="20"/>
+  		<option value="15"/>
+  		<option value="10"/>
+  	</replaceholder>
+  	
+  	<replaceholder placeholder="XOMITNUMBERS" set="r">
+  		<option value="0"/>
+  		<option value="20"/>
+  		<option value="40"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="XOMITTICKS" set="r">
+  		<option value="0"/>
+  		<option value="10"/>
+  		<option value="20"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="XMAJORTICKSIZE" set="r">
+  		<option value="15"/>
+  		<option value="10"/>
+  		<option value="5"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="XMINORTICKSIZE" set="r">
+  		<option value="10"/>
+  		<option value="5"/>
+  		<option value="0"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="XLINECOLOUR" set="r">
+  		<option value="graph1"/>
+  		<option value="graph2"/>
+  		<option value="graph3"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="XNUMBERSCOLOUR" set="r">
+  		<option value="graph2"/>
+  		<option value="graph3"/>
+  		<option value="graph1"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="XLABELCOLOUR" set="r">
+  		<option value="graph3"/>
+  		<option value="graph1"/>
+  		<option value="graph2"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="XNUMBERSFONT" set="r">
+  		<option value="Times New Roman"/>
+  		<option value="Verdana"/>
+  		<option value="Arial"/>
+  	</replaceholder>
+  	
+  	<replaceholder placeholder="XLABELFONT" set="r">
+  		<option value="Arial"/>
+  		<option value="Times New Roman"/>
+  		<option value="Verdana"/>
+  	</replaceholder>
+  	
+  	<replaceholder placeholder="XTICKSIDE" set="r">
+  		<option value="+"/>
+  		<option value="-"/>
+  		<option value="both"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="XROTATENUMBERS" set="r">
+  		<option value="no"/>
+  		<option value="yes"/>
+  		<option value="yes"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="XROTATEFLIP" set="r">
+  		<option value="no"/>
+  		<option value="no"/>
+  		<option value="yes"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="XNUMBERSMARGIN" set="r">
+  		<option value="0"/>
+  		<option value="2"/>
+  		<option value="5"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="XLABELMARGIN" set="r">
+  		<option value="0"/>
+  		<option value="5"/>
+  		<option value="2"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="XMAXX" set="r">
+  		<option value="140"/>
+  		<option value="100"/>
+  		<option value="120"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="XMINX" set="r">
+  		<option value="0"/>
+  		<option value="30"/>
+  		<option value="50"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="XY" set="r">
+  		<option value="0"/>
+  		<option value="0.5"/>
+  		<option value="1"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="YLABEL" set="r">
+  		<option value="Z"/>
+  		<option value="°C/t"/>
+  		<option value="h/kw"/>
+  	</replaceholder>
+  	
+  	<replaceholder placeholder="YTICKS" set="r">
+  		<option value="1,0.1"/>
+  		<option value="1.5,0.2"/>
+  		<option value="0.5"/>
+  	</replaceholder>
+  	
+  	<replaceholder placeholder="YNUMBERS" set="r">
+  		<option value="0.5"/>
+  		<option value="0.8"/>
+  		<option value="0.2"/>
+  	</replaceholder>
+  	
+  	<replaceholder placeholder="YOMITNUMBERS" set="r">
+  		<option value="0"/>
+  		<option value="0.1"/>
+  		<option value="0.3"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="YOMITTICKS" set="r">
+  		<option value="0"/>
+  		<option value="0.1"/>
+  		<option value="0.2"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="YMAJORTICKSIZE" set="r">
+  		<option value="10"/>
+  		<option value="5"/>
+  		<option value="3"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="YMINORTICKSIZE" set="r">
+  		<option value="5"/>
+  		<option value="2"/>
+  		<option value="0"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="YCOLOUR" set="r">
+  		<option value="graph3"/>
+  		<option value="graph2"/>
+  		<option value="graph1"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="YNUMBERSFONT" set="r">
+  		<option value="Verdana"/>
+  		<option value="Times New Roman"/>
+  		<option value="Arial"/>
+  	</replaceholder>
+  	
+  	<replaceholder placeholder="YLABELFONT" set="r">
+  		<option value="Arial"/>
+  		<option value="Verdana"/>
+  		<option value="Times New Roman"/>
+  	</replaceholder>
+  	
+  	<replaceholder placeholder="YTICKSIDE" set="r">
+  		<option value="both"/>
+  		<option value="+"/>
+  		<option value="-"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="YROTATENUMBERS" set="r">
+  		<option value="no"/>
+  		<option value="yes"/>
+  		<option value="yes"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="YROTATEFLIP" set="r">
+  		<option value="no"/>
+  		<option value="yes"/>
+  		<option value="no"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="YNUMBERSMARGIN" set="r">
+  		<option value="0"/>
+  		<option value="3"/>
+  		<option value="5"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="YLABELMARGIN" set="r">
+  		<option value="0"/>
+  		<option value="4"/>
+  		<option value="2"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="YMAXY" set="r">
+  		<option value="2.0"/>
+  		<option value="1.8"/>
+  		<option value="1.5"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="YMINY" set="r">
+  		<option value="0"/>
+  		<option value="0.2"/>
+  		<option value="0.4"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="YX" set="r">
+  		<option value="0"/>
+  		<option value="20"/>
+  		<option value="40"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="YROTATELABEL" set="r">
+  		<option value="no"/>
+  		<option value="yes"/>
+  		<option value="no"/>
+  	</replaceholder>
+	
+	<replaceholder placeholder="TXTX" set="r">
+  		<option value="6"/>
+  		<option value="40"/>
+  		<option value="70"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="TXTY" set="r">
+  		<option value="2.1"/>
+  		<option value="1.7"/>
+  		<option value="0.9"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="TXTCOLOUR" set="r">
+  		<option value="graph2"/>
+  		<option value="graph3"/>
+  		<option value="graph1"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="TXTANGLE" set="r">
+  		<option value="0.0"/>
+  		<option value="30.0"/>
+  		<option value="320.0"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="TXTFONT" set="r">
+  		<option value="Arial"/>
+  		<option value="Verdana"/>
+  		<option value="Times New Roman"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="TXTALIGN" set="r">
+  		<option value="left"/>
+  		<option value="centre"/>
+  		<option value="right"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="TXTTEXT" set="r">
+  		<option value="Testing"/>
+  		<option value="Hello"/>
+  		<option value="WORLD"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="GRIDCOLOUR" set="r">
+  		<option value="graph3"/>
+  		<option value="graph1"/>
+  		<option value="graph2"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="GRIDXSPACING" set="r">
+  		<option value="10"/>
+  		<option value="15,5"/>
+  		<option value="12,6"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="GRIDYSPACING" set="r">
+  		<option value="0.1"/>
+  		<option value="0.3,0.2"/>
+  		<option value="0.2,0.1"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="GRIDOPACITY" set="r">
+  		<option value="0.25"/>
+  		<option value="0.5,0.3"/>
+  		<option value="0.7,0.5"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="GRIDMAXX" set="r">
+  		<option value="140"/>
+  		<option value="120"/>
+  		<option value="130"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="GRIDMINX" set="r">
+  		<option value="0"/>
+  		<option value="20"/>
+  		<option value="30"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="GRIDMAXY" set="r">
+  		<option value="2.01"/>
+  		<option value="1.91"/>
+  		<option value="1.71"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="GRIDMINY" set="r">
+  		<option value="0"/>
+  		<option value="0.1"/>
+  		<option value="0.3"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="ELLIPSEX" set="r">
+  		<option value="50"/>
+  		<option value="60"/>
+  		<option value="70"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="ELLIPSEY" set="r">
+  		<option value="1.2"/>
+  		<option value="1.0"/>
+  		<option value="0.8"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="ELLIPSEWIDTH" set="r">
+  		<option value="30"/>
+  		<option value="20"/>
+  		<option value="10"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="ELLIPSEHEIGHT" set="r">
+  		<option value="0.3"/>
+  		<option value="0.6"/>
+  		<option value="0.2"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="ELLIPSEFILLCOLOUR" set="r">
+  		<option value="graph1"/>
+  		<option value="graph2"/>
+  		<option value="graph3"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="ELLIPSELINECOLOUR" set="r">
+  		<option value="graph2"/>
+  		<option value="graph3"/>
+  		<option value="graph1"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="ELLIPSELINEWIDTH" set="r">
+  		<option value="1"/>
+  		<option value="2"/>
+  		<option value="3"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="LINEX" set="r">
+  		<option value="0"/>
+  		<option value="40"/>
+  		<option value="80"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="LINEY" set="r">
+  		<option value="0"/>
+  		<option value="1.7"/>
+  		<option value="0.4"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="LINEX2" set="r">
+  		<option value="140"/>
+  		<option value="90"/>
+  		<option value="100"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="LINEY2" set="r">
+  		<option value="1.5"/>
+  		<option value="0.3"/>
+  		<option value="1.5"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="LINELINECOLOUR" set="r">
+  		<option value="graph1"/>
+  		<option value="graph3"/>
+  		<option value="graph2"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="LINELINEWIDTH" set="r">
+  		<option value="1"/>
+  		<option value="3"/>
+  		<option value="2"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="RECTANGLEX" set="r">
+  		<option value="90"/>
+  		<option value="40"/>
+  		<option value="85"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="RECTANGLEY" set="r">
+  		<option value="0.2"/>
+  		<option value="1.7"/>
+  		<option value="0.7"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="RECTANGLEX2" set="r">
+  		<option value="120"/>
+  		<option value="90"/>
+  		<option value="115"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="RECTANGLEY2" set="r">
+  		<option value="0.6"/>
+  		<option value="1.8"/>
+  		<option value="1.3"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="RECTANGLEFILLCOLOUR" set="r">
+  		<option value="graph3"/>
+  		<option value="graph2"/>
+  		<option value="graph1"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="RECTANGLELINECOLOUR" set="r">
+  		<option value="graph1"/>
+  		<option value="graph2"/>
+  		<option value="graph3"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="RECTANGLELINEWIDTH" set="r">
+  		<option value="1"/>
+  		<option value="4"/>
+  		<option value="2"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="MARKER1X" set="r">
+  		<option value="100"/>
+  		<option value="200"/>
+  		<option value="300"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="MARKER1Y" set="r">
+  		<option value="50"/>
+  		<option value="250"/>
+  		<option value="150"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="MARKER1LABELJS" set="r">
+  		<option value=""/>
+  		<option value="label=x;"/>
+  		<option value="label=y;"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="MARKER2X" set="r">
+  		<option value="200"/>
+  		<option value="300"/>
+  		<option value="100"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="MARKER2Y" set="r">
+  		<option value="150"/>
+  		<option value="50"/>
+  		<option value="250"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="MARKER2LABELJS" set="r">
+  		<option value="label=x+','+y;"/>
+  		<option value="label=':)';"/>
+  		<option value="label=':(';"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="MARKER3X" set="r">
+  		<option value="300"/>
+  		<option value="100"/>
+  		<option value="200"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="MARKER3Y" set="r">
+  		<option value="250"/>
+  		<option value="150"/>
+  		<option value="50"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="MARKER3LABELJS" set="r">
+  		<option value="label='x:'+x+',y:'+y;"/>
+  		<option value="label='(x:'+x+',y:'+y+')';"/>
+  		<option value="label='[x:'+x+',y:'+y+']';"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="MARKERLINEFROM" set="r">
+  		<option value="0"/>
+  		<option value="1"/>
+  		<option value="2"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="MARKERLINETO" set="r">
+  		<option value="1"/>
+  		<option value="2"/>
+  		<option value="0"/>
+	</replaceholder>
+	
+	<replaceholder placeholder="MARKERLINELABELJS" set="r">
+  		<option value="label=x1+','+y1;"/>
+  		<option value="label='('+x1+','+y1+')';"/>
+  		<option value="label='['+x1+','+y1+']';"/>
+	</replaceholder>
+	
+	<box gridx="0" gridy="0" id="inputbox" background="input" questionline="">
+
+		This is an example using placeholders with a canvas. 
+		
+		<canvas id="graph" width="350" height="290" alt="Example's graph">
+			<world id="w1" px="40" py="8" pw="290" ph="255" 
+				xleft="0.0" xright="140.0" ybottom="0.0" ytop="2.2">
+				<xAxis label="__XLABEL__" ticks="__XTICKS__" numbers="__XNUMBERS__"
+						omitNumbers="__XOMITNUMBERS__" omitTicks="__XOMITTICKS__"
+						majorTickSize="__XMAJORTICKSIZE__" minorTickSize="__XMINORTICKSIZE__"
+						lineColour="__XLINECOLOUR__" numbersColour="__XNUMBERSCOLOUR__"
+						labelColour="__XLABELCOLOUR__" numbersFont="__XNUMBERSFONT__"
+						labelFont="__XLABELFONT__" tickSide="__XTICKSIDE__"
+						rotateNumbers="__XROTATENUMBERS__" rotateFlip="__XROTATEFLIP__"
+						numbersMargin="__XNUMBERSMARGIN__" labelMargin="__XLABELMARGIN__"
+						maxX="__XMAXX__" minX="__XMINX__" y="__XY__" />
+				<yAxis label="__YLABEL__" ticks="__YTICKS__" numbers="__YNUMBERS__"
+						omitNumbers="__YOMITNUMBERS__" omitTicks="__YOMITTICKS__"
+						majorTickSize="__YMAJORTICKSIZE__" minorTickSize="__YMINORTICKSIZE__"
+						colour="__YCOLOUR__" numbersFont="__YNUMBERSFONT__"
+						labelFont="__YLABELFONT__" tickSide="__YTICKSIDE__"
+						rotateNumbers="__YROTATENUMBERS__" rotateFlip="__YROTATEFLIP__"
+						numbersMargin="__YNUMBERSMARGIN__" labelMargin="__YLABELMARGIN__"
+						maxY="__YMAXY__" minY="__YMINY__" x="__YX__" 
+						rotateLabel="__YROTATELABEL__" />
+				<text x="__TXTX__" y="__TXTY__" colour="__TXTCOLOUR__" angle="__TXTANGLE__" 
+					font="__TXTFONT__" align="__TXTALIGN__" text="__TXTTEXT__" />
+			    <grid colour="__GRIDCOLOUR__" xspacing="__GRIDXSPACING__" 
+			    	yspacing="__GRIDYSPACING__" opacity="__GRIDOPACITY__" maxX="__GRIDMAXX__"
+			    	minX="__GRIDMINX__" maxY="__GRIDMAXY__" minY="__GRIDMINY__" />
+			    <ellipse id="ellipse" x="__ELLIPSEX__" y="__ELLIPSEY__" 
+			    	width="__ELLIPSEWIDTH__" height="__ELLIPSEHEIGHT__" 
+			    	fillColour="__ELLIPSEFILLCOLOUR__" lineColour="__ELLIPSELINECOLOUR__" 
+			    	lineWidth="__ELLIPSELINEWIDTH__" />
+			    <line id="line" x="__LINEX__" y="__LINEY__" x2="__LINEX2__" y2="__LINEY2__"
+			    	lineColour="__LINELINECOLOUR__" lineWidth="__LINELINEWIDTH__" />
+			    <rectangle id="rectangle" x="__RECTANGLEX__" y="__RECTANGLEY__" 
+			    	x2="__RECTANGLEX2__" y2="__RECTANGLEY2__" 
+			    	fillColour="__RECTANGLEFILLCOLOUR__" lineColour="__RECTANGLELINECOLOUR__" 
+			    	lineWidth="__RECTANGLELINEWIDTH__" />
+			</world>
+			<marker x="__MARKER1X__" y="__MARKER1Y__" labelJS="__MARKER1LABELJS__" 
+				world="w1" />
+			<marker x="__MARKER2X__" y="__MARKER2Y__" labelJS="__MARKER2LABELJS__" 
+				world="w1" />
+			<marker x="__MARKER3X__" y="__MARKER3Y__" labelJS="__MARKER3LABELJS__" 
+				world="w1" />
+			<markerline from="__MARKERLINEFROM__" to="__MARKERLINETO__" 
+				labelJS='__MARKERLINELABELJS__' world="w1" />
+		</canvas>
+		<gap/>
+			This example has the only purpose of showing the use of placeholders in canvas
+			to be able to draw different graphs on random values in the same question.
+		<gap/>
+			There are also some buttons to display or hide some graph items/markers 
+			from canvas.
+		<gap/>
+		<button action="actionCustom" custom="displayEllipse" label="Display ellipse"/> 
+		<button action="actionCustom" custom="hideEllipse" label="Hide ellipse"/> 
+		<button action="actionCustom" custom="displayFigures" label="Display figures"/> 
+		<button action="actionCustom" custom="hideFigures" label="Hide figures"/> 
+		<button action="actionCustom" custom="displayMarkers" label="Display markers"/> 
+		<button action="actionCustom" custom="hideMarkers" label="Hide markers"/> 
+		<button action="actionCustom" custom="displayAll" label="Display all"/> 
+		<button action="actionCustom" custom="hideAll" label="Hide all"/> 
+		<gap/>
+		<radiobox id="endExample" right="yes">    <!-- right -->
+			<t>End example</t>
+		</radiobox>
+		<gap/> <break/>
+		<button action="actionSubmit" label="%%lENTERANSWER%%"/>
+
+	</box>
+
+	<box gridx="1" gridy="0" id="answerbox" display="no" background="answer">
+		 
+		<t id="wrong">Your answer is <t id="still">still</t> incorrect.</t>
+		<t id="right">Your answer is correct.</t>
+		<t id="pass">You passed on this question.</t> 
+		<gap/>
+		<t id="feedback">
+		</t>
+		
+		<t id="answer">
+			Restart the example to see a new random graph in the canvas.
+			<gap/>
+		</t>
+     
+	    <button id="ok" action="actionOK" label="%%lTRYAGAIN%%"/>
+		<button id="next" action="actionOK" label="%%lNEXTQUESTION%%" display="no"/>
+   
+	</box>
+	
+	<task task="displaygraph" when="custom[displayEllipse]" parameters="graph,w1,ellipse" />
+	<task task="hidegraph" when="custom[hideEllipse]" parameters="graph,w1,ellipse" />
+	<task task="displaygraph" when="custom[displayFigures]" 
+		parameters="graph,w1,ellipse,line,rectangle" />
+	<task task="hidegraph" when="custom[hideFigures]" 
+		parameters="graph,w1,ellipse,line,rectangle" />
+	<task task="displaymarker" when="custom[displayMarkers]" parameters="graph" />
+	<task task="hidemarker" when="custom[hideMarkers]" parameters="graph" />
+	<task task="displaygraph" when="custom[displayAll]" parameters="graph,w1" />
+	<task task="hidegraph" when="custom[hideAll]" parameters="graph,w1" />
+	<task task="displaymarker" when="custom[displayAll]" parameters="graph" />
+	<task task="hidemarker" when="custom[hideAll]" parameters="graph" />
+</question>

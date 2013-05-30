@@ -1,0 +1,95 @@
+<question class="samples.uned.advancedfield.GenericQuestion">
+
+	<scoring><marks>3</marks></scoring>
+	<layout>
+		<row height="460"/>
+		<column width="300"/>
+		<column width="292"/>  
+	</layout>
+  
+	<box gridx="0" gridy="0" id="inputbox" background="input" 
+		questionline="What is the formula of lithium nitride">
+		
+		<table id="shelltable" rows="10" cols="2" head="0" foot="0" left="0" right="0">
+			<row><t><right>hydrogen (1)</right></t> <t><right>sodium (2,8,1)</right></t> </row>
+			<row><t><right>helium (2)</right></t> <t><right>magnesium (2,8,2)</right></t> </row>
+			<row><t><right>lithium (2,1)</right></t> <t><right>aluminium (2,8,3)</right></t> </row>
+			<row><t><right>beryllium (2,2)</right></t> <t><right>silicon (2,8,4)</right></t> </row>
+			<row><t><right>boron (2,3)</right></t> <t><right>phosphorus (2,8,5)</right></t> </row>
+			<row><t><right>carbon (2,4)</right></t> <t><right>sulfur (2,8,6)</right></t> </row>
+			<row><t><right>nitrogen (2,5)</right></t> <t><right>chlorine (2,8,7)</right></t> </row>
+			<row><t><right>oxygen (2,6)</right></t> <t><right>argon (2,8,8)</right></t> </row>
+			<row><t><right>fluorine (2,7)</right></t> <t><right>potassium (2,8,8,1)</right></t> </row>
+			<row><t><right>neon (2,8)</right></t> <t><right>calcium (2,8,8,2)</right></t> </row>
+		</table>
+
+		Following from the previous question, and using correct chemical notation, 
+		what is the empirical formula of lithium nitride?
+
+		<break/>
+		<advancedfield id="response" cols="12" type="subscript" label="formula" 
+			right="Li&lt;sub>3&lt;/sub>N" replaceanswerlinetags="no" />
+		<gap/>
+		<if plain="no"> 
+			<emphasis type="italic">
+				Click on the 'Subscript' box to enter subscripts in your answer 
+				and click again to return to normal text, or use the up and down keys 
+				on your keyboard.
+			</emphasis>
+			<gap/> 
+		</if>
+		
+		<button action="actionSubmit" label="%%lENTERANSWER%%"/>
+  
+	</box>
+
+	<box gridx="1" gridy="0" id="answerbox" display="no" background="answer">
+		 
+		<t id="wrong">Your answer is <t id="still">still</t> incorrect.</t>
+		<t id="right">Your answer is correct.</t>
+		<t id="pass">You passed on this question.</t> 
+		<gap/>
+		<t id="wrongcase" test="wrong" 
+			answer="response[Li&lt;sub>3&lt;/sub>N],response[Li3N]+!wrongbutexactcase" 
+			casesensitive="no">
+			
+			You have entered a symbol incorrectly. Element symbols always start with a capital. If there is a
+			second letter it must be lowercase.
+			<gap/>
+		</t> 
+		<t id="usesub" test="wrong" answer="response[Li3N]" casesensitive="no">
+			Correct chemical notation requires that you enter the number
+			of atoms as a subscript.
+			<gap/>
+		</t> 
+
+		<t id="feedback">
+			<t id="default" attemptsmin="2" attemptsmax="2">
+				Recall from the previous question that by losing and gaining electrons to
+				attain noble gas electron configurations the ions we get are <eq>\mbox{Li^{+}}</eq>
+				and <eq>\mbox{N^{3-}}</eq>.
+				Combine them in a ratio which yields a neutral compound.
+				<gap/>
+			</t>
+			<gap/>
+	    </t>   
+   
+		<t id="answer">
+			The formula is <eq>\mbox{Li}_3\mbox{N}</eq>.
+			Three <eq alt="Li+">\mbox{Li^{+}}</eq> ions have a charge of +3 and
+			one <eq alt="N3-">\mbox{N^{3-}}</eq> ion has a charge of -3
+			so the combination <eq>\mbox{\mbox{Li}_3\mbox{N}}</eq> is neutral and gives us the
+			correct empirical formula.
+			<gap/>
+			
+		</t>
+     
+	    <button id="ok" action="actionOK" label="%%lTRYAGAIN%%"/>
+		<button id="next" action="actionOK" label="%%lNEXTQUESTION%%" display="no"/>
+   
+	</box>
+ 	
+ 	<answercombo id="wrongbutexactcase" test="wrong" answer="response[Li3N]"/>
+ 	
+ 	<summaryline>Attempt <summaryattribute attribute="attempt" />: <summaryattribute attribute="answerline" /></summaryline>
+</question>

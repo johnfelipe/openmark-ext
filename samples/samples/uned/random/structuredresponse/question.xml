@@ -1,0 +1,454 @@
+<question class="samples.uned.random.structuredresponse.GenericQuestion">
+
+	<scoring><marks>3</marks></scoring>
+	<layout>
+		<row height="450"/>
+		<column width="420"/>
+		<column width="172"/>  
+	</layout>
+	
+	<!-- randomAtom: random value from 0 to 7 -->
+	<random id="randomAtom" max="7"/>
+	
+	<!-- nElectrons = randomAtom + 3  -->
+	<variable id="nElectrons" set="randomAtom[nai&quot;3&quot;]"/>
+	
+	<!-- nElectronsMinus2 = nElectrons - 2  -->
+	<variable id="nElectronsMinus2" set="nElectrons[nsi&quot;2&quot;]"/>
+	
+	<!-- nElectronsMinus4 = nElectrons - 4  -->
+	<variable id="nElectronsMinus4" set="nElectrons[nsi&quot;4&quot;]"/>
+	
+	<!-- onesElectrons = 2  -->
+	<variable id="onesElectrons" set="@2"/> 
+	
+	<!-- twosElectrons = nElectronsMinus2 > 2 ? 2 : nElectronsMinus2  -->
+	<variable id="twosElectrons" set="nElectronsMinus2[ngi&quot;2&quot;,&quot;2&quot;]"/> 
+	
+	<!-- twopElectrons = nElectronsMinus4 <= 0 ? 0 : nElectronsMinus4  -->
+	<variable id="twopElectrons" set="nElectronsMinus4[nlei&quot;0&quot;,&quot;0&quot;]"/>
+	
+	<!-- ELEMENT: element's name  -->
+	<replaceholder placeholder="ELEMENT" set="randomAtom">
+		<option value="lithium"/>
+		<option value="beryllium"/>
+		<option value="boron"/>
+		<option value="carbon"/>
+		<option value="nitrogen"/>
+		<option value="oxygen"/>
+		<option value="fluorine"/>
+		<option value="neon"/>
+	</replaceholder>
+	
+	<!-- NUMBEROFELECTRONS = nElectrons : number of electrons  -->
+	<replaceholder placeholder="NUMBEROFELECTRONS" set="nElectrons@"/>
+	
+	<!-- TWOSELECTRONS = twosElectrons : number of electrons of 2s sub-shell  -->
+	<replaceholder placeholder="TWOSELECTRONS" set="twosElectrons@"/>
+	
+	<!-- TWOPELECTRONS = twopElectrons : number of electrons of 2p sub-shell  -->
+	<replaceholder placeholder="TWOPELECTRONS" set="twopElectrons@"/>
+	
+	<!-- respon = response.trim().lowercase().strip()  -->
+	<variable id="respon" set="response[tlx]"/> 
+	
+	<!-- populations0 = respon.substring("1s<sup>","</sup>"); // excluding "1s<sup>" and "</sup>" 
+		 if result is not int then populations0 = 0 -->
+	<variable id="populations0" set="respon[s()&quot;1s&lt;sup&gt;&quot;,&quot;&lt;/sup&gt;&quot;ni!&quot;0&quot;]"/>
+	
+	<!-- populations1 = respon.substring("2s<sup>","</sup>"); // excluding "2s<sup>" and "</sup>" 
+   		 if result is not int then populations1 = 0 -->
+	<variable id="populations1" set="respon[s()&quot;2s&lt;sup&gt;&quot;,&quot;&lt;/sup&gt;&quot;ni!&quot;0&quot;]"/>
+	
+	<!-- populations2 = respon.substring("2p<sup>","</sup>"); // excluding "2p<sup>" and "</sup>" 
+		 if result is not int then populations1 = 0 -->
+	<variable id="populations2" set="respon[s()&quot;2p&lt;sup&gt;&quot;,&quot;&lt;/sup&gt;&quot;ni!&quot;0&quot;]"/>
+	
+	<!-- populations3 = respon.substring("3s<sup>","</sup>"); // excluding "3s<sup>" and "</sup>" 
+		 if result is not int then populations3 = 0 -->
+	<variable id="populations3" set="respon[s()&quot;3s&lt;sup&gt;&quot;,&quot;&lt;/sup&gt;&quot;ni!&quot;0&quot;]"/>
+	
+	<!-- populations4 = respon.substring("3p<sup>","</sup>"); // excluding "3p<sup>" and "</sup>"
+		 if result is not int then populations4 = 0 -->
+	<variable id="populations4" set="respon[s()&quot;3p&lt;sup&gt;&quot;,&quot;&lt;/sup&gt;&quot;ni!&quot;0&quot;]"/>
+	
+	<!-- populations5 = respon.substring("4s<sup>","</sup>"); // excluding "4s<sup>" and "</sup>"
+		 if result is not int then populations5 = 0 -->
+	<variable id="populations5" set="respon[s()&quot;4s&lt;sup&gt;&quot;,&quot;&lt;/sup&gt;&quot;ni!&quot;0&quot;]"/>
+	
+	<!-- populations6 = respon.substring("4p<sup>","</sup>"); // excluding "4p<sup>" and "</sup>"
+		if result is not int then populations6 = 0 -->
+	<variable id="populations6" set="respon[s()&quot;4p&lt;sup&gt;&quot;,&quot;&lt;/sup&gt;&quot;ni!&quot;0&quot;]"/>
+	
+	<!-- populations7 = respon.substring("3d<sup>","</sup>"); // excluding "3d<sup>" and "</sup>"
+		if result is not int then populations7 = 0 -->
+	<variable id="populations7" set="respon[s()&quot;3d&lt;sup&gt;&quot;,&quot;&lt;/sup&gt;&quot;ni!&quot;0&quot;]"/>
+	
+	<!-- EXTRACT1S = populations0 : number of electrons of 1s sub-shell answered by user -->
+	<replaceholder placeholder="EXTRACT1S" set="populations0@"/>
+	
+	<!-- EXTRACT2S = populations1 : number of electrons of 2s sub-shell answered by user -->
+	<replaceholder placeholder="EXTRACT2S" set="populations1@"/>
+	
+	<!-- EXTRACT2P = populations2 : number of electrons of 2p sub-shell answered by user -->
+	<replaceholder placeholder="EXTRACT2P" set="populations2@"/>
+	
+	<!-- sumpopulations = populations0 + populations1 + populations2 + populations3
+						+ populations4 + populations5 + populations6 + populations7 -->
+	<variable id="sumpopulations" 
+		set="populations0[naipopulations1@naipopulations2@naipopulations3@naipopulations4@naipopulations5@naipopulations6@naipopulations7@]"/>
+	
+	<!-- sumpopulations_ok = sumpopulations == nElectrons ? "ok" : sumpopulations -->
+	<variable id="sumpopulations_ok" set="sumpopulations[neinElectrons@,&quot;ok&quot;]"/>
+	
+	<!-- rightAsFarAs_1s2 = populations0 == onesElectrons ? " 1s^2" : "" -->
+	<variable id="rightAsFarAs_1s2" set="populations0[neionesElectrons@,&quot; 1s^2&quot;,&quot;&quot;]"/>
+	
+	<!-- twos = " 2s^" -->
+	<variable id="twos" set="@ 2s^"/>
+	
+	<!-- asfaras_2s_ok = twos.append(twosElectrons) -->
+	<variable id="asfaras_2s_ok" set="twos[atwosElectrons@]"/>
+	
+	<!-- rightAsFarAs_2s = populations1 == twosElectrons ? asfaras_2s_ok : "" -->
+	<variable id="rightAsFarAs_2s" set="populations1[neitwosElectrons@,asfaras_2s_ok@,&quot;&quot;]"/>
+	
+	<!-- twop = " 2p^" -->
+	<variable id="twop" set="@ 2p^"/>
+	
+	<!-- asfaras_2p_ok = twos.append(twopElectrons) -->
+	<variable id="asfaras_2p_ok" set="twop[atwopElectrons@]"/>
+	
+	<!-- rightAsFarAs_2p_even2p0 = populations2 == twopElectrons ? asfaras_2p_ok : "" -->
+	<variable id="rightAsFarAs_2p_even2p0" set="populations2[neitwopElectrons@,asfaras_2p_ok@,&quot;&quot;]"/>
+	
+	<!-- rightAsFarAs_2p = populations2 > 0 ? rightAsFarAs_2p_even2p0 : "" -->
+	<variable id="rightAsFarAs_2p" set="populations2[ngi&quot;0&quot;,rightAsFarAs_2p_even2p0@,&quot;&quot;]"/>
+	
+	<!-- rightAsFarAs = rightAsFarAs_1s2.append(arightAsFarAs_2s).append(arightAsFarAs_2p) -->
+	<variable id="rightAsFarAs" set="rightAsFarAs_1s2[arightAsFarAs_2s@arightAsFarAs_2p@]"/>
+	
+	<!-- populations0_greater_2 = populations0 > 2 ? "yes" : populations0 -->
+	<variable id="populations0_greater_2" set="populations0[ngi&quot;2&quot;,&quot;yes&quot;]" />
+	
+	<!-- populations0_less_2 = populations0 < 2 ? "yes" : populations0 -->
+	<variable id="populations0_less_2" set="populations0[nli&quot;2&quot;,&quot;yes&quot;]" />
+	
+	<!-- populations1_greater_2 = populations1 > 2 ? "yes" : populations1 -->
+	<variable id="populations1_greater_2" set="populations1[ngi&quot;2&quot;,&quot;yes&quot;]"/>
+	
+	<!-- populations1_less_twoselectrons = 
+			populations1 > 2 ? "no" 
+							 : populations1 <= 0 ? "no"
+							 					 : populations1 < twosElectrons ? "yes" : populations1; -->
+	<variable id="populations1_less_twoselectrons" 
+		set="populations1[ngi&quot;2&quot;,&quot;no&quot;nlei&quot;0&quot;,&quot;no&quot;nlitwosElectrons@,&quot;yes&quot;]"/>
+	
+	<!-- populations2_greater_6 = populations2 > 6 ? "yes" : populations2 -->
+	<variable id="populations2_greater_6" set="populations2[ngi&quot;6&quot;,&quot;yes&quot;]"/>
+	
+	<!-- populations2_less_twopelectrons =
+			populations2 > 6 ? "no"
+							 : populations2 <= 0 ? "no"
+							 					 : populations2 < twopElectrons ? "yes" : populations2; -->
+	<variable id="populations2_less_twopelectrons" 
+		set="populations2[ngi&quot;6&quot;,&quot;no&quot;nlei&quot;0&quot;,&quot;no&quot;nlitwopElectrons@,&quot;yes&quot;]"/>
+	
+	<!-- sumpopulations_greater_nelectrons = sumpopulations > nElectrons ? "yes" : sumpopulations -->
+	<variable id="sumpopulations_greater_nelectrons" set="sumpopulations[nginElectrons@,&quot;yes&quot;]" />
+	
+	<!-- sumpopulations_less_nelectrons = sumpopulations < nElectrons ? "yes" : sumpopulations -->
+	<variable id="sumpopulations_less_nelectrons" set="sumpopulations[nlinElectrons@,&quot;yes&quot;]" />
+	
+	<!-- sumpopulations_equal_0 = sumpopulations == 0 ? "yes" : sumpopulations -->
+	<variable id="sumpopulations_equal_0" set="sumpopulations[nei&quot;0&quot;,&quot;yes&quot;]"/>
+	
+	<!-- ASFARAS = rightAsFarAs : Sub-shells answered correctly by user -->
+	<replaceholder placeholder="ASFARAS" set="rightAsFarAs@"/>
+	
+	<box gridx="0" gridy="0" id="inputbox" background="input" 
+		questionline="What is the configuration of __ELEMENT__?">
+
+		<layoutgrid cols='2'>
+			<t>
+				<!-- ptplain: shown if user's answer is not right (!rightAnswer) 
+					 and we are at attempt < 2 (!attemptmin2) -->
+				<image id="ptplain" filePath="pt1.png" 
+					alt="the typical elements in the Periodic Table"
+					answer="!rightAnswer+!attemptmin2" />
+				<!-- ptoverlay: shown if user's answer is right (rightAnswer) 
+					 or we are at attempt >= 2 (attemptmin2) -->
+				<image id="ptoverlay" filePath="pt2.png" 
+					alt="the typical elements in the Periodic Table"
+					answer="rightAnswer,attemptmin2" />
+			</t>
+
+			<t>
+				<gap/> <gap/> <gap/> <gap/>
+				What is the electronic configuration of the __ELEMENT__ atom which has
+				__NUMBEROFELECTRONS__ electrons.
+				<gap/>
+				Please enter your answer using the correct notation with superscripts 
+				to denote sub-shell populations.
+				<gap/>
+				<if plain="no"> 
+					<emphasis type="italic">
+						Click on the 'Superscript' box to enter superscripts in your answer 
+						and click again to return to normal text, or use the up and down keys 
+						on your keyboard.
+					</emphasis>
+				<gap/> 
+			</if>
+				
+			</t>
+		</layoutgrid>
+			
+			<!-- replaceanswerlinetags="no" is needed because we need answer in "1s<sup>...</sup> ..." format 
+				 in order to extract number of electrons of each sub-shell -->
+			<advancedfield id="response" cols="12" type="superscript" label="formula" strip="yes"
+				casesensitive="no" replaceanswerlinetags="no"/>
+			<gap/>
+		<button action="actionSubmit" label="%%lENTERANSWER%%"/>
+  
+	</box>
+
+	<box gridx="1" gridy="0" id="answerbox" display="no" background="answer">
+		 
+		<t id="wrong">Your answer is <t id="still">still</t> incorrect.</t>
+		<t id="right">Your answer is correct.</t>
+		<t id="pass">You passed on this question.</t> 
+		<gap/>
+	  
+
+		<t id="toomany" answer="msg_toomany">
+			Your answer adds up to more that the __NUMBEROFELECTRONS__
+			electrons that this atom contains.
+			<gap/>
+		</t> 
+		<t id="toofew" answer="msg_toofew">
+			You have not accounted for all the electrons.
+			<gap/>
+		</t> 
+
+		<t id="toomanyin1s" answer="msg_toomanyin1s">
+			The 1s sub-shell cannot hold __EXTRACT1S__ electrons.
+			<gap/>
+		</t> 
+		<t id="toofewin1s" answer="msg_toofewin1s">
+			You have too few electrons in the 1s sub-shell.
+			<gap/>
+		</t> 
+		<t id="toomanyin2s" answer="msg_toomanyin2s">
+			The 2s sub-shell cannot hold __EXTRACT2S__ electrons.
+			<gap/>
+		</t> 
+		<t id="toofewin2s" answer="msg_toofewin2s">
+			You have too few electrons in the 2s sub-shell.
+			<gap/>
+		</t> 
+		<t id="toomanyin2p" answer="msg_toomanyin2p">
+			The 2p sub-shell cannot hold __EXTRACT2P__ electrons.
+			<gap/>
+		</t> 
+		<t id="toofewin2p" answer="msg_toofewin2p">
+			You have too few electrons in the 2p sub-shell.
+			<gap/>
+		</t> 
+
+ 		<!-- shown if answer is wrong (test="wrong")
+ 			 , answer is not empty (!emptyAnswer)
+ 			 , there is at least one sub-shell answered correctly by user (!rightAsFarAs[])
+ 			 and we are at attempt <= 2 -->
+ 		<t id="okasfaras" test="wrong" answer="!emptyAnswer+!rightAsFarAs[]" attemptsmax="2">
+			You are correct to include<eq>\mbox{__ASFARAS__}</eq> in your answer.
+			<gap/>
+		</t> 
+ 
+		<t id="feedback">
+			<!-- shown at attempt 2 if user's answer is wrong -->
+			<t id="default" attemptsmin="2" attemptsmax="2">
+				The table now shows into which sub-shells electrons should be placed.
+				Please fill them in turn until you reach the __ELEMENT__ atom.
+				<gap/>
+			</t>
+	    </t>   
+
+		<!-- shown if we are at attempt 1 and user's answer is empty
+			 , if we are at attempt 1 and sum of electrons == 0 or there are no messages sent 
+			 													of less electrons than required in sub-shells  
+			 or if we are at attempt 2 and there are not messages sent
+			 ; in all cases user's answer must be wrong to be shown -->
+		<t id="formtogive" 
+			answer="emptyAnswer,attempt1_sumpops_eq_0_or_not_sent_msgs,attempt2_not_sent_msg">
+			
+			Please give your answer in the following form.
+			<break/>
+			<eq>\mbox{1s}^{\mbox{a}}</eq>
+			<eq>\mbox{2s}^{\mbox{b}}</eq>
+			<eq>\mbox{2p}^{\mbox{c}}</eq>
+			where 'a', 'b' and 'c' are appropriate sub-shell populations.
+			<gap/>
+		</t> 
+
+   
+		<t id="answer">
+			The atomic number of __ELEMENT__ is __NUMBEROFELECTRONS__.
+			From the strips beneath the elements symbols, the order of sub-shell
+			filling up to the end of Period 2 is 1s, 2s, 2p. The length of the strips
+			indicate the number of electrons that each sub-shell can hold;
+			2 for the s sub-shell and 6 for the p sub-shell.
+			<gap/>
+			The electron configuration of the __ELEMENT__ atom is
+			<break/>
+			<eq>\mbox{1s}^2</eq>
+			<eq>\mbox{2s}^{__TWOSELECTRONS__}</eq>
+			<!-- shown if right numbers of electrons of 2p sub-shell is not 0 
+			     and one of following conditions is true:
+			     - answer is right (with2pright)
+			     - we are at attempt 3, when question ends (with2pattempt3) -->
+			<t id="with2p" answer="with2pright,with2pattempt3"><eq>\mbox{2p}^{__TWOPELECTRONS__}</eq></t>.
+			<gap/>
+			
+		</t>
+     
+	    <button id="ok" action="actionOK" label="%%lTRYAGAIN%%"/>
+		<button id="next" action="actionOK" label="%%lNEXTQUESTION%%" display="no"/>
+   
+	</box>
+ 	
+ 	<summaryline type="answerline"><summaryattribute attribute="variable[respon]"/></summaryline>
+ 	
+ 	<summaryline>Attempt <summaryattribute attribute="attempt"/>: 
+ 	<summaryattribute attribute="variable[respon]"/></summaryline>
+ 	
+ 	<!-- rightAnswer: THE RIGHT ANSWER
+ 		true if all following conditions are true:
+ 		1) answer is not the empty answer (!emptyAnswer) 
+ 		2) sum of electrons of sub-shells is equal to number of electrons of element (sumpopulations_ok[ok])
+ 		3) number of electrons of 1s sub-shell == 2 (!rightAsFarAs_1s2[])
+ 		4) number of electrons of 2s sub-shell == twosElectrons (!rightAsFarAs_2s[])
+ 		5) number of electrons of 2p sub-shell == twopElectrons (!rightAsFarAs_2p_even2p0[]) -->
+ 	<answercombo id="rightAnswer" right="yes" 
+ 		answer="!emptyAnswer+sumpopulations_ok[ok]+!rightAsFarAs_1s2[]+!rightAsFarAs_2s[]+!rightAsFarAs_2p_even2p0[]" />
+ 	
+ 	<!-- emptyAnswer: true if we are at attempt 1 and user's answer is empty -->
+ 	<answercombo id="emptyAnswer" answer="response[]" attemptsmin="1" attemptsmax="1"/>
+ 	
+ 	<!-- attempt2: true if we are at attempt 2 -->
+ 	<answercombo id="attempt2" answer="response" attemptsmin="2" attemptsmax="2"/>
+ 	
+ 	<!-- attemptmin2: true if we are at attempt >= 2 -->
+ 	<answercombo id="attemptmin2" answer="response" attemptsmin="2"/>
+ 	
+ 	<!-- with2pright: true if answer is right (rightAnswer) 
+ 					  and right numbers of electrons of 2p sub-shell is not 0 -->
+ 	<answercombo id="with2pright" answer="rightAnswer+!twopElectrons[0]"/>
+ 	
+ 	<!-- with2pattempt3: true if we are at attempt 3 (when question ends)
+ 					     and right numbers of electrons of 2p sub-shell is not 0 -->
+ 	<answercombo id="with2pattempt3" answer="!twopElectrons[0]" attemptsmin="3" attemptsmax="3"/>
+ 	
+ 	<!-- msg_toomanyin1s: true if all following conditions are true:
+ 		1) user's answer is wrong (test="wrong")
+ 		2) we are at attempt <= 2 (attemptsmax="2")
+ 		3) answer is not empty (!emptyAnswer)
+ 		4) number of electrons of 1s sub-shell > 2 (rightAsFarAs_1s2[],populations0_greater_2[yes]) -->
+ 	<answercombo id="msg_toomanyin1s" test="wrong" 
+ 		answer="!emptyAnswer+rightAsFarAs_1s2[]+populations0_greater_2[yes]" attemptsmax="2"/>
+ 	
+ 	<!-- msg_toofewin1s: true if all following conditions are true:
+ 		1) user's answer is wrong (test="wrong")
+ 		2) we are at attempt <= 2 (attemptsmax="2")
+ 		3) answer is not empty (!emptyAnswer)
+ 		4) number of electrons of 1s sub-shell < 2 (rightAsFarAs_1s2[]+populations0_less_2[yes]) -->
+ 	<answercombo id="msg_toofewin1s" test="wrong" 
+ 		answer="!emptyAnswer+rightAsFarAs_1s2[]+populations0_less_2[yes]" attemptsmax="2"/>
+ 	
+ 	<!-- msg_toomanyin2s: true if all following conditions are true:
+ 		1) user's answer is wrong (test="wrong")
+ 		2) we are at attempt <= 2 (attemptsmax="2")
+ 		3) answer is not empty (!emptyAnswer)
+ 		4) number of electrons of 2s sub-shell > 2 (rightAsFarAs_2s[]+populations1_greater_2[yes]) -->
+ 	<answercombo id="msg_toomanyin2s" test="wrong" 
+ 		answer="!emptyAnswer+rightAsFarAs_2s[]+populations1_greater_2[yes]" attemptsmax="2"/>
+ 	
+ 	<!-- msg_toofewin2s: true if all following conditions are true:
+ 		1) user's answer is wrong (test="wrong")
+ 		2) we are at attempt <= 2 (attemptsmax="2")
+ 		3) answer is not empty (!emptyAnswer)
+ 		4) number of electrons of 2s sub-shell < twosElectrons (rightAsFarAs_2s[]+populations1_less_twoselectrons[yes]) -->
+ 	<answercombo id="msg_toofewin2s" test="wrong" 
+ 		answer="!emptyAnswer+rightAsFarAs_2s[]+populations1_less_twoselectrons[yes]" attemptsmax="2"/>
+ 	
+ 	<!-- msg_toomanyin2p: true if all following conditions are true:
+ 		1) user's answer is wrong (test="wrong")
+ 		2) we are at attempt <= 2 (attemptsmax="2")
+ 		3) answer is not empty (!emptyAnswer)
+ 		4) number of electrons of 2p sub-shell > 6 (rightAsFarAs_2p[]+populations2_greater_6[yes]) -->
+ 	<answercombo id="msg_toomanyin2p" test="wrong" 
+ 		answer="!emptyAnswer+rightAsFarAs_2p[]+populations2_greater_6[yes]" attemptsmax="2"/>
+ 	
+ 	<!-- msg_toofewin2p: true if all following conditions are true:
+ 		1) user's answer is wrong (test="wrong")
+ 		2) we are at attempt <= 2 (attemptsmax="2")
+ 		3) answer is not empty (!emptyAnswer)
+ 		4) number of electrons of 2p sub-shell > 0
+ 		   and number of electrons of 2p sub-shell < twopElectrons (rightAsFarAs_2p[]+populations2_less_twopelectrons[yes]) -->
+ 	<answercombo id="msg_toofewin2p" test="wrong" 
+ 		answer="!emptyAnswer+rightAsFarAs_2p[]+populations2_less_twopelectrons[yes]" attemptsmax="2"/>
+ 	
+ 	<!-- msg_toomany: true if all following conditions are true:
+ 		1) user's answer is wrong (test="wrong")
+ 		2) we are at attempt <= 2 (attemptsmax="2")
+ 		3) answer is not empty (!emptyAnswer)
+ 		4) sum of electrons of sub-shells is greater than number of electrons of element (sumpopulations_greater_nelectrons[yes]) -->
+ 	<answercombo id="msg_toomany" test="wrong" answer="!emptyAnswer+sumpopulations_greater_nelectrons[yes]" 
+ 		attemptsmax="2"/>
+ 	
+ 	<!-- msg_toofew: true if all following conditions are true:
+ 		1) user's answer is wrong (test="wrong")
+ 		2) we are at attempt <= 2 (attemptsmax="2")
+ 		3) answer is not empty (!emptyAnswer)
+ 		4) sum of electrons of sub-shells is less than number of electrons of element (sumpopulations_less_nelectrons[yes])
+ 		5) there are no messages sent of less electrons than required in sub-shells -->
+ 	<answercombo id="msg_toofew" test="wrong" 
+ 		answer="!emptyAnswer+sumpopulations_less_nelectrons[yes]+!sent_few_msg" attemptsmax="2"/>
+ 	
+ 	<!-- sent_msg: true if we are at attemp <=2 and one of following conditions are true:
+ 		- number of electrons of 1s sub-shell == 2 (!rightAsFarAs_1s2[])
+ 		- sent message of too many electrons in 1s sub-shell (msg_toomanyin1s) 
+ 		- number of electrons of 2s sub-shell == twosElectrons (!rightAsFarAs_2s[]) 
+ 		- sent message of too many electrons in 2s sub-shell (msg_toomanyin2s)
+ 		- number of electrons of 2p sub-shell == twopElectrons and twopElectrons > 0 (!rightAsFarAs_2p[]) 
+ 		- sent message of too many electrons in 2p sub-shell (msg_toomanyin2p)
+ 		- sent message of too many electrons (msg_toomany)
+ 		- sent message of too few electrons (msg_toofew) -->
+ 	<answercombo id="sent_msg" 
+ 		answer="!rightAsFarAs_1s2[],msg_toomanyin1s,!rightAsFarAs_2s[],msg_toomanyin2s,!rightAsFarAs_2p[],msg_toomanyin2p,msg_toomany,msg_toofew"
+ 		attemptsmax="2"/>
+ 	
+ 	<!-- sent_msg: true if we are at attemp <=2 and one of following conditions are true:
+ 		- sent message of too few electrons in 1s sub-shell (msg_toofewin1s) 
+ 		- sent message of too few electrons in 2s sub-shell (msg_toofewin2s)
+ 		- sent message of too few electrons in 2p sub-shell (msg_toofewin2p) -->
+ 	<answercombo id="sent_few_msg" answer="msg_toofewin1s,msg_toofewin2s,msg_toofewin2p" attemptsmax="2"/>
+ 	
+ 	<!-- sumpops_eq_0: true if sum of electrons of sub-shells == 0 (sumpopulations_equal_0[yes])-->
+ 	<answercombo id="sumpops_eq_0" answer="sumpopulations_equal_0[yes]" />
+ 	
+ 	<!-- sent_msg_or_few_msg: true if some message is sent (sent_msg,sent_few_msg) -->
+ 	<answercombo id="sent_msg_or_few_msg" answer="sent_msg,sent_few_msg"/>
+ 	
+ 	<!-- attempt1_sumpops_eq_0_or_not_sent_msgs: 
+ 		 true if answer is wrong, we are at attempt 1 and one of following conditions are true:
+ 		- sum of electrons of sub-shells == 0 (sumpops_eq_0)
+ 		- there are no messages sent (!sent_msg_or_few_msg) -->
+ 	<answercombo id="attempt1_sumpops_eq_0_or_not_sent_msgs" test="wrong" 
+ 		answer="sumpops_eq_0,!sent_msg_or_few_msg" attemptsmin="1" attemptsmax="1"/>
+ 	
+ 	<!-- attempt2_not_sent_msg: true if answer is wrong, we are at attempt 2 
+ 		 and there are no messages sent except messages of less electrons than required in sub-shells -->
+ 	<answercombo id="attempt2_not_sent_msg" test="wrong" answer="!sent_msg" attemptsmin="2" 
+ 		attemptsmax="2"/>
+ 	
+</question>

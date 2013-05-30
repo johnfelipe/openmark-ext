@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/openmark~svn/!svn/ver/228/trunk/webinf-qengine
+END
+web.xml
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/openmark~svn/!svn/ver/22/trunk/webinf-qengine/web.xml
+END
+qengine.sample.xml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/openmark~svn/!svn/ver/228/trunk/webinf-qengine/qengine.sample.xml
+END
+server-config.wsdd
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/openmark~svn/!svn/ver/2/trunk/webinf-qengine/server-config.wsdd
+END

@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/graph
+END
+GraphRange.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/graph/GraphRange.java
+END
+YAxisItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/graph/YAxisItem.java
+END
+XAxisItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/graph/XAxisItem.java
+END
+FunctionItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/graph/FunctionItem.java
+END
+GraphFormatException.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/graph/GraphFormatException.java
+END
+LineItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/graph/LineItem.java
+END
+AxisItemBase.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/graph/AxisItemBase.java
+END
+GraphPoint.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/graph/GraphPoint.java
+END
+RectangleItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/graph/RectangleItem.java
+END
+GraphItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/graph/GraphItem.java
+END
+ColourFieldItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/graph/ColourFieldItem.java
+END
+TextItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/graph/TextItem.java
+END
+package.html
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/graph/package.html
+END
+ParametricFunctionItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/graph/ParametricFunctionItem.java
+END
+GraphScalar.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/graph/GraphScalar.java
+END
+GridItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/graph/GridItem.java
+END
+Test.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/graph/Test.java
+END
+World.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/graph/World.java
+END
+EllipseItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/graph/EllipseItem.java
+END

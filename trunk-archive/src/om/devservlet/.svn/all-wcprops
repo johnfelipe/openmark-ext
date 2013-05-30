@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/devservlet
+END
+DevServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/devservlet/DevServlet.java
+END
+questionbuild.xml
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/devservlet/questionbuild.xml
+END
+package.html
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/devservlet/package.html
+END
+QuestionDefinitions.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/devservlet/QuestionDefinitions.java
+END
+QuestionDefinition.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/openmark~svn/!svn/ver/354/trunk/trunk-archive/src/om/devservlet/QuestionDefinition.java
+END

@@ -1,0 +1,86 @@
+<question class="u1.q207.GenericQuestion">
+<scoring>
+<marks>3</marks>
+</scoring>
+<layout>
+<row height="0"/>
+<column width="296"/>
+<column width="296"/>
+</layout>
+<box background="input" gridx="0" gridy="0" id="inputbox">Drag and drop the words from the list below to fill the blank spaces and correctly complete the sentence.<gap/>
+<layoutshuffle shuffle="no">
+<dragbox answerline="hydrogen" id="draggableitem1_1">
+<t>hydrogen</t>
+</dragbox>
+<dragbox answerline="positive" id="draggableitem1_2">
+<t>positive</t>
+</dragbox>
+<dragbox answerline="hydroxide" id="draggableitem1_3">
+<t>hydroxide</t>
+</dragbox>
+<dragbox answerline="negative" id="draggableitem1_4">
+<t>negative</t>
+</dragbox>
+<dragbox answerline="10^7" id="draggableitem1_5">
+<equation alt="10 power to 7">10^7</equation>
+</dragbox>
+<dragbox answerline="7" id="draggableitem1_6">
+<t>7</t>
+</dragbox>
+<dragbox answerline="1" id="draggableitem1_7">
+<equation alt="">\frac{\Delta y}{\Delta x} = \frac{14 - 0}{4.0 - 0.5} = \frac{14}{3.5} = 4.0</equation>
+</dragbox>
+<dragbox answerline="10^{-7}" id="draggableitem1_8">
+<equation alt="10 power to -7">10^{-7}</equation>
+</dragbox>
+<dragbox answerline="greater" id="draggableitem1_9">
+<t>greater</t>
+</dragbox>
+<dragbox answerline="less" id="draggableitem1_10">
+<t>less</t>
+</dragbox>
+</layoutshuffle>
+<gap/>
+<table backgroundenabled="no" border="no" cols="2" rows="4">
+<row>
+<emphasis>At 25ºC all aqueous basic solutions have</emphasis>
+<dropbox id="answer1_1"/>
+</row>
+<row>
+<emphasis>ion concentrations less than</emphasis>
+<dropbox id="answer1_2" right="draggableitem1_8"/>
+</row>
+<row>
+<emphasis>mol litre-1 and pH values </emphasis>
+<dropbox id="answer1_3" right="draggableitem1_10"/>
+</row>
+<row>
+<emphasis>than</emphasis>
+<dropbox id="answer1_4" right="draggableitem1_7"/>
+</row>
+</table>
+<gap/>
+<button action="actionSubmit" label="Introducir respuesta"/>
+<button action="actionGiveUp" label="Abandonar"/>
+</box>
+<box background="answer" display="no" gridx="1" gridy="0" id="answerbox">
+<t id="right">Your answer is correct.<gap/>
+</t>
+<t id="wrong">Your answer is incorrect.<gap/>
+</t>
+<t id="still"/>
+<t id="pass"/>
+<t id="feedback"/>
+<t id="answer">At 25 °C all aqueous basic solutions have hydrogen ion concentrations less than 10−7 mol litre−1 and pH values greater than 7.&#13;<break/>&#13;<break/>See Section 9 of S103 Discovering Science Block 8.<gap/>
+</t>
+<button action="actionOK" id="ok" label="Reintentar"/>
+<button action="actionOK" display="no" id="next" label="Siguiente pregunta"/>
+</box>
+<summaryline type="answerline">
+<summaryfor>
+<summaryattribute attribute="answermap[answer1_1,answer1_2,answer1_3,answer1_4:At 25ºC all aqueous basic solutions have,ion concentrations less than,mol litre-1 and pH values ,than]"/>:<summaryattribute attribute="answerline"/>
+</summaryfor>
+</summaryline>
+<summaryline>Attempt <summaryattribute attribute="attempt"/>: Selected answer: <summaryattribute attribute="answerline"/>
+</summaryline>
+</question>

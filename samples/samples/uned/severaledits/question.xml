@@ -1,0 +1,90 @@
+<question class="samples.uned.severaledits.GenericQuestion">
+	
+	<parameters maxattempts="5"></parameters>
+	
+	<scoring><marks>5</marks></scoring>
+
+	<layout>
+		<row height="400"/>
+		<column width="296"/>
+		<column width="296"/>  
+	</layout>
+ 
+	<!-- Defines the left-hand question box -->
+	<box gridx="0" gridy="0" id="inputbox" background="input">
+		<emphasis>Varias preguntas de superheroes</emphasis>
+		<gap/>
+		
+		¿Qué superheroe lanza telarañas?
+		<editfield id="telaranyas" cols="30" label="" right="spiderman" casesensitive="no" />
+		<gap/> 
+  		
+		¿Qué superheroe es vulnerable a la criptonita?
+		<editfield id="criptonita" cols="30" label="" right="superman" casesensitive="no" />
+		<gap/> 
+  		
+		<button action="actionSubmit" label="%%lENTERANSWER%%"/>
+ 		<button action="actionGiveUp" label="%%lGIVEUP%%"/>
+  
+	</box>
+
+ <!-- Defines the right-hand answer box, which is initially hidden  -->
+ <box gridx="1" gridy="0" id="answerbox" display="no" background="answer">
+   
+	<t id="right">Tu respuesta es correcta.<gap/></t>
+	<t id="wrong">Tu respuesta<t id="still"> todavía</t> es incorrecta.<gap/></t>
+	<t id="pass">Has saltado la pregunta.<gap/></t>	
+
+	<t id="feedback">
+		<t id="superman" answer="telaranyas[superman]">
+		Superman puede volar pero no lanza telarañas
+		<gap/>
+		</t>
+		
+		<t id="spiderman" answer="criptonita[spiderman]">
+		Spiderman no es vulnerable a la criptonita
+		<gap/>
+		</t>
+		
+		<t id="batman" answer="telaranyas[batman],criptonita[batman]">
+		Batman es un superheroe que lucha contra los villanos de Gotham disfrazado de murciélago y
+		aunque dispone de un montón de artilugios con los que puede descolgarse o salvar grandes alturas
+		no lanza telarañas y por supuesto no es vulnerable a la criptonita
+		<gap/>
+		</t>
+		
+		<t id="feedback1" attemptsmax="1">
+			Te has equivocado, me parece que no te fijas demasiado.
+			<gap/>
+		</t>
+		<t id="feedback2" attemptsmin="2">
+			Vamos a centrarnos hombre, 
+			<emphasis type="italic">fíjate bien!!</emphasis>
+			<gap/>
+		</t>
+		Consulta el tema xxx para encontrar una solución a la pregunta.
+		<gap/>
+	</t>	 
+   
+	<t id="answer">
+		Spiderman es un superheroe que defiende la justicia con poderes que obtuvo de la picadura de una araña.
+		<gap/>
+		Y por supuesto entre los poderes de Spiderman está el de lanzar telarañas.
+		<gap/>
+		Por otra parte Superman es un superheroe procedente del planeta Cripton
+		que puede volar pero no lanza telarañas
+		<gap/>
+		Y es muy conocida su vulnerabilidad a la criptonita.
+		<gap/>
+	</t>
+		
+	<button id="ok" action="actionOK" label="%%lTRYAGAIN%%"/>
+	<button id="next" action="actionOK" label="%%lNEXTQUESTION%%" display="no"/>
+   	
+ </box>
+
+<summaryline answer="telaranyas[superman],telaranyas[batman],criptonita[superman],criptonita[batman]">
+Seleccionado Superman o Batman</summaryline>
+<summaryline>Respuesta seleccionada: <summaryattribute attribute="answerline"/></summaryline>
+
+</question>

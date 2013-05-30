@@ -1,0 +1,353 @@
+<question class="samples.uned.random.dragmarkers.GenericQuestion2">
+	
+    <scoring>
+        <marks>3</marks>
+    </scoring>
+	
+    <layout>
+        <row height="330"/>
+        <row height="370"/>
+        <column width="592"/>
+    </layout>
+	
+	<!-- Random values -->
+	<random id="randomP1" max="3"/>
+	<random id="randomP2" max="3"/>
+	<random id="randomP3" max="3"/>
+	<random id="randomP4" max="3"/>
+	
+	<replaceholder id="pXA" placeholder="pXA" set="randomP1">
+  		<option value="20"/>
+  		<option value="20"/>
+  		<option value="70"/>
+  		<option value="70"/>
+	</replaceholder>
+	
+	<replaceholder id="pYA" placeholder="pYA" set="randomP1">
+  		<option value="20"/>
+  		<option value="70"/>
+  		<option value="20"/>
+  		<option value="70"/>
+	</replaceholder>
+	
+	<replaceholder id="pXB" placeholder="pXB" set="randomP2">
+  		<option value="20"/>
+  		<option value="20"/>
+  		<option value="70"/>
+  		<option value="70"/>
+	</replaceholder>
+	
+	<replaceholder id="pYB" placeholder="pYB" set="randomP2">
+  		<option value="-20"/>
+  		<option value="-70"/>
+  		<option value="-20"/>
+  		<option value="-70"/>
+	</replaceholder>
+	
+	<replaceholder id="pXC" placeholder="pXC" set="randomP3">
+  		<option value="-20"/>
+  		<option value="-20"/>
+  		<option value="-70"/>
+  		<option value="-70"/>
+	</replaceholder>
+	
+	<replaceholder id="pYC" placeholder="pYC" set="randomP3">
+  		<option value="20"/>
+  		<option value="70"/>
+  		<option value="20"/>
+  		<option value="70"/>
+	</replaceholder>
+	
+	<replaceholder id="pXD" placeholder="pXD" set="randomP4">
+  		<option value="-20"/>
+  		<option value="-20"/>
+  		<option value="-70"/>
+  		<option value="-70"/>
+	</replaceholder>
+	
+	<replaceholder id="pYD" placeholder="pYD" set="randomP4">
+  		<option value="-20"/>
+  		<option value="-70"/>
+  		<option value="-20"/>
+  		<option value="-70"/>
+	</replaceholder>
+	
+	<!-- We emulate markers as answer components using variables with their co-ordinates as
+		 answer components -->
+	<variable id="mXA" set="graph.w1.0.x[nr]" answerenabled="yes" valuetype="numeric" right="__pXA__"
+		tolerance="10"/>
+	
+	<variable id="mYA" set="graph.w1.0.y[nr]" answerenabled="yes" valuetype="numeric" right="__pYA__"
+		tolerance="10"/>
+	
+	<variable id="mXB" set="graph.w1.1.x[nr]" answerenabled="yes" valuetype="numeric" right="__pXB__"
+		tolerance="10"/>
+	
+	<variable id="mYB" set="graph.w1.1.y[nr]" answerenabled="yes" valuetype="numeric" right="__pYB__"
+		tolerance="10"/>
+	
+	<variable id="mXC" set="graph.w1.2.x[nr]" answerenabled="yes" valuetype="numeric" right="__pXC__"
+		tolerance="10"/>
+	
+	<variable id="mYC" set="graph.w1.2.y[nr]" answerenabled="yes" valuetype="numeric" right="__pYC__"
+		tolerance="10"/>
+	
+	<variable id="mXD" set="graph.w1.3.x[nr]" answerenabled="yes" valuetype="numeric" right="__pXD__"
+		tolerance="10"/>
+	
+	<variable id="mYD" set="graph.w1.3.y[nr]" answerenabled="yes" valuetype="numeric" right="__pYD__"
+		tolerance="10"/>
+	
+	<!-- correctMXA=mXA==pXA?1:0 -->
+	<variable id="correctMXA" set="mXA[nepXA@,&quot;1&quot;,&quot;0&quot;]" tolerance="10"/>
+	
+	<!-- correctMYA=mYA==pYA?1:0 -->
+	<variable id="correctMYA" set="mYA[nepYA@,&quot;1&quot;,&quot;0&quot;]" tolerance="10"/>
+	
+	<!-- correctMA=(correctMXA+correctMYA)==2?1:0 -->
+	<variable id="correctMA" set="correctMXA[naicorrectMYA@nei&quot;2&quot;,&quot;1&quot;,&quot;0&quot;]"/>
+	
+	<!-- correctMXB=mXB==pXB?1:0 -->
+	<variable id="correctMXB" set="mXB[nepXB@,&quot;1&quot;,&quot;0&quot;]" tolerance="10"/>
+	
+	<!-- correctMYB=mYB==pYB?1:0 -->
+	<variable id="correctMYB" set="mYB[nepYB@,&quot;1&quot;,&quot;0&quot;]" tolerance="10"/>
+	
+	<!-- correctMB=(correctMXB+correctMYB)==2?1:0 -->
+	<variable id="correctMB" set="correctMXB[naicorrectMYB@nei&quot;2&quot;,&quot;1&quot;,&quot;0&quot;]"/>
+	
+	<!-- correctMXC=mXC==pXC?1:0 -->
+	<variable id="correctMXC" set="mXC[nepXC@,&quot;1&quot;,&quot;0&quot;]" tolerance="10"/>
+	
+	<!-- correctMYC=mYC==pYC?1:0 -->
+	<variable id="correctMYC" set="mYC[nepYC@,&quot;1&quot;,&quot;0&quot;]" tolerance="10"/>
+	
+	<!-- correctMC=(correctMXC+correctMYC)==2?1:0 -->
+	<variable id="correctMC" set="correctMXC[naicorrectMYC@nei&quot;2&quot;,&quot;1&quot;,&quot;0&quot;]"/>
+	
+	<!-- correctMXD=mXD==pXD?1:0 -->
+	<variable id="correctMXD" set="mXD[nepXD@,&quot;1&quot;,&quot;0&quot;]" tolerance="10"/>
+	
+	<!-- correctMYD=mYD==pYC?1:0 -->
+	<variable id="correctMYD" set="mYD[nepYD@,&quot;1&quot;,&quot;0&quot;]" tolerance="10"/>
+	
+	<!-- correctMD=(correctMXD+correctMYD)==2?1:0 -->
+	<variable id="correctMD" set="correctMXD[naicorrectMYD@nei&quot;2&quot;,&quot;1&quot;,&quot;0&quot;]"/>
+	
+	<!-- correct=correctMA+correctMB+correctMC+correctMD -->
+	<variable id="correct" set="correctMA[naicorrectMB@naicorrectMC@naicorrectMD@]"/>
+	
+	<!-- correctNone="All four points are misplaced" -->
+	<variable id="correctNone" set="@All four points are misplaced"/>
+	
+	<!-- correctOne="One point is in the right place" -->
+	<variable id="correctOne" set="@One point is in the right place"/>
+	
+	<!-- correctSeveral=correct+" points are in the right place" -->
+	<variable id="correctSeveral" set="correct[a&quot; points are in the right place&quot;]"/>
+	
+	<!-- correctFeedback=correct==0?correctNone:correct==1?correctOne:correctSeveral -->
+	<variable id="correctFeedback" 
+		set="correct[nei&quot;0&quot;,correctNone@nei&quot;1&quot;,correctOne@,correctSeveral@]"/>
+	
+	<!-- pXAPlus4=pXA+4 -->
+	<variable id="pXAPlus4" set="pXA[nai&quot;4&quot;]"/>
+	
+	<!-- pYAMinus3=pYA-3 -->
+	<variable id="pYAMinus3" set="pYA[nsi&quot;3&quot;]"/>
+	
+	<!-- pXBPlus4=pXB+4 -->
+	<variable id="pXBPlus4" set="pXB[nai&quot;4&quot;]"/>
+	
+	<!-- pYBMinus3=pYB-3 -->
+	<variable id="pYBMinus3" set="pYB[nsi&quot;3&quot;]"/>
+	
+	<!-- pXCPlus4=pXC+4 -->
+	<variable id="pXCPlus4" set="pXC[nai&quot;4&quot;]"/>
+	
+	<!-- pYCMinus3=pYC-3 -->
+	<variable id="pYCMinus3" set="pYC[nsi&quot;3&quot;]"/>
+	
+	<!-- pXDPlus4=pXD+4 -->
+	<variable id="pXDPlus4" set="pXD[nai&quot;4&quot;]"/>
+	
+	<!-- pYDMinus3=pYD-3 -->
+	<variable id="pYDMinus3" set="pYD[nsi&quot;3&quot;]"/>
+	
+	<!-- CORRECT=correctFeedback -->
+	<replaceholder placeholder="CORRECT" set="correctFeedback@"/>
+	
+	<!-- pEndXA=pXAPlus4 -->
+	<replaceholder placeholder="pEndXA" set="pXAPlus4@"/>
+	
+	<!-- pEndYA=pYAMinus3 -->
+	<replaceholder placeholder="pEndYA" set="pYAMinus3@"/>
+	
+	<!-- pEndXB=pXBPlus4 -->
+	<replaceholder placeholder="pEndXB" set="pXBPlus4@"/>
+	
+	<!-- pEndYB=pYBMinus3 -->
+	<replaceholder placeholder="pEndYB" set="pYBMinus3@"/>
+	
+	<!-- pEndXC=pXCPlus4 -->
+	<replaceholder placeholder="pEndXC" set="pXCPlus4@"/>
+	
+	<!-- pEndYC=pYCMinus3 -->
+	<replaceholder placeholder="pEndYC" set="pYCMinus3@"/>
+	
+	<!-- pEndXD=pXDPlus4 -->
+	<replaceholder placeholder="pEndXD" set="pXDPlus4@"/>
+	
+	<!-- pEndYD=pYDMinus3 -->
+	<replaceholder placeholder="pEndYD" set="pYDMinus3@"/>
+	
+    <!-- Defines the question box -->
+    <box gridx="0" gridy="0" id="inputbox" background="input" 
+    	questionline="Drag the following points on the graph at">
+    	
+        <layoutgrid cols ="2">
+            <canvas id="graph" width="256" height="256">
+                <world id="w1" px="10" py="10" pw="236" ph="236" 
+                	xleft="-100" xright="100" ybottom="-100" ytop="100">
+                	
+                    <grid minX="-100" maxX="100" minY="-100" maxY="100" 
+                    	XSpacing="10,10" YSpacing="10,10"/>
+                    
+                    <xAxis ticks="50,10" tickSide="both" numbers="50" omitNumbers="0"/>
+                    <yAxis ticks="50,10" tickSide="+" numbers="50" omitNumbers="0"/>
+                    
+                	<text x="100:5" y="0" text="X" font="bold"/> 
+                	<text x="0:5" y="100:10" text="Y" font="bold"/> 
+                </world>			
+                <marker x="156" y="20" labelJS='label="A"; font="bold";' world='w1'/>
+                <marker x="156" y="40" labelJS='label="B"; font="bold";' world='w1'/>
+                <marker x="156" y="60" labelJS='label="C"; font="bold";' world='w1'/>
+                <marker x="156" y="80" labelJS='label="D"; font="bold";' world='w1'/>
+                <marker x="w1:__pEndXA__" y="w1:__pEndYA__" labelJS='label="A"; font="bold";' 
+                	world='w1' display="no"/>
+                <marker x="w1:__pEndXB__" y="w1:__pEndYB__" labelJS='label="B"; font="bold";' 
+                	world='w1' display="no"/>
+                <marker x="w1:__pEndXC__" y="w1:__pEndYC__" labelJS='label="C"; font="bold";' 
+                	world='w1' display="no"/>
+                <marker x="w1:__pEndXD__" y="w1:__pEndYD__" labelJS='label="D"; font="bold";' 
+                	world='w1' display="no"/>
+            </canvas>	
+			
+            <t>
+                On the left is a graph with 4 points, A, B, C, D marked on it.
+                <gap/>
+                Using the mouse pick up each point and drag it to its allocated position
+                given by the co-ordinates below.
+                <gap/>
+                <gap/>
+                <layoutgrid cols ="2" widths="10%,90%">
+                    <t>A</t>
+                    <t>(__pXA__, __pYA__)</t>
+                    <t>B</t>
+                    <t>(__pXB__, __pYB__)</t>
+                    <t>C</t>
+                    <t>(__pXC__, __pYC__)</t>
+                    <t>D</t>
+                    <t>(__pXD__, __pYD__)</t>
+               </layoutgrid>
+            </t>
+        </layoutgrid>
+        <gap/>
+		
+        <button action="actionSubmit" label="%%lENTERANSWER%%"/>
+        <button id="hintButton" action="actionHint" label="Hint"/>
+        <!--button action="actionGiveUp" label="%%lGIVEUP%%"/-->
+ 		
+    </box>
+	
+    <!-- Defines the right-hand answer box, which is initially hidden  -->
+    <box gridx="0" gridy="1" id="answerbox" display="no" background="answer">
+		
+        <t id="wrong">Your answer is <t id="still">still</t> incorrect.<gap/></t>
+        <t id="right">Your answer is correct.<gap/></t>
+        <t id="pass">You passed on this question.<gap/></t>
+		
+        <t id="hints">
+            <t id="hint">
+                To position the named point on the graph,
+                identify the X coordinate on the horizontal axis,
+                the Y coordinate on the vertical axis
+                and using the mouse
+                pick up and drag the labelled point
+                to the intersection given by the X and Y coordinates.
+                <gap/>
+            </t>
+        </t>
+		
+        <t id="feedback">
+            <t id="correct">
+                __CORRECT__
+                <gap/>
+            </t>
+            <t id="pointamisplaced" answer="correctMA[0]">
+                Point A is misplaced.
+                <gap/>
+            </t>   
+            <t id="pointbmisplaced" answer="correctMB[0]">
+                Point B is misplaced.
+                <gap/>
+            </t>   
+            <t id="pointcmisplaced" answer="correctMC[0]">
+                Point C is misplaced.
+                <gap/>
+            </t>   
+            <t id="pointdmisplaced" answer="correctMD[0]">
+                Point D is misplaced.
+                <gap/>
+            </t>   
+            <t id="feedback1" attemptsmin="1" attemptsmax="1">
+                Notice that one division on the scale represents 10 units on both axes.
+                <gap/>
+            </t>   
+            <t id="feedback2" attemptsmin="2" attemptsmax="2">
+                The first, or x co-ordinate of the point is the position on the x axis
+                and the second the position on the y axis,
+                whether positive or negative.
+                <gap/>
+            </t>   
+        </t>
+		
+        <t id="answer">
+            __CORRECT__
+            <gap/>
+            Please verify the following against the graph above.
+            <gap/>
+            point A has coordinates (__pXA__, __pYA__)
+            <break/>
+            point B has coordinates (__pXB__, __pYB__)
+            <break/>
+            point C has coordinates (__pXC__, __pYC__)
+            <break/>
+            point D has coordinates (__pXD__, __pYD__)
+            <gap/>
+        </t>
+		
+        <t id="reference">
+            Please see MU120 Preparatory Resource Book B sections 5.3.1, 5.3.2
+            <gap/>
+        </t>
+		
+        <button id="ok" action="actionOK" label="%%lTRYAGAIN%%"/>
+        <button id="next" action="actionOK" label="%%lNEXTQUESTION%%" display="no"/>
+		
+    </box>
+	
+	<!-- Tasks to show markers at correct location at end of question if we are wrong -->
+	<task task="hidemarker" when="end" parameters="graph,0,1,2,3" test="wrong"/>
+	<task task="displaymarker" when="end" parameters="graph,4,5,6,7" test="wrong"/>
+	
+	<summaryline type="answerline">((A, __pXA__, __pYA__), (B, __pXB__, __pYB__), 
+	(C, __pXC__, __pYC__), (D, __pXD__, __pYD__))</summaryline>
+	
+	<summaryline>Attempt <summaryattribute attribute="attempt"/>: 
+	((A, <summaryattribute attribute="answerline[mXA]"/>, <summaryattribute attribute="answerline[mYA]"/>), 
+	(B, <summaryattribute attribute="answerline[mXB]"/>, <summaryattribute attribute="answerline[mYB]"/>), 
+	(C, <summaryattribute attribute="answerline[mXC]"/>, <summaryattribute attribute="answerline[mYC]"/>), 
+	(D, <summaryattribute attribute="answerline[mXD]"/>, <summaryattribute attribute="answerline[mYD]"/>))</summaryline>
+	
+</question>

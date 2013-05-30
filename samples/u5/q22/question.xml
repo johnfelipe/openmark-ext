@@ -1,0 +1,57 @@
+<question class="u5.q22.GenericQuestion">
+<scoring>
+<marks>3</marks>
+</scoring>
+<layout>
+<row height="0"/>
+<column width="296"/>
+<column width="296"/>
+</layout>
+<box background="input" gridx="0" gridy="0" id="inputbox">Elige la ecuación correcta:<gap/>
+<layoutgrid cols="1" fixedpositions="2,4,5" shuffle="yes">
+<checkbox id="answer0">
+<t>1) 2+2=5</t>
+</checkbox>
+<checkbox id="answer1" right="yes">
+<t>2) 1+1=2</t>
+</checkbox>
+<checkbox id="answer2" right="yes">
+<t>3) 2*0=0 (debe salir siempre en una posición fija)</t>
+</checkbox>
+<checkbox id="answer3">
+<t>4) 2*1=1</t>
+</checkbox>
+<checkbox id="answer4">
+<t>5) Todas las ecuaciones son correctas (debe salir siempre en una posición fija)</t>
+</checkbox>
+<checkbox id="answer5">
+<t>6) Ninguna ecuación es correcta (debe salir siempre en una posición fija)</t>
+</checkbox>
+</layoutgrid>
+<gap/>
+<button action="actionSubmit" label="%%lENTERANSWER%%"/>
+<button action="actionGiveUp" label="%%lGIVEUP%%"/>
+</box>
+<box background="answer" display="no" gridx="1" gridy="0" id="answerbox">
+<t id="right">Correcto. Aunque sea elemental las ecuaciones correctas son 1+1=2 y 2*0=0<gap/>
+</t>
+<t id="wrong">La respuesta indicada no es correcta.<t id="still"/>
+<gap/>
+</t>
+<t id="pass"/>
+<t answer="answer0">¿Has olvidado sumar? 2+2=4<gap/>
+</t>
+<t answer="answer3">¿Has olvidado que cualquier número multiplicado por 1 da el mismo número?<gap/>
+</t>
+<t answer="answer4">No es correcto. Hay al menos una ecuación incorrecta.<gap/>
+</t>
+<t answer="answer5">No es correcto. Hay al menos una ecuación correcta.<gap/>
+</t>
+<t id="feedback"/>
+<t id="answer"/>
+<button action="actionOK" id="ok" label="%%lTRYAGAIN%%"/>
+<button action="actionOK" display="no" id="next" label="%%lNEXTQUESTION%%"/>
+</box>
+<summaryline>Attempt <summaryattribute attribute="attempt"/>: Selected answer: <summaryattribute attribute="answerline"/>
+</summaryline>
+</question>

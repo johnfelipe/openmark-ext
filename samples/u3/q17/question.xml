@@ -1,0 +1,54 @@
+<question class="u3.q17.GenericQuestion">
+<scoring>
+<marks>3</marks>
+</scoring>
+<layout>
+<row height="0"/>
+<column width="296"/>
+<column width="296"/>
+</layout>
+<box background="input" gridx="0" gridy="0" id="inputbox">Elige la ecuación correcta:<gap/>
+<layoutgrid cols="1" fixedpositions="2,4" shuffle="yes">
+<radiobox id="answer0">
+<t>1) 2+2=5</t>
+</radiobox>
+<radiobox id="answer1">
+<t>2) 1+1=3</t>
+</radiobox>
+<radiobox id="answer2">
+<t>3) 2*0=2 (debe salir siempre en una posición fija)</t>
+</radiobox>
+<radiobox id="answer3">
+<t>4) 2*1=1</t>
+</radiobox>
+<radiobox id="answer4" right="yes">
+<t>5) Ninguna ecuación es correcta (debe salir siempre en una posición fija)</t>
+</radiobox>
+</layoutgrid>
+<gap/>
+<button action="actionSubmit" label="%%lENTERANSWER%%"/>
+<button action="actionGiveUp" label="%%lGIVEUP%%"/>
+</box>
+<box background="answer" display="no" gridx="1" gridy="0" id="answerbox">
+<t id="right">Exacto. Ninguna de las ecuaciones es correcta.<gap/>
+</t>
+<t id="wrong">La respuesta indicada no es correcta.<t id="still"/>
+<gap/>
+</t>
+<t id="pass"/>
+<t answer="answer0">¿Has olvidado sumar? 2+2=4<gap/>
+</t>
+<t answer="answer1">¿Has olvidado sumar? 1+1=2<gap/>
+</t>
+<t answer="answer2">¿Has olvidado que cualquier número multiplicado por 0 da 0?<gap/>
+</t>
+<t answer="answer3">¿Has olvidado que cualquier número multiplicado por 1 da el mismo número?<gap/>
+</t>
+<t id="feedback"/>
+<t id="answer"/>
+<button action="actionOK" id="ok" label="%%lTRYAGAIN%%"/>
+<button action="actionOK" display="no" id="next" label="%%lNEXTQUESTION%%"/>
+</box>
+<summaryline>Attempt <summaryattribute attribute="attempt"/>: Selected answer: <summaryattribute attribute="answerline"/>
+</summaryline>
+</question>

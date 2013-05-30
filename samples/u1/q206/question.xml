@@ -1,0 +1,55 @@
+<question class="u1.q206.GenericQuestion">
+<scoring>
+<marks>3</marks>
+</scoring>
+<layout>
+<row height="0"/>
+<column width="296"/>
+<column width="296"/>
+</layout>
+<box background="input" gridx="0" gridy="0" id="inputbox">
+<image alt="" filePath="159.png" height="200" width="279"/>
+<gap/>This is a Multiple choice question.&#13;<break/>&#13;<break/>Estimate the gradient of the curve shown in the plot at x = 2.<gap/>
+<layoutgrid cols="1">
+<radiobox id="answer1">
+<t>1</t>
+</radiobox>
+<radiobox id="answer2">
+<t>2</t>
+</radiobox>
+<radiobox id="answer3">
+<t>3</t>
+</radiobox>
+<radiobox id="answer4" right="yes">
+<t>4</t>
+</radiobox>
+<radiobox id="answer5">
+<t>5</t>
+</radiobox>
+<radiobox id="answer6">
+<t>6</t>
+</radiobox>
+</layoutgrid>
+<gap/>
+<button action="actionSubmit" label="Introducir respuesta"/>
+<button action="actionGiveUp" label="Abandonar"/>
+</box>
+<box background="answer" display="no" gridx="1" gridy="0" id="answerbox">
+<t id="right">Your answer is correct.<gap/>
+</t>
+<t id="wrong">Your answer is incorrect.<gap/>
+</t>
+<t id="still"/>
+<t id="pass"/>
+<t id="feedback"/>
+<t id="answer">A tangent has been drawn to the figure at x = 2.&#13;<break/>&#13;<break/>Gradient of tangent = <equation alt="ΔyΔx = 14 − 04.0 − 0.5 = 143.5 = 4.0">\frac{\Delta y}{\Delta x} = \frac{14 - 0}{4.0 - 0.5} = \frac{14}{3.5} = 4.0</equation>
+<gap/>
+<image alt="" filePath="160.png" height="197" width="263"/>
+<gap/>
+</t>
+<button action="actionOK" id="ok" label="Reintentar"/>
+<button action="actionOK" display="no" id="next" label="Siguiente pregunta"/>
+</box>
+<summaryline>Attempt <summaryattribute attribute="attempt"/>: Selected answer: <summaryattribute attribute="answerline"/>
+</summaryline>
+</question>

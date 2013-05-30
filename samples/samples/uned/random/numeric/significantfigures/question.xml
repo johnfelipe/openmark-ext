@@ -1,0 +1,223 @@
+<!-- S151 Chapter 5 Question 3
+	P G Butcher September 2005
+-->
+
+<question class="samples.uned.random.numeric.significantfigures.GenericQuestion">
+
+	<scoring><marks>3</marks></scoring>
+	<layout>
+		<row height="480"/>
+		<column width="376"/>
+		<column width="216"/>  
+	</layout>
+	
+	<random id="randomgraph" max="4"/>
+	
+  	<replaceholder placeholder="ZERO" set="randomgraph">
+  		<option value="1.20"/>
+  		<option value="1.10"/>
+  		<option value="0.95"/>
+  		<option value="1.40"/>
+  		<option value="1.10"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="EIGHTY" set="randomgraph">
+  		<option value="1.55"/>
+  		<option value="1.40"/>
+  		<option value="1.40"/>
+  		<option value="1.60"/>
+  		<option value="1.60"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="RISE" set="randomgraph">
+  		<option value="0.35"/>
+  		<option value="0.30"/>
+  		<option value="0.45"/>
+  		<option value="0.20"/>
+  		<option value="0.50"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="GRADINSF" set="randomgraph">
+  		<option value="4.4"/>
+  		<option value="3.8"/>
+  		<option value="5.6"/>
+  		<option value="2.5"/>
+  		<option value="6.3"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="MAINLINEY1" set="randomgraph">
+  		<option value="1.2"/>
+  		<option value="1.1"/>
+  		<option value="0.95"/>
+  		<option value="1.4"/>
+  		<option value="1.1"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="MAINLINEY2" set="randomgraph">
+  		<option value="1.8125"/>
+  		<option value="1.625"/>
+  		<option value="1.734"/>
+  		<option value="1.75"/>
+  		<option value="1.975"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="LINE1Y" set="randomgraph">
+  		<option value="1.375"/>
+  		<option value="1.25"/>
+  		<option value="1.174"/>
+  		<option value="1.5"/>
+  		<option value="1.35"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="LINE2Y" set="randomgraph">
+  		<option value="1.55"/>
+  		<option value="1.4"/>
+  		<option value="1.398"/>
+  		<option value="1.6"/>
+  		<option value="1.6"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="LINE3Y" set="randomgraph">
+  		<option value="1.725"/>
+  		<option value="1.55"/>
+  		<option value="1.622"/>
+  		<option value="1.7"/>
+  		<option value="1.85"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="ANSWER" set="randomgraph">
+  		<option value="440"/>
+  		<option value="380"/>
+  		<option value="560"/>
+  		<option value="250"/>
+  		<option value="630"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="ANSWERDIV1E5" set="randomgraph">
+  		<option value="4.4e-3"/>
+  		<option value="3.8e-3"/>
+  		<option value="5.6e-3"/>
+  		<option value="2.5e-3"/>
+  		<option value="6.3e-3"/>
+  	</replaceholder>
+	
+	<box gridx="0" gridy="0" id="inputbox" background="input"
+			questionline="What is the gradient of a line passing through x=0, y=__ZERO__ and x=80, y=__EIGHTY__?">
+
+		In an experiment carried out on a fixed amount of gas held at constant
+		volume, the pressure (in units of <eq>\mbox{Pa}</eq>) was measured as a function of the
+		temperature (<eq>\mbox{°C}</eq>).
+		
+		<canvas id="graph" width="350" height="290" alt="A graph is plotted of the pressure of a gas against its temperature. The vertical axis is labelled 'pressure/10^5 Pa' and the horizontal axis is labelled 'temperature/°C'. The graph is a straight line passing through points which appear on the graph as follows: When the horizontal value is 0, the vertical value is __ZERO__. When the horizontal value is 80 the vertical value is __EIGHTY__.">
+			<world id="w1" px="40" py="8" pw="290" ph="255" 
+				xleft="0.0" xright="140.0" ybottom="0.0" ytop="2.2">
+				
+				<xAxis ticks="20,10" tickSide="-" numbers="20" omitNumbers="0" 
+					labelFont="Times New Roman" label="temperature / °C"/>
+				<yAxis maxY="2.0" ticks="1,0.1" tickSide="-" numbers="0.5" />
+				<text x="6" y="2.1" font="Times New Roman" text="pressure / 10   Pa" />
+				<text x="19" y="2.15" font="Times New Roman" text="5" />
+			    <grid maxY="2.01" xspacing="10" yspacing="0.1" />
+			    <line x="0.0" y="__MAINLINEY1__" x2="140.0" y2="__MAINLINEY2__" lineColour="fg" />
+			    <line x="40.0" y="0.0" x2="40.0" y2="__LINE1Y__" lineColour="graph1" />
+			    <line x="0.0" y="__LINE1Y__" x2="40.0" y2="__LINE1Y__" lineColour="graph1" />
+			    <line x="80.0" y="0.0" x2="80.0" y2="__LINE2Y__" lineColour="graph1" />
+			    <line x="0.0" y="__LINE2Y__" x2="80.0" y2="__LINE2Y__" lineColour="graph1" />
+			    <line x="120.0" y="0.0" x2="120.0" y2="__LINE3Y__" lineColour="graph1" />
+			    <line x="0.0" y="__LINE3Y__" x2="120.0" y2="__LINE3Y__" lineColour="graph1" />
+			</world>			
+		</canvas>
+		<break/>	
+		Estimate the gradient of the resulting graph
+		to two significant figures, expressing your answer in scientific notation.
+		<break/>
+		gradient = 
+		<equation alt="">
+			<eplace width='125' height='20' label="gradient">
+				<advancedfield id="response" cols="12" type="superscript" answertype="numeric[scncscp2]" 
+						right="__ANSWER__" tolerance="10.0" />
+			</eplace>	
+		</equation>
+		<eq>\mbox{Pa/°C}</eq> 
+		<gap/> <break/>
+		<button action="actionSubmit" label="%%lENTERANSWER%%"/>
+  
+	</box>
+
+	<box gridx="1" gridy="0" id="answerbox" display="no" background="answer">
+		 
+		<t id="wrong">Your answer is <t id="still">still</t> incorrect.</t>
+		<t id="right">Your answer is correct.</t>
+		<t id="pass">You passed on this question.</t> 
+		<gap/>
+		<t id="feedback">
+			<t id="notsn" answer="ansnotsn" attemptsmax="2">
+				Your value is in the correct range but your answer is not in scientific notation.
+				<gap/>
+			</t> 
+			<t id="wrongsfsn" answer="answrongsfsn" attemptsmax="2">
+				Your value is in the correct range but you have given an incorrect number of significant 
+				figures and your answer is not in scientific notation.
+				<gap/>
+			</t> 
+			<t id="wrongsf" answer="ansinrange+!anssigfigok" attemptsmax="2">
+				Your value is in the correct range but you have given an incorrect number of significant 
+				figures.
+				<gap/>
+			</t> 
+			<t id="wrongfactorof10noteylabel" answer="answrongfactorof10noteylabel" attemptsmax="2">
+				You appear to have made an error in calculating the powers of 10.
+				Look carefully at the labelling of the vertical axis and see examples in
+				Section 5.1.2.
+				<gap/>
+			</t> 
+			<t id="wrongfactorof10" answer="anssigfig2ok+!ansexpok" attemptsmax="2">
+				You appear to have made an error in calculating the powers of 10.
+				<gap/>
+			</t> 
+			<t id="default" attemptsmin="2" attemptsmax="2">
+				Section 5.2.1 discusses how the gradient of a straight-line graph is calculated.
+				Remember to give your answer in scientific notation and to two significant figures.
+				<gap/>
+			</t>
+		</t>
+		
+		<t id="answer">
+			Any pair of points can be used to find the gradient. Using those
+			corresponding to temperatures of <eq>\mbox{0°C}</eq> and <eq>\mbox{80°C}</eq>:
+			<gap/>
+			gradient = 
+			<equation alt="((__EIGHTY__ – __ZERO__) × 10^5) pascals over (80 - 0) degrees C">
+				\frac{(__EIGHTY__ – __ZERO__) × 10^5 \mbox{ Pa}}{(80 - 0)\mbox{ °C}}
+			</equation>
+			<gap/>
+			<equation alt="= __RISE__ × 10^5 pascals over 80 degrees C">
+				              = \frac{__RISE__ × 10^5 \mbox{ Pa}}{80\mbox{ °C}} <!-- non-breaking spaces at beginnin -->
+			</equation>
+			<gap/>
+			<eq>              =__GRADINSF__ × 10^2 \mbox{ Pa/°C}</eq>
+			<gap/>
+			in scientific notation to two significant figures.
+			<gap/>
+		</t>
+     
+	    <button id="ok" action="actionOK" label="%%lTRYAGAIN%%"/>
+		<button id="next" action="actionOK" label="%%lNEXTQUESTION%%" display="no"/>
+   
+	</box>
+	
+	<answercombo id="anstext" answertype="text" answer="response[__ANSWER__]"/>
+	<answercombo id="ansinrange" answertype="numeric[s]" answer="response[__ANSWER__]"/>
+	<answercombo id="anssigfigok" answertype="numeric[scp2]" answer="response[__ANSWER__]"/>
+	<answercombo id="ansscinot" answertype="numeric[scs]" answer="response[__ANSWER__]"/>
+	<answercombo id="ansnotsn" answer="anstext,ansinrange+anssigfigok+!ansscinot"/>
+	<answercombo id="answrongsfsn" answer="!anstext+ansinrange+!anssigfigok+!ansscinot"/>
+	<answercombo id="answrongfactorof10noteylabel" answertype="numeric[s]" 
+			answer="response[__ANSWERDIV1E5__]" tolerance="1e-5"/>
+	<answercombo id="anssigfig2ok" answertype="numeric[sp2cd]" answer="response[__ANSWER__]"/>
+	<answercombo id="ansexpok" answertype="numeric[sce]" answer="response[__ANSWER__]"/>
+	
+	<summaryline>Attempt <summaryattribute attribute="attempt"/>: 
+	<summaryattribute attribute="answerline"/></summaryline>
+	
+</question>

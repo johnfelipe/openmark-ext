@@ -1,0 +1,315 @@
+<question class="samples.uned.random.scales.GenericQuestion2">
+	
+    <scoring>
+        <marks>3</marks>
+    </scoring>
+	
+    <layout>
+        <row height="400"/>
+        <row height="360"/>
+        <column width="592"/>
+    </layout>
+	
+	<!-- Random value -->
+	<random id="randomNumber" max="2"/>
+	
+	<!-- baseTemp can be 10, 15, 20 
+		 but randomNumber is 0, 1, 2
+		 to get baseTemp from randomNumber we use next formulae:
+		 baseTemp=(randomNumber+2)*5
+	-->
+	<variable id="baseTemp" set="randomNumber[nai&quot;2&quot;nmi&quot;5&quot;]" />
+	
+	<!-- yFrom=baseTemp+1 -->
+	<variable id="yFrom" set="baseTemp[nai&quot;1&quot;]"/>
+	
+	<!-- yTo=baseTemp+8 -->
+	<variable id="yTo" set="baseTemp[nai&quot;8&quot;]"/>
+	
+	<!-- pY0=baseTemp+1 -->
+	<variable id="pY0" set="baseTemp[nai&quot;1&quot;]"/>
+	
+	<!-- pY1=baseTemp+3 -->
+	<variable id="pY1" set="baseTemp[nai&quot;3&quot;]"/>
+	
+	<!-- pY2=baseTemp+5 -->
+	<variable id="pY2" set="baseTemp[nai&quot;5&quot;]"/>
+	
+	<!-- pY3=baseTemp+7 -->
+	<variable id="pY3" set="baseTemp[nai&quot;7&quot;]"/>
+	
+	<!-- pY4=baseTemp+4 -->
+	<variable id="pY4" set="baseTemp[nai&quot;4&quot;]"/>
+	
+	<!-- pY5=baseTemp+2 -->
+	<variable id="pY5" set="baseTemp[nai&quot;2&quot;]"/>
+	
+	<!-- month -->
+	<replaceholder placeholder="month" set="randomNumber">
+  		<option value="January"/>
+  		<option value="March"/>
+  		<option value="July"/>
+	</replaceholder>
+	
+	<!-- X1=pY0 -->
+	<replaceholder placeholder="X1" set="pY0@"/>
+	
+	<!-- X3=pY1 -->
+	<replaceholder placeholder="X3" set="pY1@"/>
+	
+	<!-- X5=pY2 -->
+	<replaceholder placeholder="X5" set="pY2@"/>
+	
+	<!-- X7=pY3 -->
+	<replaceholder placeholder="X7" set="pY3@"/>
+	
+	<!-- X4=pY4 -->
+	<replaceholder placeholder="X4" set="pY4@"/>
+	
+	<!-- X2=pY5 -->
+	<replaceholder placeholder="X2" set="pY5@"/>
+	
+	<!-- YFROM=yFrom -->
+	<replaceholder placeholder="YFROM" set="yFrom@"/>
+	
+	<!-- YTO=yTo -->
+	<replaceholder placeholder="YTO" set="yTo@"/>
+	
+	<!-- noNumberTime=(rtime valid double)?rABx:"NaN" -->
+	<variable id="noNumberTime" set="rtime[nf!&quot;NaN&quot;]"/>
+	
+	<!-- noNumberTemp=(rtemp valid double)?rABy:"NaN" -->
+	<variable id="noNumberTemp" set="rtemp[nf!&quot;NaN&quot;]"/>
+	
+    <!-- Defines the question box -->
+    <box gridx="0" gridy="0" id="inputbox" background="input" 
+    	questionline="What are the best divisions for time and temperature?">
+    	
+        <layoutgrid cols ="2">
+            <t>
+                The data below is to be plotted on a graph on the graph paper on the right,
+                to show clearly the trend in average room temperature in a particular office
+                in __month__ during the working day.
+                <gap/>
+                <table id="mine" rows="2" cols="7" left="1">
+                    <title>Average temperatures in an office</title> 
+                    <row><t>Time of day (hours)</t><t>8</t><t>10</t><t>12</t><t>14</t><t>16</t><t>18</t></row>
+                    <row><t>Average temperatures °C</t><t>__X1__</t><t>__X3__</t><t>__X5__</t><t>__X7__</t><t>__X4__</t><t>__X2__</t></row>
+                </table>
+                <gap/>
+                Choose the most convenient scale for the graph on the given graph paper.
+                Note that the scales on the axes do not have to start at zero.
+                <gap/>
+                On the horizontal axis, one division represents
+                <editfield id="rtime" label="enter value" cols="3" answertype="numeric" right="2.0" 
+                	singlespaces="no" tolerance="1E-6"/> hours.
+                <break/>
+                On the vertical axis, one division represents 
+                <editfield id="rtemp" label="enter value" cols="3" answertype="numeric" right="1.0" 
+                	singlespaces="no" tolerance="1E-6"/> <eq>^°C</eq>.
+            </t>
+            <t>
+                <gap/>
+                <canvas id="graph1" width="280" height="256">
+            		<world id="w1" px="26" py="16" pw="196" ph="168"
+            			xleft="8" xright="22" ybottom="__YFROM__" ytop="__YTO__">
+            			
+						<xAxis y="__YFROM__" ticks="2" tickSide="-" colour="black"/>
+						<yAxis x="8" ticks="1" tickSide="-" colour="black"/>
+						<text x="22" y="__YFROM__" text="hours" colour="black" 
+							font="12px Dialog.plain" align="left"/>
+						<text x="8:1" y="__YTO__:-3" text="temperature ºC" colour="black" 
+							font="12px Dialog.plain" align="left"/>
+            		</world>
+                </canvas>
+            </t>
+        </layoutgrid>
+        <gap/>
+
+        <button action="actionSubmit" label="%%lENTERANSWER%%"/>
+        <button id="hintButton" action="actionHint" label="Hint"/>
+        <!--button action="actionGiveUp" label="%%lGIVEUP%%"/-->
+ 		
+    </box>
+	
+    <!-- Defines the right-hand answer box, which is initially hidden  -->
+    <box gridx="0" gridy="1" id="answerbox" display="no" background="answer">
+		
+        <t id="wrong">Your answer is <t id="still">still</t> incorrect.<gap/></t>
+        <t id="right">Your answer is correct.<gap/></t>
+        <t id="pass">You passed on this question.<gap/></t>
+		
+        <t id="hints">
+            <t id="hint1">
+                Examine the range for the time from the table
+                and fit this on the horizontal axis.
+                Repeat this for the temperature.
+                There are 7 divisions on each axis,
+                each axis begins with a given value
+                and increments by a fixed amount for each division.
+                <gap/>
+            </t>
+            <t id="hint2">
+                Note the temperature goes from __X1__°C to __X7__°C,
+                this is a range of 6°C,
+                and that the time of day goes from 8 to 18 hours,
+                a range of 10 hours.
+                <gap/>
+            </t>
+        </t>
+		
+        <t id="feedback">
+            <t id="nonumber" answer="ansnonumber">
+                You must enter two numbers for the fixed increments
+                on both the horizontal and vertical scales.
+                <gap/>
+            </t>
+            <t id="feedbackhint1" answer="!ansnonumber+!rtime[2.0]+!rtemp[1.0]" attemptsmin="1" 
+            	attemptsmax="1">
+            	
+                Examine the range for the time from the table
+                and fit this on the horizontal axis.
+                Repeat this for the temperature.
+                There are 7 divisions on each axis,
+                each axis begins with a given value
+                and increments by a fixed amount for each division.
+                <gap/>
+            </t>
+            <t id="feedback1a" test="numcmp[rtemp>1.0]" answer="!ansnonumber+rtime[2.0]" attemptsmin="1" 
+            	attemptsmax="1">
+            	
+                Your scale on the time axis is fine,
+                but your scale on the temperature axis is rather too cramped for the paper.
+                <gap/>
+            </t>   
+            <t id="feedback1b" test="numcmp[rtemp&lt;1.0]" answer="!ansnonumber+rtime[2.0]" attemptsmin="1" 
+            	attemptsmax="1">
+            	
+                Your scale on the time axis is fine,
+                but your scale on the temperature axis is rather too spread out for the paper.
+                <gap/>
+            </t>   
+            <t id="feedback1c" test="numcmp[rtime>2.0]" answer="!ansnonumber+rtemp[1.0]" attemptsmin="1" 
+            	attemptsmax="1">
+            	
+                Your scale on the temperature axis is fine,
+                but your scale on the time axis is rather too cramped for the paper.
+                <gap/>
+            </t>   
+            <t id="feedback1d" test="numcmp[rtime&lt;2.0]" answer="!ansnonumber+rtemp[1.0]" attemptsmin="1" 
+            	attemptsmax="1">
+            	
+                Your scale on the temperature axis is fine,
+                but your scale on the time axis is rather too spread out for the paper.
+                <gap/>
+            </t>
+            <t id="feedbackhint2" answer="!ansnonumber+!rtime[2.0]+!rtemp[1.0]" attemptsmin="2" 
+            	attemptsmax="2">
+                Note the temperature goes from __X1__°C to __X7__°C,
+                this is a range of 6°C,
+                and that the time of day goes from 8 to 18 hours,
+                a range of 10 hours.
+                <gap/>
+            </t>
+            <t id="feedback2a" test="numcmp[rtemp>1.0]" answer="!ansnonumber+rtime[2.0]" attemptsmin="2" 
+            	attemptsmax="2">
+            	
+                Your scale on the time axis is fine,
+                but your scale on the temperature axis is rather too cramped for the paper.
+                The temperature goes from __X1__°C to __X7__°C.
+                This is a range of 6°C.
+                There are 7 divisions, so how many °C per division is best?
+                <gap/>
+            </t>   
+            <t id="feedback2b" test="numcmp[rtemp&lt;1.0]" answer="!ansnonumber+rtime[2.0]" attemptsmin="2" 
+            	attemptsmax="2">
+            	
+                Your scale on the time axis is fine,
+                but your scale on the temperature axis is rather too spread out for the paper.
+                The temperature goes from __X1__°C to __X7__°C.
+                This is a range of 6°C.
+                There are 7 divisions, so how many °C per division is best?
+                <gap/>
+            </t>   
+            <t id="feedback2c" test="numcmp[rtime>2.0]" answer="!ansnonumber+rtemp[1.0]" attemptsmin="2" 
+            	attemptsmax="2">
+            	
+                Your scale on the temperature axis is fine,
+                but your scale on the time axis is rather too cramped for the paper.
+                The time of day goes from 8 to 18 hours, this is a range of 10 hours.
+                There are only 7 divisions and so not enough for one hour per division.
+                Would 2 or 3 hours per division be better?
+                <gap/>
+            </t>   
+            <t id="feedback2d" test="numcmp[rtime&lt;2.0]" answer="!ansnonumber+rtemp[1.0]" attemptsmin="2" 
+            	attemptsmax="2">
+            	
+                Your scale on the temperature axis is fine,
+                but your scale on the time axis is rather too spread out for the paper.
+                The time of day goes from 8 to 18 hours, this is a range of 10 hours.
+                There are only 7 divisions and so not enough for one hour per division.
+                Would 2 or 3 hours per division be better?
+                <gap/>
+            </t>   
+        </t>
+		
+        <t id="answer">
+            <layoutgrid cols ="2">
+                <t>
+                    The temperature goes from __X1__°C to __X7__°C.
+                    This is a range of 6°C.
+                    There are 7 divisions on the y-axis and so 1°C per division is best,
+                    starting at __X1__°C, for convenience.
+                    The time of day goes from 8 to 18 hours, this is a range of 10 hours.
+                    There are only 7 divisions and so not enough for one hour per division.
+                    However 2 hours per division is possible and should show the trend well.
+                    See the completed graph opposite.
+                </t>
+                <canvas id="graph2" width="256" height="256">
+            		<world id="w2" px="42" py="16" pw="161" ph="168"
+            			xleft="8" xright="22" ybottom="__YFROM__" ytop="__YTO__">
+            			
+						<xAxis y="__YFROM__" ticks="2" tickSide="-" colour="black" numbers="2"
+							numbersMargin="7" numbersFont="12px Dialog.plain"/>
+						<yAxis x="8" ticks="1" tickSide="-" colour="black" numbers="1"
+							numbersMargin="1" numbersFont="12px Dialog.plain"/>
+						<text x="22:3" y="__YFROM__" text="hours" colour="black" 
+							font="12px Dialog.plain" align="left"/>
+						<text x="8:1" y="__YTO__:-3" text="temperature ºC" colour="black" 
+							font="12px Dialog.plain" align="left"/>
+            			<polygon x1="8:3" y1="__X1__" x2="8" y2="__X1__:-3" x3="8:-3" y3="__X1__" x4="8" 
+            				y4="__X1__:3" fillColour="#5C2F8A,fg"/>
+            			<polygon x1="10:3" y1="__X3__" x2="10" y2="__X3__:-3" x3="10:-3" y3="__X3__" x4="10" 
+            				y4="__X3__:3" fillColour="#5C2F8A,fg"/>
+            			<polygon x1="12:3" y1="__X5__" x2="12" y2="__X5__:-3" x3="12:-3" y3="__X5__" x4="12" 
+            				y4="__X5__:3" fillColour="#5C2F8A,fg"/>
+            			<polygon x1="14:3" y1="__X7__" x2="14" y2="__X7__:-3" x3="14:-3" y3="__X7__" x4="14" 
+            				y4="__X7__:3" fillColour="#5C2F8A,fg"/>
+            			<polygon x1="16:3" y1="__X4__" x2="16" y2="__X4__:-3" x3="16:-3" y3="__X4__" x4="16" 
+            				y4="__X4__:3" fillColour="#5C2F8A,fg"/>
+            			<polygon x1="18:3" y1="__X2__" x2="18" y2="__X2__:-3" x3="18:-3" y3="__X2__" x4="18" 
+            				y4="__X2__:3" fillColour="#5C2F8A,fg"/>
+            		</world>
+                </canvas>	
+            </layoutgrid>
+        </t>
+		
+        <t id="reference">
+            Please see MU120 Preparatory Resource Book B section 5.3.2
+            <gap/>
+        </t>
+		
+        <button id="ok" action="actionOK" label="%%lTRYAGAIN%%"/>
+        <button id="next" action="actionOK" label="%%lNEXTQUESTION%%" display="no"/>
+		
+    </box>
+	
+	<answercombo id="ansnonumber" answer="noNumberTime[NaN],noNumberTemp[NaN]"/>
+	
+	<summaryline type="answerline">2 hours and 1 degree C</summaryline>
+	
+	<summaryline>Attempt <summaryattribute attribute="attempt"/>: 
+	time: <summaryattribute attribute="answerline[rtime]"/>, 
+	temperature: <summaryattribute attribute="answerline[rtemp]"/></summaryline>
+	
+</question>

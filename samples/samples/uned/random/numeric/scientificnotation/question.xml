@@ -1,0 +1,214 @@
+<!-- S151 Chapter 3 Question 10
+	P G Butcher June 2005
+	from the original by Spencer Harben of June 2002 -->
+
+<question class="samples.uned.random.numeric.scientificnotation.GenericQuestion">
+
+	<scoring><marks>3</marks></scoring>
+	<layout>
+		<row height="340"/>
+		<column width="296"/>
+		<column width="296"/>  
+	</layout>
+	
+  	<random id="randomnumber" max="4"/>
+  	
+  	<replaceholder placeholder="A" set="randomnumber">
+  		<option value="36"/>
+  		<option value="4"/>
+  		<option value="25"/>
+  		<option value="9"/>
+  		<option value="16"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="B" set="randomnumber">
+  		<option value="6"/>
+  		<option value="2"/>
+  		<option value="5"/>
+  		<option value="3"/>
+  		<option value="4"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="C" set="randomnumber">
+  		<option value="16"/>
+  		<option value="16"/>
+  		<option value="20"/>
+  		<option value="20"/>
+  		<option value="16"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="D" set="randomnumber">
+  		<option value="6"/>
+  		<option value="6"/>
+  		<option value="4"/>
+  		<option value="4"/>
+  		<option value="6"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="E" set="randomnumber">
+  		<option value="8"/>
+  		<option value="8"/>
+  		<option value="10"/>
+  		<option value="10"/>
+  		<option value="8"/>
+  	</replaceholder>
+	
+  	<replaceholder placeholder="F" set="randomnumber">
+  		<option value="-1"/>
+  		<option value="-1"/>
+  		<option value="1"/>
+  		<option value="1"/>
+  		<option value="-1"/>
+  	</replaceholder>
+	
+	<replaceholder placeholder="SQRTANS" set="randomnumber">
+		<option value="6.0e9"/>
+		<option value="2.0e9"/>
+		<option value="5.0e9"/>
+		<option value="3.0e9"/>
+		<option value="4.0e9"/>
+	</replaceholder>
+	
+	<box gridx="0" gridy="0" id="inputbox" background="input" 
+		questionline="What is sqrt(__A__ × 10^__C__)/(__B__ × 10^{-__D__ × 10^5} in scientific notation">
+
+		Evaluate the following. You should give your answer in scientific notation
+		and to one significant figure. You may choose to do the calculation with or without
+		a calculator.
+		<gap/>
+		<equation alt="square root of (__A__ times (ten to the power __C__)) over (__B__ times (ten to the power minus __D__) times (ten to the power 5))">
+			\frac{\sqrt{__A__ × 10^{__C__}}}{__B__ × 10^{–__D__} × 10^5}
+			= 
+			<eplace width='125' height='20' label="Response">
+				<advancedfield id="response" cols="12" type="superscript" 
+					answertype="numeric[scncs]" right="1.0e9" replaceanswerlinetags="no" />
+			</eplace>	
+		</equation>
+		<gap/> <gap/>
+		<if plain="no">
+			<emphasis type="italic">
+				Click on the 'Superscript' box to enter superscripts in your answer
+				and click again to return to normal text, or use the up and down keys
+				on your keyboard.
+			</emphasis>
+		</if>
+		<gap/>
+		 
+		<button action="actionSubmit" label="%%lENTERANSWER%%"/>
+<!-- 		<button action="actionGiveUp" label="%%lGIVEUP%%"/> -->
+  
+	</box>
+
+	<box gridx="1" gridy="0" id="answerbox" display="no" background="answer">
+		 
+		<t id="wrong">Your answer is <t id="still">still</t> incorrect.</t>
+		<t id="right">Your answer is correct.</t>
+		<t id="pass">You passed on this question.</t> 
+		<gap/>
+	  	
+		<t id="feedback">
+			<t id="notscinot" answertype="text" answer="response[1000000000]" attemptsmax="2">
+				Remember that you were asked for an answer in scientific notation
+				and to one significant figure.
+				<gap/>
+				You should use the superscript box to format your answer
+				in scientific notation.
+			</t>
+			<t id="onedigit" answer="ans10sup9,rangewithtolerance+!scinotation">
+				For an answer to be in scientific notation it is written as a number
+				multiplied by a power of ten. The number, n, must be in the range 1 &lt;= n &lt; 10.
+				<gap/>
+			</t>
+			<t id="toomanysigfigs" answer="ansokwith1sigfig+answithmore1sigfig" attemptsmax="2">
+				Remember that you were asked for an answer to one significant figure.
+			</t>
+			<t id="default" answer="ans1sup9,!fbcalccare+!fbsqrtcare" attemptsmin="2" 
+					attemptsmax="2">
+				Look carefully at the positioning of the square root sign and, if you are using a
+				calculator, check that you are entering the numbers correctly in scientific notation.
+				Remember that you were asked for an answer in scientific notation and to one 
+				significant figure.
+				
+				<gap/>
+				You should use the superscript box to format your answer
+				in scientific notation.
+			</t>
+			<t id="calccare" answer="fbcalccare" attemptsmin="2" attemptsmax="2">
+				Your answer has the wrong power of ten. If you are using a calculator check
+				that you are inputting the numbers correctly
+				in scientific notation (see Section 3.2.2). Take particular care with the
+				<eq>10^5</eq>.
+			</t>
+			<t id="sqrtcare" answer="fbsqrtcare" attemptsmin="2" attemptsmax="2">
+				Look carefully at the positioning of the square root sign.
+			</t>
+			<!-- ...general... -->
+			<gap/>
+	    </t>   
+   
+		<t id="answer">
+			<layoutgrid cols="2">
+				<!-- first row -->
+				<t>
+					<right>
+						<equation alt="square root of (__A__ times (ten to the power __C__)) over (__B__ times (ten to the power minus __D__) times (ten to the power 5))">
+							\frac{\sqrt{__A__ × 10^{__C__}}}{__B__ × 10^{–__D__} × 10^5}
+						</equation>
+					</right>
+				</t>
+				<t>	
+					=
+					<equation alt="(__B__ times ten to the power __E__) over (__B__ times ten to the power (minus __D__ plus 5))">
+						\frac{__B__ × 10^{__E__}}{__B__ × 10^{–__D__ + 5}}
+					</equation>
+				</t>
+			
+				<!-- second row -->
+				<t> </t> <!-- empty column (no breaking space) -->
+				<t> </t> <!-- empty column (no breaking space) -->
+
+				<!-- third row -->
+				<t> </t> <!-- empty first column -->
+				<t>
+					=
+					<equation alt="(1 times 10 to the power __E__) over (10 to the power __F__)">
+						\frac{1 × 10^{__E__}}{10^{__F__}}
+					</equation>
+				</t>
+
+				<!-- fourth row -->
+				<t> </t> <!-- empty column (no breaking space) -->
+				<t> </t> <!-- empty column (no breaking space) -->
+
+				<!-- fifth row -->
+				<t> </t> <!-- empty first column -->
+				<t>
+					= <eq>1 × 10^9</eq>
+				</t>
+			</layoutgrid>
+			<gap/>
+		</t>
+     
+	    <button id="ok" action="actionOK" label="%%lTRYAGAIN%%"/>
+		<button id="next" action="actionOK" label="%%lNEXTQUESTION%%" display="no"/>
+   
+	</box>
+	
+	<answercombo id="ans10sup9" answertype="text" answer="response[10&lt;sup>9&lt;/sup>]"
+			attemptsmax="2"/>
+	<answercombo id="rangewithtolerance" answertype="numeric[s]" answer="response[1.0e9]"
+			tolerance="1.0e5"/>
+	<answercombo id="scinotation" answertype="numeric[scs]" answer="response[1.0e9]"/>
+	<answercombo id="ansokwith1sigfig" answertype="numeric[sp1]" answer="response[1.0e9]"/>
+	<answercombo id="answithmore1sigfig" answertype="numeric[scgp1]" answer="response[1.0e9]"/>
+	<answercombo id="sigfig1ok" answertype="numeric[sp1cd]" answer="response[1.0e9]"/>
+	<answercombo id="expok" answertype="numeric[sce]" answer="response[1.0e9]"/>
+	<answercombo id="ans1sup9" answertype="text" answer="response[1&lt;sup>9&lt;/sup>]"/>
+	<answercombo id="fbcalccare" answer="sigfig1ok+!expok"/>
+	<answercombo id="fbsqrtcare" answertype="numeric[s]" answer="response[__SQRTANS__]" 
+			tolerance="1.0e5"/>
+	
+	<summaryline>Attempt <summaryattribute attribute="attempt"/>: 
+	<summaryattribute attribute="answerline"/></summaryline>
+	
+</question>

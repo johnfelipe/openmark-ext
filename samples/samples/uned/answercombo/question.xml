@@ -1,0 +1,169 @@
+<question class="samples.uned.answercombo.GenericQuestion">
+	
+	<scoring><marks>3</marks></scoring>
+
+	<layout>
+		<row height="800"/>
+		<column width="296"/>
+		<column width="296"/>  
+	</layout>
+ 
+	<!-- Defines the left-hand question box -->
+	<box gridx="0" gridy="0" id="inputbox" background="input">
+		<emphasis>Elige una de las tres preguntas en negrita y respondela correctamente
+		</emphasis>
+		<gap/>
+		Contestar a las demás preguntas bien o mal no influye en el resultado.
+		<gap/>
+		<radiobox id="questionsupervillano" group="questions" answerline="supervillano">
+			<t><emphasis>Selecciona al supervillano:</emphasis></t>
+		</radiobox>
+		<gap/> 
+		<layoutgrid cols="1" shuffle="yes">	
+			<radiobox id="lobezno" group="supervillano">    <!-- wrong -->
+				<t>Lobezno</t>
+			</radiobox>
+			
+			<radiobox id="magneto" group="supervillano" right="yes">    <!-- right -->
+				<t>Magneto</t>
+			</radiobox>
+			
+			<radiobox id="tormenta" group="supervillano">    <!-- wrong -->
+				<t>Tormenta</t>
+			</radiobox>
+		</layoutgrid>
+		<gap/> 
+		<radiobox id="questionnogotham" group="questions" 
+			answerline="personaje que no es de Gotham">
+			
+			<t><emphasis>Selecciona al personaje (superheroe o supervillano) que 
+			no es de Gotham:</emphasis></t>
+		</radiobox>
+		<gap/> 
+		<layoutgrid cols="1" shuffle="yes">	
+			<radiobox id="joker" group="nogotham">    <!-- wrong -->
+				<t>Joker</t>
+			</radiobox>
+			
+			<radiobox id="batman" group="nogotham">    <!-- wrong -->
+				<t>Batman</t>
+			</radiobox>
+			
+			<radiobox id="capitanamerica" group="nogotham" right="yes">    <!-- right -->
+				<t>Capitan América</t>
+			</radiobox>
+		</layoutgrid>
+		<gap/> 
+		<radiobox id="questionotros" group="questions" answerline="otros superheroes">
+			<t><emphasis>Otros superheroes:</emphasis></t>
+		</radiobox>
+		<gap/> 
+		<layoutgrid cols="1" shuffle="yes">
+			<checkbox id="mahoma">    <!-- wrong -->
+				<t>Mahoma</t>
+			</checkbox>
+			
+			<checkbox id="obama">    <!-- wrong -->
+				<t>Obama</t>
+			</checkbox>
+			
+			<checkbox id="estelaplateada" right="yes">    <!-- right -->
+				<t>Estela plateada</t>
+			</checkbox>
+			
+			<checkbox id="picara" right="yes">    <!-- right -->
+				<t>Pícara</t>
+			</checkbox>
+		</layoutgrid>
+		<gap/> 
+  		
+		<button action="actionSubmit" label="%%lENTERANSWER%%"/>
+ 		<button action="actionGiveUp" label="%%lGIVEUP%%"/>
+  
+	</box>
+
+ <!-- Defines the right-hand answer box, which is initially hidden  -->
+ <box gridx="1" gridy="0" id="answerbox" display="no" background="answer">
+   
+	<t id="right">Tu respuesta es correcta.<gap/></t>
+	<t id="wrong">Tu respuesta<t id="still"> todavía</t> es incorrecta.<gap/></t>
+	<t id="pass">Has saltado la pregunta.<gap/></t>	
+	
+	<t answer="questionsupervillano+lobezno,questionsupervillano+tormenta" attemptsmin="2">
+	<t answer="lobezno">Lobezno</t><t answer="tormenta">Tormenta</t> forma parte de la 
+	patrulla X, pero no es supervillano
+	<gap/>
+	</t>
+	
+	<t answer="questionnogotham+joker" attemptsmin="2">
+	Joker es un supervillano de la ciudad de Gotham, el archienemigo de Batman
+	<gap/>
+	</t>
+	
+	<t answer="questionnogotham+batman" attemptsmin="2">
+	Batman es un superheroe que lucha contra los villanos de Gotham 
+	disfrazado de murciélago
+	<gap/>
+	</t>
+	
+	<t answer="questionotros+mahoma" attemptsmin="2">
+	Mahoma es el profeta de Ala, Dios de los musulmanes, no un superheroe
+	<gap/>
+	</t>
+	
+	<t answer="questionotros+obama" attemptsmin="2">
+	Obama es el presidente de Estados Unidos, no un superheroe
+	<gap/>
+	</t>
+	
+	<t id="feedback">
+		<t id="feedback0" answer="!questionsupervillano+!questionnogotham+!questionotros">
+			Tienes que seleccionar una de las 3 preguntas.
+			<gap/>
+		</t>
+	
+		<t id="feedback1" attemptsmax="1">
+			Te has equivocado, me parece que no te fijas demasiado.
+			<gap/>
+		</t>
+		<t id="feedback2" attemptsmin="2">
+			Vamos a centrarnos hombre, 
+			<emphasis type="italic">fíjate bien!!</emphasis>
+			<gap/>
+		</t>
+		Consulta el tema xxx para encontrar una solución a la pregunta.
+		<gap/>
+	</t>	 
+   
+	<t id="answer">
+		<t answer="questionsupervillano">Magneto es uno de los supervillanos más poderosos 
+		de X-Men, con el poder de poder manipular a distancia cualquier objeto metálico.</t>
+		
+		<t answer="questionnogotham">Capitán América es un supersoldado que lucha conta 
+		los nazis, por tanto no pertenece a la ciudad de Gotham.
+		</t>
+		
+		<t answer="questionotros">Estela plateada era el heraldo de Galactus, el devorador 
+		de planetas, pero al encontrar la Tierra se rebelo y la protegio contra Galactus, 
+		es por tanto un superheroe.
+		<gap/>
+		Pícara es una mutante de la patrulla X que mata a cualquiera que toca, absorbiendo 
+		sus poderes si se trata de otro mutante, es por tanto una superheroe.
+		</t>
+		
+		<gap/>
+	</t>
+	
+	<button id="ok" action="actionOK" label="%%lTRYAGAIN%%"/>
+	<button id="next" action="actionOK" label="%%lNEXTQUESTION%%" display="no"/>
+   	
+ </box>
+
+<answercombo id="supervillanocombo" right="yes" answer="questionsupervillano+magneto"/>
+<answercombo id="nogothamcombo" right="yes" answer="questionnogotham+capitanamerica"/>
+<answercombo id="otroscombo" right="yes" 
+	answer="questionotros+estelaplateada+picara+!obama+!mahoma"/>
+
+<summaryline>Respuesta seleccionada: <summaryattribute attribute="answerline"/></summaryline>
+
+</question>
