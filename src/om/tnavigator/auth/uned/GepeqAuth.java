@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -31,8 +32,7 @@ import util.uned.encryption.Encryption;
 import util.xml.XHTML;
 import util.xml.XML;
 
-//TODO los grupos no han sido implementados de momento, por ahora solo se pueden tratar usuarios individualmente
-//TODO los mails de alerta aun no han sido implementados de momento
+//TODO el envio de correos al finalizar una prueba aun no ha sido implementado
 /**
  * This implementation of authentication uses user information from GEPEQ database.<br/><br/>
  * <b><u>Tables</u></b><br/>
@@ -317,8 +317,8 @@ public class GepeqAuth implements Authentication
 					rs.next();
 					if (rs.getInt(1)>0)
 					{
-						//TODO faltaria obtener la info del mail y de los grupos de la BD de gepeq
 						user=new GepeqUser(cookie,uncheckedUser.getUsername(),null);
+						addUserGroups(dat,(GepeqUser)user);
 					}
 				}
 				catch (SQLException se)
@@ -353,6 +353,44 @@ public class GepeqAuth implements Authentication
 			}
 		}
 		return user;
+	}
+	
+	/**
+	 * Add user groups of an authenticated user
+	 * @param dat SQL transaction
+	 * @param user User
+	 * @throws SQLException
+	 */
+	private void addUserGroups(DatabaseAccess.Transaction dat,GepeqUser user) throws SQLException
+	{
+		StringBuffer query=new StringBuffer("SELECT UNNEST(STRING_TO_ARRAY(groups,';')) FROM users WHERE oucu=");
+		query.append(Strings.sqlQuote(user.getUsername()));
+		try
+		{
+			ResultSet rs=dat.query(query.toString());
+			while (rs.next())
+			{
+				user.addGroup(rs.getString(1));
+			}
+		}
+		catch (SQLException se)
+		{
+			query.setLength(0);
+			query.append("SELECT groups FROM users where oucu=");
+			query.append(Strings.sqlQuote(user.getUsername()));
+			ResultSet rs=dat.query(query.toString());
+			if (rs.next())
+			{
+				String userGroups=rs.getString(1);
+				if (userGroups!=null && !"".equals(userGroups))
+				{
+					for (String userGroup:userGroups.split(Pattern.quote(";")))
+					{
+						user.addGroup(userGroup);
+					}
+				}
+			}
+		}
 	}
 	
 	/**
@@ -546,10 +584,9 @@ public class GepeqAuth implements Authentication
 		return logoutResultPageURL.toString();
 	}
 	
-	//TODO falta por implementar el envio de correos.... arriba hay comentada una implementacion de prueba para ver que la nueva clase UnedMail funciona correctamente pero la implementacion se tendria que hacer diferente... la que esta comentada dentro del codigo es la de SimpleAuth, puede ayudar pero no vale porque no usamos esas tablas
+	//TODO el envio de correos al finalizar una prueba aun no ha sido implementado... debajo esta comentada la implementacion de SimpleAuth, puede dar una idea de como se implementaria pero no vale porque no usamos esas tablas
 	public String sendMail(String username,String personID,String content,int emailType) throws IOException
 	{
-		//TODO de momento no estan soportados los mails de alerta
 		throw new IOException("Error sending user email. Not implemented yet.");
 		/*
 		// Split into subject and message

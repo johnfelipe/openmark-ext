@@ -158,7 +158,8 @@ public interface IOmTn extends Remote
 	 * The result string has the following format:<br/><br/>
 	 * <i>publisher_oucu</i><b>;</b><i>release_date</i><b>;</b><i>start_date</i><b>;</b><i>close_date</i><b>;</b>
 	 * <i>delete_date</i><b>;</b><i>warning_date</i><b>;</b><i>all_users_allowed</i><b>;</b>
-	 * <i>user_oucu_1</i><b>;</b><i>user_oucu_2</i><b>;</b> ... <b>;</b><i>user_oucu_n</i><br/><br/>
+	 * <i>user_oucu_1</i><b>;</b><i>user_oucu_2</i><b>;</b> ... <b>;</b><i>user_oucu_n</i><b>;&#64;;</b>
+	 * <i>user_authid_1</i><b>;</b><i>user_authid_2</i><b>;</b> ... <b>;</b><i>user_authid_n</i><br/><br/>
 	 * where <i>release_date</i>,<i>start_date</i>,<i>close_date</i>, <i>delete_date</i> and <i>warning_date</i> 
 	 * have the following format:<br/><br/>
 	 * <i>yyyy</i>-<i>MM</i>-<i>dd</i> <i>HH</i>:<i>mm</i>:<i>ss</i><br/><br/>
@@ -200,7 +201,9 @@ public interface IOmTn extends Remote
 	 * <i>redo_question</i><b>;</b><i>redo_test</i><b>;</b>
 	 * <i>support_contacts</i><b>;</b><i>evaluators</i><b>;</b>
 	 * <i>user_oucu_1</i><b>;</b><i>user_oucu_2</i><b>;</b> ... <b>;</b><i>user_oucu_n</i><b>;&#64;;</b>
-	 * <i>admin_oucu_1</i><b>;</b><i>admin_oucu_2</i><b>;</b> ... <b>;</b><i>admin_oucu_n</i><br/><br/>
+	 * <i>user_authid_1</i><b>;</b><i>user_authid_2</i><b>;</b> ... <b>;</b><i>user_authid_n</i><b>;&#64;;</b>
+	 * <i>admin_oucu_1</i><b>;</b><i>admin_oucu_2</i><b>;</b> ... <b>;</b><i>admin_oucu_n</i><b>;&#64;;</b>
+	 * <i>admin_authid_1</i><b>;</b><i>admin_authid_2</i><b>;</b> ... <b>;</b><i>admin_authid_n</i><br/><br/>
 	 * where <i>release_date</i>,<i>start_date</i>,<i>close_date</i>, <i>delete_date</i>, <i>warning_date</i> 
 	 * and <i>feedback_date</i> have the following format:<br/><br/>
 	 * <i>yyyy</i>-<i>MM</i>-<i>dd</i> <i>HH</i>:<i>mm</i>:<i>ss</i><br/><br/>

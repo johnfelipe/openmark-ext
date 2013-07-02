@@ -777,6 +777,7 @@ public class OmTn implements IOmTn
 					Element eUsers=XML.getChild(eAccess,"users");
 					boolean allUsersAllowed=true;
 					StringBuffer users=new StringBuffer();
+					StringBuffer userGroups=new StringBuffer(";@");
 					if (!"yes".equals(eUsers.getAttribute("world")))
 					{
 						allUsersAllowed=false;
@@ -784,6 +785,11 @@ public class OmTn implements IOmTn
 						{
 							users.append(';');
 							users.append(XML.getText(user));
+						}
+						for (Element userGroup:XML.getChildren(eUsers,"authid"))
+						{
+							userGroups.append(';');
+							userGroups.append(XML.getText(userGroup));
 						}
 					}
 					questionReleaseMetadata.append(publisher);
@@ -798,10 +804,8 @@ public class OmTn implements IOmTn
 					questionReleaseMetadata.append(';');
 					questionReleaseMetadata.append(warningDate);
 					questionReleaseMetadata.append(allUsersAllowed?";true":";false");
-					if (users.length()>0)
-					{
-						questionReleaseMetadata.append(users);
-					}
+					questionReleaseMetadata.append(users.toString());
+					questionReleaseMetadata.append(userGroups.toString());
 				}
 				catch (XMLException xe)
 				{
@@ -1181,6 +1185,7 @@ public class OmTn implements IOmTn
 					Element eUsers=XML.getChild(eAccess,"users");
 					boolean allUsersAllowed=true;
 					StringBuffer users=new StringBuffer();
+					StringBuffer userGroups=new StringBuffer(";@");
 					if (!"yes".equals(eUsers.getAttribute("world")))
 					{
 						allUsersAllowed=false;
@@ -1189,10 +1194,16 @@ public class OmTn implements IOmTn
 							users.append(';');
 							users.append(XML.getText(user));
 						}
+						for (Element userGroup:XML.getChildren(eUsers,"authid"))
+						{
+							userGroups.append(';');
+							userGroups.append(XML.getText(userGroup));
+						}
 					}
 					Element eAdmins=null;
 					boolean allowAdminReports=false;
 					StringBuffer admins=new StringBuffer(";@");
+					StringBuffer adminGroups=new StringBuffer(";@");
 					try
 					{
 						eAdmins=XML.getChild(eAccess,"admins");
@@ -1224,6 +1235,11 @@ public class OmTn implements IOmTn
 						{
 							admins.append(';');
 							admins.append(XML.getText(admin));
+						}
+						for (Element adminGroup:XML.getChildren(eAdmins,"authid"))
+						{
+							adminGroups.append(';');
+							adminGroups.append(XML.getText(adminGroup));
 						}
 					}
 					Element eOptions=XML.getChild(eTestRoot,"options");
@@ -1306,11 +1322,10 @@ public class OmTn implements IOmTn
 					testReleaseMetadata.append(supportContacts);
 					testReleaseMetadata.append(';');
 					testReleaseMetadata.append(evaluators);
-					if (users.length()>0)
-					{
-						testReleaseMetadata.append(users);
-					}
+					testReleaseMetadata.append(users);
+					testReleaseMetadata.append(userGroups);
 					testReleaseMetadata.append(admins);
+					testReleaseMetadata.append(adminGroups);
 				}
 				catch (XMLException xe)
 				{
