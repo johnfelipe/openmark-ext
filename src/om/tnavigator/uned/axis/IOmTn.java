@@ -222,7 +222,8 @@ public interface IOmTn extends Remote
 	 * <i>address_filter_type_n</i><b>:</b><i>address_filter_value_n</i><b>:</b><i>address_list_n</i><br/><br/>
 	 * where <i>address_list_&lt;i&gt;</i> is a list of email addresses separated by commas<br/><br/> 
 	 * , <i>address_filter_type&lt;i&gt;</i> can be <b>all</b>, <b>single-oucu</b>, <b>range-oucu</b>, 
-	 * <b>single-name</b>, <b>range-name</b>, <b>single-surname</b> or <b>range-surname</b><br/><br/> 
+	 * <b>single-name</b>, <b>range-name</b>, <b>single-surname</b>, <b>range-surname</b>, 
+	 * <b>single-group</b> or <b>range-group</b><br/><br/> 
 	 * and <i>address_filter_value_&lt;i&gt;</i> format depends on value of <i>address_filter_type&lt;i&gt;</i> as
 	 * indicated in the following table:<br/><br/>
 	 * <table border="1">

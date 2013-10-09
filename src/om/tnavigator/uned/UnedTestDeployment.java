@@ -8,6 +8,7 @@ import org.w3c.dom.Element;
 
 import om.OmException;
 import om.OmUnexpectedException;
+import om.helper.uned.AnswerChecking;
 import om.tnavigator.TestDeployment;
 import util.xml.XML;
 import util.xml.XMLException;
@@ -34,18 +35,18 @@ public class UnedTestDeployment extends TestDeployment
 			try
 			{
 				Element eSupportcontacts=UnedXML.findByTagName(getDeploy(),"supportcontacts");
-				String mainSupportContacts=XML.getText(eSupportcontacts);
+				String mainSupportContacts=AnswerChecking.trimWhitespace(XML.getText(eSupportcontacts),true);
 				if (!"".equals(mainSupportContacts))
 				{
 					// Initialize support contacts map
 					supportContactsMap=new HashMap<UnedUserFilter,StringBuffer>();
 					
 					supportContactsMap.put(new UnedUserFilter(ns,UnedUserFilter.ALL_USER_FILTER,""),
-						new StringBuffer(XML.getText(eSupportcontacts)));
+						new StringBuffer(mainSupportContacts));
 				}
 				for (Element eUserFilter:XML.getChildren(eSupportcontacts,"user-filter"))
 				{
-					String supportContactsToAdd=XML.getText(eUserFilter);
+					String supportContactsToAdd=AnswerChecking.trimWhitespace(XML.getText(eUserFilter),true);
 					if (!"".equals(supportContactsToAdd))
 					{
 						UnedUserFilter userFilter=new UnedUserFilter(
@@ -80,18 +81,18 @@ public class UnedTestDeployment extends TestDeployment
 			try
 			{
 				Element eEvaluators=UnedXML.findByTagName(getDeploy(),"evaluators");
-				String mainEvaluators=XML.getText(eEvaluators);
+				String mainEvaluators=AnswerChecking.trimWhitespace(XML.getText(eEvaluators),true);
 				if (!"".equals(mainEvaluators))
 				{
 					// Initialize support contacts map
 					evaluatorsMap=new HashMap<UnedUserFilter,StringBuffer>();
 					
-					evaluatorsMap.put(new UnedUserFilter(ns,UnedUserFilter.ALL_USER_FILTER,""),
-						new StringBuffer(XML.getText(eEvaluators)));
+					evaluatorsMap.put(
+						new UnedUserFilter(ns,UnedUserFilter.ALL_USER_FILTER,""),new StringBuffer(mainEvaluators));
 				}
 				for (Element eUserFilter:XML.getChildren(eEvaluators,"user-filter"))
 				{
-					String evaluatorsToAdd=XML.getText(eUserFilter);
+					String evaluatorsToAdd=AnswerChecking.trimWhitespace(XML.getText(eUserFilter),true);
 					if (!"".equals(evaluatorsToAdd))
 					{
 						UnedUserFilter userFilter=new UnedUserFilter(

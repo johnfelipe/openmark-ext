@@ -3,6 +3,9 @@ package om.tnavigator.uned;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Pattern;
 
 import om.tnavigator.db.DatabaseAccess;
 import util.misc.Strings;
@@ -20,6 +23,8 @@ public class UnedUserFilter
 	public final static String RANGE_NAME_USER_FILTER="range-name";
 	public final static String SINGLE_SURNAME_USER_FILTER="single-surname";
 	public final static String RANGE_SURNAME_USER_FILTER="range-surname";
+	public final static String SINGLE_GROUP_USER_FILTER="single-group";
+	public final static String RANGE_GROUP_USER_FILTER="range-group";
 	
 	private final static String VALUE_SEPARATOR=",";
 	
@@ -113,6 +118,28 @@ public class UnedUserFilter
 			String sSurname=getUserSurname(sOUCU);
 			ok=checkRange(sSurname);
 		}
+		else if (SINGLE_GROUP_USER_FILTER.equals(type))
+		{
+			for (String sGroup:getUserGroups(sOUCU))
+			{
+				if (checkSingle(sGroup))
+				{
+					ok=true;
+					break;
+				}
+			}
+		}
+		else if (RANGE_GROUP_USER_FILTER.equals(type))
+		{
+			for (String sGroup:getUserGroups(sOUCU))
+			{
+				if (checkRange(sGroup))
+				{
+					ok=true;
+					break;
+				}
+			}
+		}
 		return ok;
 	}
 	
@@ -124,6 +151,11 @@ public class UnedUserFilter
 	private String getUserSurname(String sOucu) throws IOException
 	{
 		return getUserFieldValue(sOucu,"surname");
+	}
+	
+	private List<String> getUserGroups(String sOucu) throws IOException
+	{
+		return getUserFieldValueAsList(sOucu,"groups",";");
 	}
 	
 	private String getUserFieldValue(String sOucu,String fieldName) throws IOException
@@ -158,6 +190,59 @@ public class UnedUserFilter
 			}
 		}
 		return fieldValue;
+	}
+	
+	private List<String> getUserFieldValueAsList(String sOucu,String fieldName,String separator)
+		throws IOException
+	{
+		List<String> fieldValueAsList=new ArrayList<String>();
+		DatabaseAccess.Transaction dat=null;
+		try
+		{
+			StringBuffer query=new StringBuffer("SELECT UNNEST(STRING_TO_ARRAY(");
+			query.append(fieldName);
+			query.append(',');
+			query.append(Strings.sqlQuote(separator));
+			query.append(")) FROM users WHERE oucu=");
+			query.append(Strings.sqlQuote(sOucu));
+			
+			dat=ns.getLoginDatabaseAccess().newTransaction();
+			ResultSet rs=dat.query(query.toString());
+			while (rs.next())
+			{
+				fieldValueAsList.add(rs.getString(1));
+			}
+		}
+		catch (SQLException se)
+		{
+			if (dat==null)
+			{
+				StringBuffer errorMessage=new StringBuffer("Error accessing login database: ");
+				errorMessage.append(se.getMessage());
+				throw new IOException(errorMessage.toString(),se);
+			}
+			else
+			{
+				dat.finish();
+				dat=null;
+				String fieldValue=getUserFieldValue(sOucu,fieldName);
+				if (fieldValue!=null && !"".equals(fieldValue))
+				{
+					for (String value:fieldValue.split(Pattern.quote(separator)))
+					{
+						fieldValueAsList.add(value);
+					}
+				}
+			}
+		}
+		finally
+		{
+			if (dat!=null)
+			{
+				dat.finish();
+			}
+		}
+		return fieldValueAsList;
 	}
 	
 	private boolean checkSingle(String valueToCheck)
